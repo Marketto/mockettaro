@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Marketto/mockettaro/issues"
   },
-  "homepage": "https://github.com/Marketto/mockettaro#readme"
+  "homepage": "https://github.com/Marketto/mockettaro#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
