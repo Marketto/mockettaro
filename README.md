@@ -1,21 +1,29 @@
-# Project Title
+# Mockettaro
 
+
+[![Dependency Status](https://david-dm.org/preboot/angular-webpack/status.svg)](https://david-dm.org/preboot/angular-webpack#info=dependencies)
 [![NPM Version](http://img.shields.io/npm/v/mockettaro.svg?style=flat)](https://www.npmjs.org/package/mockettaro)
 [![NPM Downloads](https://img.shields.io/npm/dm/mockettaro.svg?style=flat)](https://npmcharts.com/compare/mockettaro?minimal=true)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping
 
 ### Installing
-
-    $ npm install mockettaro -g
+    ```{r, engine='bash', global_install}
+    npm install mockettaro -g
+    ```
 
     or as dependency of your project
 
-    $ npm install mockettaro --save-dev
+
+    ```{r, engine='bash', dev_install}
+    npm install mockettaro --save-dev
+    ```
 
 ## Getting Started
 
-    $ mockettaro
+    ```{r, engine='bash', run}
+    mockettaro
+    ```
 
     or
 
