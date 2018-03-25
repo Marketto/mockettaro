@@ -1,6 +1,6 @@
 {
   "name": "mockettaro",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {

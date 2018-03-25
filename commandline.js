@@ -5,7 +5,7 @@ const package = require('./package.json');
 require('colors');
 
 program
-  .version(package.version)
+  .version(package.version, '-v, --version')
   .description(package.description)
   .option('-p, --port <portNumber>', 'Serve on specified port', v=>parseInt(v), 8080)
   .option('-r, --resource <resource>', 'Root resource to serve', /^[a-z0-9\_\-]*$/i, 'mockettaro')
