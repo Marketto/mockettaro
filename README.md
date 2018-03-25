@@ -1,32 +1,28 @@
 # Mockettaro
 
-
-[![Dependency Status](https://david-dm.org/preboot/angular-webpack/status.svg)](https://david-dm.org/preboot/angular-webpack#info=dependencies)
 [![NPM Version](http://img.shields.io/npm/v/mockettaro.svg?style=flat)](https://www.npmjs.org/package/mockettaro)
 [![NPM Downloads](https://img.shields.io/npm/dm/mockettaro.svg?style=flat)](https://npmcharts.com/compare/mockettaro?minimal=true)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping
 
-### Installing
+## Installation
+### Global
 ```{r, engine='bash', global_install}
 npm install mockettaro -g
 ```
 
-or as dependency of your project
-
-
+### Project dependency
 ```{r, engine='bash', dev_install}
 npm install mockettaro --save-dev
 ```
 
 ## Getting Started
-
+### Command line
 ```{r, engine='bash', run}
 mockettaro
 ```
 
-or
-
+### Nodejs Express
 ```js
 'use strict';
 
@@ -42,11 +38,11 @@ app.listen(port, ()=>{
 });
 ```
 
-## Authors
+## Author
 
-* **Marco Ricupero** - [Github](https://github.com/Marketto) - [Blog](http://blog.marketto.it)
+**Marco Ricupero** - [Github](https://github.com/Marketto) - [Blog](http://blog.marketto.it)
 
 
 ## License
 
-This project is licensed under the MIT License - see the [License](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [License](/LICENSE) file for details
