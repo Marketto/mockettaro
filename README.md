@@ -8,45 +8,45 @@
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping
 
 ### Installing
-    ```{r, engine='bash', global_install}
-    npm install mockettaro -g
-    ```
+```{r, engine='bash', global_install}
+npm install mockettaro -g
+```
 
-    or as dependency of your project
+or as dependency of your project
 
 
-    ```{r, engine='bash', dev_install}
-    npm install mockettaro --save-dev
-    ```
+```{r, engine='bash', dev_install}
+npm install mockettaro --save-dev
+```
 
 ## Getting Started
 
-    ```{r, engine='bash', run}
-    mockettaro
-    ```
+```{r, engine='bash', run}
+mockettaro
+```
 
-    or
+or
 
-    ```js
-    'use strict';
+```js
+'use strict';
 
-    const express = require('express');
-    const mockettaro = require('mockettaro');
+const express = require('express');
+const mockettaro = require('mockettaro');
 
-    const app = express();
-    app.use('/mocks', mockettaro.serve('mocks'));
+const app = express();
+app.use('/mocks', mockettaro.serve('mocks'));
 
-    const port = 3000;
-    app.listen(port, ()=>{
-        console.log(`Mockettaro test server running on  port ${port}`);
-    });
-    ```
+const port = 3000;
+app.listen(port, ()=>{
+    console.log(`Mockettaro test server running on  port ${port}`);
+});
+```
 
 ## Authors
 
-* **Marco Ricupero** - *Initial work* - [Marketto](https://github.com/Marketto) - *Blog* - [Blog Marketto](http://blog.marketto.it)
+* **Marco Ricupero** - [Github](https://github.com/Marketto) - [Blog](http://blog.marketto.it)
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [License](LICENSE.md) file for details
