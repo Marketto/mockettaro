@@ -23,6 +23,12 @@
   },
   "homepage": "https://github.com/Marketto/mockettaro#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "colors": "^1.2.1",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "jsonschema": "^1.2.2",
+    "memory-cache": "^0.2.0",
+    "path": "^0.12.7"
   }
 }
