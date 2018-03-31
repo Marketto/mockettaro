@@ -202,7 +202,7 @@ mockettaro -r services
 ```
 
 #### URL to test
-* http://localhost:8080/services/customer           GET
+* http://localhost:8080/services/customer           GET, POST
 * http://localhost:8080/services/customer/foo       GET, PUT, DELETE
 * http://localhost:8080/services/customer/smith     GET, PUT
 * http://localhost:8080/services/customer/anything  GET, PUT
