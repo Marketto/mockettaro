@@ -6,6 +6,7 @@
 [![SonarCloud Bugs](https://sonarcloud.io/api/badges/measure?key=mockettaro&metric=bugs)](https://sonarcloud.io/component_measures?id=mockettaro&metric=bugs)
 ![Build Status](http://ci.marketto.it/buildStatus/icon?job=Mockettaro)
 
+
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
 ## Installation
