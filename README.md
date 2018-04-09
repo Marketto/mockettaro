@@ -2,6 +2,8 @@
 
 [![NPM Version](http://img.shields.io/npm/v/mockettaro.svg?style=flat)](https://www.npmjs.org/package/mockettaro)
 [![NPM Downloads](https://img.shields.io/npm/dm/mockettaro.svg?style=flat)](https://npmcharts.com/compare/mockettaro?minimal=true)
+[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=mockettaro)](https://sonarcloud.io/dashboard?id=mockettaro)
+[![SonarCloud Bugs](https://sonarcloud.io/api/badges/measure?key=mockettaro&metric=bugs)](https://sonarcloud.io/component_measures?id=mockettaro&metric=bugs)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
