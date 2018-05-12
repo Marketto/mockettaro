@@ -29,7 +29,7 @@
     "mocha-sonar-reporter": {
       "testdir": "test",
       "classnameSuffix": ".js",
-      "outputfile": "test-report.xml"
+      "outputfile": "reports/test-report.xml"
     }
   },
   "dependencies": {
