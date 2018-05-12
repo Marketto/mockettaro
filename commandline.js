@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const package = require('./package.json');
+const pkgjson = require('./package.json');
 require('colors');
 
 program
-  .version(package.version, '-v, --version')
-  .description(package.description)
+  .version(pkgjson.version, '-v, --version')
+  .description(pkgjson.description)
   .option('-p, --port <portNumber>', 'Serve on specified port', v=>parseInt(v), 8080)
   .option('-r, --resource <resource>', 'Root resource to serve', /^[a-z0-9\_\-]*$/i, 'mockettaro')
   .option('-d, --response-delay <responseDelay>', 'Response delay in ms', v=>parseInt(v), 0)
