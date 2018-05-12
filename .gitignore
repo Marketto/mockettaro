@@ -1,2 +1,3 @@
 node_modules
-test/*.xml
+.nyc_output
+coverage

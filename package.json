@@ -4,7 +4,8 @@
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R mocha-sonar-reporter"
+    "test": "nyc --reporter=lcov --reporter=text-lcov mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "bin": {
     "mockettaro": "./commandline.js"
@@ -25,13 +26,6 @@
     "url": "https://github.com/Marketto/mockettaro/issues"
   },
   "homepage": "https://github.com/Marketto/mockettaro#readme",
-  "config": {
-    "mocha-sonar-reporter": {
-      "testdir": "test",
-      "classnameSuffix": ".js",
-      "outputfile": "test/TEST-all.xml"
-    }
-  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "colors": "^1.2.1",
@@ -45,7 +39,8 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
+    "coveralls": "^3.0.1",
     "mocha": "^5.1.1",
-    "mocha-sonar-reporter": "^0.1.6"
+    "nyc": "^11.7.3"
   }
 }
