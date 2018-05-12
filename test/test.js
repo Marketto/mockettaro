@@ -45,11 +45,18 @@ describe('mockettaro', ()=>{
         });
     });
     describe('Cities POST resource', () => {
-        it('Should return 201 and a body', done => {
-            chai.request(server).post('/test/cities')
+        it('Should return 201 and a body passing jsonschema validation', done => {
+            chai.request(server).post('/test/cities').send({"name":"Naples"})
                 .end((req, res) => {
                     res.status.should.be.equal(201);
                     res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
+                    done();
+                });
+        });
+        it('Should return 400 against jsonschema validation', done => {
+            chai.request(server).post('/test/cities')
+                .end((req, res) => {
+                    res.status.should.be.equal(400);
                     done();
                 });
         });
