@@ -1,15 +1,19 @@
 const mockettaro = require('../');
 const server = require('express')();
 const chai = require('chai');
-const chaiHttp = require('chai-http');
 
-chai.use(chaiHttp);
+chai.use(require('chai-things'));
+chai.use(require('chai-http'));
 chai.should();
 
 describe('mockettaro', ()=>{
     let testServer;
     before(function (done) {
-        server.use(`/test`, mockettaro.serve('/examples/mocks', {'errors': false}));
+        const debugMode = !true;
+        server.use(`/test`, mockettaro.serve('/examples/mocks', {
+            'errors': debugMode,
+            'verbose': debugMode
+        }));
         testServer = server.listen(9999, done);
     })
 
@@ -73,7 +77,9 @@ describe('mockettaro', ()=>{
                     chai.request(server).get('/test/cities')
                         .end((req, res) => {
                             res.status.should.be.equal(200);
-                            res.body.should.be.an('array').that.is.not.empty;
+                            res.body.should.be.an('array').that.include.something.that.deep.equals({
+                                "name": "Toulouse"
+                            });
                             res.header.should.not.own.property('cached-response');
                             res.header.should.not.own.property('cached-status');
                             done();
@@ -84,7 +90,9 @@ describe('mockettaro', ()=>{
                     chai.request(server).get('/test/cities')
                         .end((req, res) => {
                             res.status.should.be.equal(200);
-                            res.body.should.be.an('array').that.is.not.empty;
+                            res.body.should.be.an('array').that.include.something.that.deep.equals({
+                                "name": "Toulouse"
+                            });
                             res.header.should.include({
                                         'cached-response': 'Mockettaro'
                                     });
@@ -115,6 +123,24 @@ describe('mockettaro', ()=>{
                             done();
                         });
                 });
+            });
+
+            describe('Rome/San Paolo/shops', () => {
+                describe('Any method', () => {
+                    it('Should return 200 and a list of shops', done => {
+                        chai.request(server).get('/test/cities/Rome/San Paolo/shops')
+                            .end((req, res) => {
+                                res.status.should.be.equal(200);
+                                res.body.should.be.an('array').that.include.something.that.deep.equals({
+                                    "name" : "Figaro",
+                                    "type" : "barber shop"
+                                });
+                                res.header.should.not.own.property('cached-response');
+                                res.header.should.not.own.property('cached-status');
+                                done();
+                            });
+                    });
+                })
             });
         });
 
