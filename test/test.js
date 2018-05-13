@@ -38,23 +38,37 @@ describe('mockettaro', ()=>{
             });
 
             describe('GET', () => {
-                it('Should return status 200 and an Array of cities on GET', done => {
+                it('Should return status 200 and an Array of cities on GET from file', done => {
                     chai.request(server).get('/test/cities')
                         .end((req, res) => {
                             res.status.should.be.equal(200);
                             res.body.should.be.an('array').that.is.not.empty;
+                            res.header.should.not.own.property('cached-response');
+                            done();
+                        });
+                });
+
+                it('Should return same data from cache', done => {
+                    chai.request(server).get('/test/cities')
+                        .end((req, res) => {
+                            res.status.should.be.equal(200);
+                            res.body.should.be.an('array').that.is.not.empty;
+                            res.header.should.include({
+                                        'cached-response': 'Mockettaro'
+                                    });
                             done();
                         });
                 });
             });
             describe('POST', () => {
-                it('Should return 201 and a body passing jsonschema validation', done => {
+                it('Should return 201 and a body passing jsonschema validation from file', done => {
                     chai.request(server).post('/test/cities').send({
                             "name": "Naples"
                         })
                         .end((req, res) => {
                             res.status.should.be.equal(201);
                             res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
+                            res.header.should.not.own.property('cached-response');
                             done();
                         });
                 });
@@ -62,6 +76,7 @@ describe('mockettaro', ()=>{
                     chai.request(server).post('/test/cities')
                         .end((req, res) => {
                             res.status.should.be.equal(400);
+                            res.header.should.not.own.property('cached-response');
                             done();
                         });
                 });
@@ -69,11 +84,23 @@ describe('mockettaro', ()=>{
         });
 
         describe('Error handling', () => {
+            describe('Missing Json, Code, JsonSchema and default', () => {
+                it('Should return status 404 on GET', done => {
+                    chai.request(server).get('/test/errors/missingReasource')
+                        .end((req, res) => {
+                            res.status.should.be.equal(404);
+                            res.header.should.not.own.property('cached-response');
+                            done();
+                        });
+                });
+            });
+
             describe('Json file read', () => {
                 it('Should return status 500 on GET', done => {
                     chai.request(server).get('/test/errors/invalidJson')
                         .end((req, res) => {
                             res.status.should.be.equal(500);
+                            res.header.should.not.own.property('cached-response');
                             done();
                         });
                 });
@@ -84,6 +111,7 @@ describe('mockettaro', ()=>{
                     chai.request(server).post('/test/errors/invalidSchema')
                         .end((req, res) => {
                             res.status.should.be.equal(500);
+                            res.header.should.not.own.property('cached-response');
                             done();
                         });
                 });
@@ -94,6 +122,7 @@ describe('mockettaro', ()=>{
                     chai.request(server).get('/test/errors/invalidCode')
                         .end((req, res) => {
                             res.status.should.be.equal(500);
+                            res.header.should.not.own.property('cached-response');
                             done();
                         });
                 });
