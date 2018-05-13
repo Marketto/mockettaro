@@ -14,13 +14,30 @@ describe('mockettaro', ()=>{
     })
 
     describe('REST server', () => {
+
         describe('Cities resource', ()=>{
+
             describe('Toulouse DELETE', () => {
                 it('Should return status 204 and an empty body', done => {
                     chai.request(server).delete('/test/cities/Toulouse')
                         .end((req, res) => {
                             res.status.should.be.equal(204);
                             res.body.should.be.an('object').that.is.empty;
+                            res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
+                            done();
+                        });
+                });
+
+                it('Should return same status from cache', done => {
+                    chai.request(server).delete('/test/cities/Toulouse')
+                        .end((req, res) => {
+                            res.status.should.be.equal(204);
+                            res.body.should.be.an('object').that.is.empty;
+                            res.header.should.not.own.property('cached-response');
+                            res.header.should.include({
+                                'cached-status': 'Mockettaro'
+                            });
                             done();
                         });
                 });
@@ -32,6 +49,20 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(202);
                             res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
+                            res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
+                            done();
+                        });
+                });
+                it('Should return same status and data from cache', done => {
+                    chai.request(server).put('/test/cities/Rome')
+                        .end((req, res) => {
+                            res.status.should.be.equal(202);
+                            res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
+                            res.header.should.include({
+                                'cached-response': 'Mockettaro',
+                                'cached-status': 'Mockettaro'
+                            });
                             done();
                         });
                 });
@@ -44,6 +75,7 @@ describe('mockettaro', ()=>{
                             res.status.should.be.equal(200);
                             res.body.should.be.an('array').that.is.not.empty;
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -56,6 +88,7 @@ describe('mockettaro', ()=>{
                             res.header.should.include({
                                         'cached-response': 'Mockettaro'
                                     });
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -69,6 +102,7 @@ describe('mockettaro', ()=>{
                             res.status.should.be.equal(201);
                             res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -77,6 +111,7 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(400);
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -90,6 +125,7 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(404);
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -101,6 +137,7 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(500);
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -112,6 +149,7 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(500);
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
@@ -123,6 +161,7 @@ describe('mockettaro', ()=>{
                         .end((req, res) => {
                             res.status.should.be.equal(500);
                             res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
