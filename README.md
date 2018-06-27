@@ -43,6 +43,13 @@ app.listen(port, ()=>{
 ```
 
 ## Managing Mocks
+### GUI - ServiceDesigner
+To quickly design your RESTful services mocks/json schemas you can use [MK Service Designer](http://servicedesigner.marketto.it/), available also on [GitHub](https://github.com/Marketto/mkServiceDesigner), and export a Mockettaro package which would be ready to use.
+Once extracted, from the package folder, run from the command line:
+```{r, engine='bash', run}
+mockettaro
+```
+
 ### Hello World
 Create a folder with a file named test.GET.json which contains the following:
 ```json
@@ -63,11 +70,11 @@ In your Mock folder (anywhere) create the following folder structure:
 /
 ├── customer
 │   ├── foo.GET.json
-│   ├── default.PUT.json.schema
+│   ├── default.PUT.schema.json
 │   ├── default.PUT.json
 │   ├── foo.DELETE.code
 │   └── default.GET.json
-├── customer.POST.json.schema
+├── customer.POST.schema.json
 ├── customer.POST.json
 ├── customer.POST.code
 └── customer.GET.json
@@ -114,7 +121,7 @@ In your Mock folder (anywhere) create the following folder structure:
 {}
 ```
 
-#### customer/default.PUT.json.schema
+#### customer/default.PUT.schema.json
 All PUT request to /customer/xxxx will be validated against it!
 ```json
 {
@@ -150,7 +157,7 @@ All PUT request to /customer/xxxx will be validated against it!
 204
 ```
 
-#### customer.POST.json.schema
+#### customer.POST.schema.json
 All POST request to /customer will be validated against it!
 ```json
 {
