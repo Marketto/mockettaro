@@ -1,6 +1,6 @@
 {
   "name": "mockettaro",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Marketto@github.com/Marketto/mockettaro.git"
+    "url": "git+https://github.com/Marketto/mockettaro.git"
   },
   "keywords": [
     "mock",
@@ -42,6 +42,7 @@
     "chai-things": "^0.2.0",
     "coveralls": "^3.0.1",
     "mocha": "^5.1.1",
-    "nyc": "^11.7.3"
+    "nyc": "^11.7.3",
+    "sonarqube-scanner": "^2.1.0"
   }
 }
