@@ -2,8 +2,10 @@
 
 [![NPM Version](http://img.shields.io/npm/v/mockettaro.svg?style=flat)](https://www.npmjs.org/package/mockettaro)
 [![NPM Downloads](https://img.shields.io/npm/dm/mockettaro.svg?style=flat)](https://npmcharts.com/compare/mockettaro?minimal=true)
-[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=mockettaro&)](https://sonarcloud.io/dashboard?id=mockettaro)
-[![SonarCloud Bugs](https://sonarcloud.io/api/badges/measure?key=mockettaro&metric=bugs&)](https://sonarcloud.io/component_measures?id=mockettaro&metric=bugs)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=alert_status)](https://sonarcloud.io/dashboard/index/mockettaro)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=coverage)](https://sonarcloud.io/dashboard/index/mockettaro)
+[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=sqale_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
+[![Reliability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=reliability_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
 ![Build Status](http://ci.marketto.it/buildStatus/icon?job=Mockettaro)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
