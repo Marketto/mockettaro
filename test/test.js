@@ -1,4 +1,4 @@
-const mockettaro = require('../');
+const {mockettaro} = require('../');
 const server = require('express')();
 const chai = require('chai');
 
@@ -10,9 +10,10 @@ describe('mockettaro', ()=>{
     let testServer;
     before(function (done) {
         const debugMode = !true;
-        server.use(`/test`, mockettaro.serve('/examples/mocks', {
-            'errors': debugMode,
-            'verbose': debugMode
+        server.use(`/test`, mockettaro({
+            'directory' : '/examples/mocks',
+            'errors'    : true,
+            'verbose'   : debugMode
         }));
         testServer = server.listen(9999, done);
     })
@@ -40,7 +41,7 @@ describe('mockettaro', ()=>{
                             res.body.should.be.an('object').that.is.empty;
                             res.header.should.not.own.property('cached-response');
                             res.header.should.include({
-                                'cached-status': 'Mockettaro'
+                                'cached-status': 'ResourceLoader'
                             });
                             done();
                         });
@@ -64,8 +65,8 @@ describe('mockettaro', ()=>{
                             res.status.should.be.equal(202);
                             res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
                             res.header.should.include({
-                                'cached-response': 'Mockettaro',
-                                'cached-status': 'Mockettaro'
+                                'cached-response': 'ResourceLoader',
+                                'cached-status': 'ResourceLoader'
                             });
                             done();
                         });
@@ -94,7 +95,7 @@ describe('mockettaro', ()=>{
                                 "name": "Toulouse"
                             });
                             res.header.should.include({
-                                        'cached-response': 'Mockettaro'
+                                        'cached-response': 'ResourceLoader'
                                     });
                             res.header.should.not.own.property('cached-status');
                             done();
@@ -127,7 +128,7 @@ describe('mockettaro', ()=>{
 
             describe('Rome/San Paolo/shops', () => {
                 describe('Any method', () => {
-                    it('Should return 200 and a list of shops', done => {
+                    it('Should return 200 and a json array of shops', done => {
                         chai.request(server).get('/test/cities/Rome/San Paolo/shops')
                             .end((req, res) => {
                                 res.status.should.be.equal(200);
@@ -140,7 +141,25 @@ describe('mockettaro', ()=>{
                                 done();
                             });
                     });
-                })
+                });
+                
+                /*describe('Accepting XML only', () => {
+                    it('Should return 200 and an xml of shops', done => {
+                        chai.request(server).get('/test/cities/Rome/San Paolo/shops')
+                            .set('Accept', 'application/xml')
+                            .end((req, res) => {
+                                res.status.should.be.equal(200);
+                                res.body.should.be.an('object').that.own.property('shop');
+                                res.body.shop.should.be.an('array').that.include.something.that.deep.equals({
+                                    "name" : "Figaro",
+                                    "type" : "barber shop"
+                                });
+                                res.header.should.not.own.property('cached-response');
+                                res.header.should.not.own.property('cached-status');
+                                done();
+                            });
+                    });
+                });*/
             });
         });
 

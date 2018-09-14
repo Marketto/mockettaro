@@ -10,6 +10,8 @@
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
+## WARNING: Major implementation changes from 1.2.2, read the documentation below if updating
+
 ## Installation
 ### Global
 ```{r, engine='bash', global_install}
@@ -33,15 +35,50 @@ It will serve the current working directory tree as a REST API (matching JSON fi
 'use strict';
 
 const express = require('express');
-const mockettaro = require('mockettaro');
+const { mockettaro, logger } = require('mockettaro');
 
 const app = express();
-app.use('/mocks', mockettaro.serve('mocks')); //foldername to seek for folderTree / json files
+app.use('/mocks', mockettaro({
+    //foldername to seek for folderTree / json files
+        directory : 'mocks'
+    }));
 
 const port = 3000;
-app.listen(port, ()=>{
-    console.log(`Mockettaro test server running on  port ${port}`);
+app.listen(port, () => {
+    logger.info(`Mockettaro test server running on  port ${port}`);
 });
+```
+
+## Command line overview
+### Version
+Display the current Mockettaro version
+```{r, engine='bash', run}
+mockettaro -v
+```
+### Port number
+Mockettaro server will listen on the provided port
+```{r, engine='bash', run}
+mockettaro -p 1234
+```
+### URI Resource root path
+Mockettaro will serve resources, using the provided path as the root
+```{r, engine='bash', run}
+mockettaro -r my-mock/resource
+```
+### Folder for static files
+Mockettaro will load resources, matching the resource entry URI, fetching the provided local path
+```{r, engine='bash', run}
+mockettaro -f ./mocks/rest
+```
+### Delay in ms to provide responses
+Mockettaro will serve resources waiting the delay ms before providing each positive response
+```{r, engine='bash', run}
+mockettaro -d 1500
+```
+### Cache Lifetime in ms
+Mockettaro will cache HTTP codes and response bodies for the provided cache lifetime ms
+```{r, engine='bash', run}
+mockettaro -t 30000
 ```
 
 ## Managing Mocks
@@ -229,3 +266,11 @@ mockettaro -r services
 
 ## License
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
+
+##Changelog
+### 1.3.0
+- Core reworked in classes ES6
+- Command Line property -f --folder added
+- Removed server method, import the lib as { mockettaro } and use it like mockettaro()
+- ;ockettaro router accept only an object of optional params in input {directory, responseDelay, cacheLifetime, verbose, errors }
+- Provided logger micro-logging embedded utility
