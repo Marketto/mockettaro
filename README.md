@@ -10,7 +10,7 @@
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
-## WARNING: Major implementation changes from 1.2.2, read the documentation below if updating
+## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
 
 ## Installation
 ### Global
