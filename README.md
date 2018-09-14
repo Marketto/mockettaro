@@ -272,5 +272,5 @@ This project is licensed under the MIT License - see the [License](/LICENSE) fil
 - Core reworked in classes ES6
 - Command Line property -f --folder added
 - Removed server method, import the lib as { mockettaro } and use it like mockettaro()
-- ;ockettaro router accept only an object of optional params in input {directory, responseDelay, cacheLifetime, verbose, errors }
+- Mockettaro router accept only an object of optional params in input {directory, responseDelay, cacheLifetime, verbose, errors }
 - Provided logger micro-logging embedded utility
