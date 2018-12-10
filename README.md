@@ -11,6 +11,7 @@
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
 ## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
+## WARNING: No default root resource. Read documentation below on upgrade from 1.3.1
 
 ## Installation
 ### Global
@@ -28,7 +29,7 @@ npm install mockettaro --save-dev
 ```{r, engine='bash', run}
 mockettaro
 ```
-It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/mockettaro/
+It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/
 
 ### Nodejs Express
 ```js
@@ -102,7 +103,7 @@ From the command line run:
 ```{r, engine='bash', run}
 mockettaro
 ```
-try to visit http://localhost:8080/mockettaro/test
+try to visit http://localhost:8080/test
 
 ### RESTful services Mocks
 Consider you have a /customer API which provide a list @ /customer and details @ /customer/{uid}
@@ -268,6 +269,10 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ##Changelog
+### 1.3.1
+- Info logger level is true bny default
+- Warning logger level is on for debbugging purpose
+- Improved compatibility with trailing slash api
 ### 1.3.0
 - Core reworked in classes ES6
 - Command Line property -f --folder added
