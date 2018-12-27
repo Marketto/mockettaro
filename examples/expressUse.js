@@ -1,12 +1,11 @@
 'use strict';
 
-const express = require('express');
-const mockettaro = require('../index');
+const { mockettaro, logger } = require('../');
+const app = require('express')();
 
-const app = express();
-app.use('/mocks', mockettaro.serve('mocks'));
+app.use('/mocks', mockettaro({ directory: '/examples/mocks' }));
 
 const port = 3000;
 app.listen(port, ()=>{
-    console.log(`Mockettaro test server running on  port ${port}`);
+    logger.info(`Mockettaro test server running on  port ${port}`);
 });
