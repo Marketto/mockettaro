@@ -269,6 +269,11 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ##Changelog
+### 1.3.2
+- Log ingo on missing and found json
+- Fixed compatibility issues with Windows
+- Updated example expressUse.json implementation
+- Added launch.json for development purpose
 ### 1.3.1
 - Info logger level is true bny default
 - Warning logger level is on for debbugging purpose

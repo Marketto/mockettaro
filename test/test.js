@@ -11,9 +11,10 @@ describe('mockettaro', ()=>{
     before(function (done) {
         const debugMode = !true;
         server.use(`/test`, mockettaro({
-            'directory' : '/examples/mocks',
-            'errors'    : true,
-            'verbose'   : debugMode
+            directory: '/examples/mocks',
+            errors: true,
+            verbose: debugMode,
+            info: debugMode
         }));
         testServer = server.listen(9999, done);
     })
