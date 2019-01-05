@@ -6,7 +6,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=coverage)](https://sonarcloud.io/dashboard/index/mockettaro)
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=sqale_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
 [![Reliability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=reliability_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
-![Build Status](http://ci.marketto.it/buildStatus/icon?job=Mockettaro)
+[![Build Status](http://ci.marketto.it/buildStatus/icon?job=Mockettaro)](http://ci.marketto.it/job/Mockettaro)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
@@ -270,7 +270,7 @@ This project is licensed under the MIT License - see the [License](/LICENSE) fil
 
 ##Changelog
 ### 1.3.2
-- Log ingo on missing and found json
+- Log info on missing and found json
 - Fixed compatibility issues with Windows
 - Updated example expressUse.json implementation
 - Added launch.json for development purpose
