@@ -13,7 +13,8 @@ program
   .option('-t, --cache-lifetime <cacheLifetime>', 'JSON cache lifetime', v => parseInt(v), 3000)
   .parse(process.argv);
 
-const { mockettaro, logger } = require('./');
+const { mockettaro } = require('./');
+const logger = require("@marketto/js-logger").global();
 const server = require('express')();
 
 server.use(`/${program.resource}`, mockettaro(program));

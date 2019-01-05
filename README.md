@@ -33,8 +33,6 @@ It will serve the current working directory tree as a REST API (matching JSON fi
 
 ### Nodejs Express
 ```js
-'use strict';
-
 const express = require('express');
 const { mockettaro, logger } = require('mockettaro');
 
@@ -269,6 +267,11 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ##Changelog
+### 1.3.3
+- Removed all unused dependencies
+- Removed logger and chalk dependency
+- Used @marketto/js-logger to log event on console
+- Removed 'use strict' since it's moving to ES6
 ### 1.3.2
 - Log info on missing and found json
 - Fixed compatibility issues with Windows

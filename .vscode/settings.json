@@ -1,0 +1,7 @@
+{
+    "eslint.enable": true,
+    "jsDocCompletion.enabled": true,
+    "previewjsdoc.autoOpenBrowser": true,
+    "jslint.enable": false,
+    "jslint.config": ".jshintrc"
+}
