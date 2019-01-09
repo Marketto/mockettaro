@@ -1,26 +1,28 @@
-const {mockettaro} = require('../');
-const server = require('express')();
 const chai = require('chai');
 
 chai.use(require('chai-things'));
 chai.use(require('chai-http'));
 chai.should();
 
-describe('mockettaro', ()=>{
-    let testServer;
-    before(done => {
-        const debugMode = false;
-        server.use('/test', mockettaro({
-            directory: '../examples/mocks',
-            cwd: __dirname,
-            errors: true,
-            verbose: debugMode,
-            info: true
-        }));
-        testServer = server.listen(9999, done);
-    });
+describe('Mockettaro', ()=>{
+    const testResourcePath = '../examples/mocks';
 
-    describe('REST server', () => {
+    describe('Express with Mockettaro instance', () => {
+        const server = require('express')();
+        let testServer;
+        before(done => {
+            const {mockettaro} = require('../');
+
+            const debugMode = false;
+            server.use('/test', mockettaro({
+                directory: testResourcePath,
+                cwd: __dirname,
+                errors: debugMode,
+                verbose: debugMode,
+                info: debugMode
+            }));
+            testServer = server.listen(9999, done);
+        });
 
         describe('Cities resource', ()=>{
 
@@ -214,12 +216,64 @@ describe('mockettaro', ()=>{
                 });
             });
         });
+
+        after(() => {
+            if (testServer){
+                testServer.close();
+                testServer = undefined;
+            }
+        });
     });
 
-    after(() => {
-        if (testServer){
-            testServer.close();
-            testServer = undefined;
-        }
+    describe('Command line mockettaro (MockettaroProgram)', () => {
+        const port = 8888;
+        const resource = 'mocks';
+
+        let server;
+        before(done => {
+            const logger = require("@marketto/js-logger").global();
+            const mockettaroProgram = require('../dist/mockettaro-program.class');
+            const path = require('path');
+
+            mockettaroProgram({
+                argv: [
+                    process.argv[0],
+                    'commandline.js',
+                    '-p',
+                    port,
+                    '-r',
+                    resource,
+                    '-f',
+                    path.relative(process.cwd(), path.join(__dirname, testResourcePath)),
+                    '-s'
+                ],
+                cwd: process.cwd()
+            }).then(serverInstance => {
+                server = serverInstance;
+                done();
+            }).catch(err => logger.error(err));
+        });
+
+        describe('Cities resource', ()=>{
+            describe('GET', () => {
+                it('Should return status 200 and an Array of cities on GET from file', done => {
+                    chai.request(server.router).get(`/${resource}/cities`)
+                        .end((req, res) => {
+                            res.status.should.be.equal(200);
+                            res.body.should.be.an('array').that.include.something.that.deep.equals({
+                                "name": "Toulouse"
+                            });
+                            done();
+                        });
+                });
+            });
+        });
+
+        after(() => {
+            if (server){
+                server.close();
+                server = undefined;
+            }
+        });
     });
 });

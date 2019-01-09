@@ -1,7 +1,7 @@
-const logger = require("@marketto/js-logger").global();
-const fs = require("fs");
-const memoryCache = require("memory-cache");
-const { PathRetriever } = require("./path-retriever");
+const logger = require('@marketto/js-logger').global();
+const fs = require('fs');
+const memoryCache = require('memory-cache');
+const { PathRetriever } = require('./path-retriever.class');
 
 /**
  * Resource loader utility
@@ -15,13 +15,13 @@ class ResourceLoader {
      * @param {Function} next Express Next callback
      */
     static statusCodeRoute(req, res, next) {
-        const cacheKey = JSON.stringify([req.servicePath, req.method, "code"]);
+        const cacheKey = JSON.stringify([req.servicePath, req.method, 'code']);
         const cachedStatus = memoryCache.get(cacheKey);
         const cacheLifetime = req.cacheLifetime || 300;
 
         if (cachedStatus && !isNaN(cachedStatus)) {
             logger.info(`Code Served from cache for ${req.method} on ${req.url}`);
-            req.resHeader = Object.assign(req.resHeader || {}, {"cached-status": "ResourceLoader"});
+            req.resHeader = Object.assign(req.resHeader || {}, {'cached-status': 'ResourceLoader'});
             req.resStatusCode = cachedStatus;
 
             next();
@@ -72,11 +72,10 @@ class ResourceLoader {
 
         if (cachedData) {
             logger.info(`Body Served from cache for ${req.method} on ${req.url}`);
-            req.resHeader = Object.assign(req.resHeader||{}, {"cached-response": "ResourceLoader"});
+            req.resHeader = Object.assign(req.resHeader||{}, {'cached-response': 'ResourceLoader'});
             req.resBody = cachedData;
 
             next();
-            
         } else {
             const mockPath = PathRetriever.find({
                 target : req.servicePath,
@@ -84,19 +83,17 @@ class ResourceLoader {
                 prefix: req.method,
                 cwd: req.workingDir
             });
-            
             if (mockPath){
                 logger.info(`JSON File found: ${mockPath}`);
                 try{
                     const jsonData = JSON.parse(fs.readFileSync(mockPath, {
-                        encoding: "utf-8"
+                        encoding: 'utf-8'
                     }));
                     memoryCache.put(cacheKey, jsonData, cacheLifetime);
                     logger.debug(`Served ${mockPath} for ${req.method} on ${req.url}`);
                     req.resBody = jsonData;
 
                     next();
-
                 } catch (err) {
                     next(new Error(`Unable to read or parse JSON file @${mockPath} ${err}`));
                 }

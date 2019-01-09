@@ -1,4 +1,6 @@
-const logger = require("@marketto/js-logger").global();
+/**
+ * @class Mockettaro
+ */
 class Mockettaro {
     /**
      * Absolute path win/*nix
@@ -14,8 +16,8 @@ class Mockettaro {
 
     /**
      * Creates an instance of Mockettaro.
-     * 
-     * @param {Object} [config = {directory: './', responseDelay: 0, cacheLifetime: 3000, cwd: __dirname, verbose: false, errors: true, info: true}] Configuration param object[{
+     *
+     * @param {Object} [config = {directory: './', responseDelay: 0, cacheLifetime: 3000, cwd: __dirname, verbose: false, errors: true, info: true}] Configuration param object
      * @param {string} [directory = './'] Mock source path
      * @param {number} [responseDelay = 0] Response delay to simulate
      * @param {number} [cacheLifetime = 3000] Response Codes and Bodies cache life time
@@ -23,7 +25,7 @@ class Mockettaro {
      * @param {Object} [verbose = false] Verbose log level
      * @param {Object} [errors = true] Error log level
      * @param {Object} [info = true] Info log level
-     * 
+     *
      * @returns {Express} Express instance
      * @memberof Mockettaro
      */
@@ -48,9 +50,10 @@ class Mockettaro {
         const path = require('path');
         const express = require('express');
         const bodyParser = require('body-parser');
+        const logger = require('@marketto/js-logger').global();
 
-        const { RequestValidator } = require('./request-validator');
-        const { ResourceLoader } = require('./file-loader');
+        const { RequestValidator } = require('./request-validator.class');
+        const { ResourceLoader } = require('./resource-loader.class');
 
         logger.config = {
             'error': errors || verbose,
@@ -67,7 +70,7 @@ class Mockettaro {
         this.server.use(bodyParser.json());
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.server.use(this.configRoute, RequestValidator.jsonSchemaRoute, ResourceLoader.statusCodeRoute, ResourceLoader.jsonRoute, this.returnResponse);
-        this.server.use(this.errorHandler);
+        this.server.use(Mockettaro.errorHandler);
 
         return this.server;
     }
@@ -78,7 +81,7 @@ class Mockettaro {
      * @param {Express.Request} req Request / previous route params
      * @param {Express.Response} res Response instance
      * @param {Function} next Callback to be called to step forward in route chain
-     * 
+     *
      * @returns {void}
      * @memberof Mockettaro
      */
@@ -97,26 +100,26 @@ class Mockettaro {
      *
      * @param {Express.Request} req Request / previous route params
      * @param {Express.Response} res Response instance
-     * 
+     *
      * @returns {void}
      * @memberof Mockettaro
      */
     get returnResponse() {
         const {responseDelay} = this;
+        const logger = require('@marketto/js-logger').global();
         return ( req, res ) => {
             if (req.resStatusCode || req.resBody){
                 setTimeout(() => {
                     Object.entries(req.resHeader||{}).forEach(( [header, value] ) => {
                         res.append(header, value);
                     });
-                    
+
                     logger.debug(`Headers: ${JSON.stringify(res.header, 4)}`);
 
                     res
                         .status(req.resStatusCode||200)
                         .send(req.resBody);
                 }, responseDelay);
-                
             } else {
                 res
                     .status(404)
@@ -135,16 +138,15 @@ class Mockettaro {
      * @returns {void}
      * @memberof Mockettaro
      */
-    errorHandler(err, req, res, next) {
+    static errorHandler(err, req, res, next) { //eslint-disable-line no-unused-vars
+        const logger = require('@marketto/js-logger').global();
         if(err instanceof Error) {
             logger.warn(err.message);
-
             res
                 .status(500)
                 .send(err.message);
         } else {
             logger.error(err);
-        
             res
                 .status(500)
                 .send(err);

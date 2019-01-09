@@ -5,7 +5,7 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2015,
+        "ecmaVersion": 2017,
         "sourceType": "module"
     },
     "rules": {
@@ -32,7 +32,7 @@
         "callback-return": "off",
         "camelcase": "error",
         "capitalized-comments": "off",
-        "class-methods-use-this": "off",
+        "class-methods-use-this": "error",
         "comma-dangle": "error",
         "comma-spacing": [
             "error",
@@ -70,7 +70,7 @@
         "func-name-matching": "error",
         "func-names": "off",
         "func-style": [
-            "error",
+            "off",
             "declaration"
         ],
         "function-paren-newline": "error",
@@ -196,7 +196,7 @@
         "no-template-curly-in-string": "error",
         "no-ternary": "off",
         "no-throw-literal": "error",
-        "no-trailing-spaces": "off",
+        "no-trailing-spaces": "error",
         "no-undef-init": "error",
         "no-undefined": "off",
         "no-underscore-dangle": "error",
@@ -205,7 +205,7 @@
         "no-unused-expressions": "off",
         "no-use-before-define": "error",
         "no-useless-call": "error",
-        "no-useless-catch": "off",
+        "no-useless-catch": "error",
         "no-useless-computed-key": "error",
         "no-useless-concat": "error",
         "no-useless-constructor": "error",
@@ -217,7 +217,7 @@
         "no-whitespace-before-property": "error",
         "no-with": "error",
         "nonblock-statement-body-position": "error",
-        "object-curly-newline": "off",
+        "object-curly-newline": "error",
         "object-curly-spacing": "off",
         "object-shorthand": "error",
         "one-var": "off",
@@ -243,7 +243,7 @@
             "as-needed"
         ],
         "require-atomic-updates": "error",
-        "require-await": "error",
+        "require-await": "off",
         "require-jsdoc": "off",
         "require-unicode-regexp": "off",
         "rest-spread-spacing": [

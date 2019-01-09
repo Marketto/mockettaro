@@ -1,7 +1,7 @@
-const logger = require("@marketto/js-logger").global();
+const logger = require('@marketto/js-logger').global();
 const fs = require('fs');
 const path = require('path');
-const DEFAULT_RESOURCE = "default";
+const DEFAULT_RESOURCE = 'default';
 
 class PathRetriever {
 
@@ -10,14 +10,14 @@ class PathRetriever {
      *
      * @static
      * @param {Object} settings Path Seek Settings Object
-     * @param {string} [settings.target=""] Target resource path
-     * @param {string} [settings.ext="json"] Mosck target extension to find
+     * @param {string} [settings.target=''] Target resource path
+     * @param {string} [settings.ext='json'] Mosck target extension to find
      * @param {string} prefix Mock prefix: {PATH}.{PREFIX}.{EXT}
      * @param {string} cwd Current Working Directory: Path to seek for resources
      * @returns {string} Existing resource path
      * @memberof PathRetriever
      */
-    static find({ target = "", ext = 'json', prefix, cwd }){
+    static find({ target = '', ext = 'json', prefix, cwd }){
         const possiblePaths = this.seekPathList({target, ext, prefix});
         const firstAvailablePath = possiblePaths.find( pathToCheck => {
                 return fs.existsSync(path.join(cwd, pathToCheck));
@@ -30,37 +30,37 @@ class PathRetriever {
      *
      * @static
      * @param {Object} settings Path Seek Settings Object
-     * @param {string} [settings.target=""] Target resource path
-     * @param {string} [settings.ext="json"] Mosck target extension to find
+     * @param {string} [settings.target=''] Target resource path
+     * @param {string} [settings.ext='json'] Mosck target extension to find
      * @param {string} prefix Mock prefix: {PATH}.{PREFIX}.{EXT}
      * @returns {Array<string>} List of possible paths
      * @memberof PathRetriever
      */
-    static seekPathList({ target = "", ext = 'json', prefix }) {
-        target = (target.match(/^(.+[^/])\/?$/) || [])[1] || "";
+    static seekPathList({ target = '', ext = 'json', prefix }) {
+        target = (target.match(/^(.+[^/])\/?$/) || [])[1] || '';
         function partialSearch(pathArray) {
             const subPathArray = pathArray.slice(0, pathArray.length - 1);
             const alternativePathArray = (subPathArray).concat(DEFAULT_RESOURCE);
-            
+
             if (pathArray.length > 1) {
                 const subSearchResults = partialSearch(subPathArray);
-                
+
                 let resultList = [pathArray];
-                
+
                 subSearchResults
                     .map(pp => pp.concat(pathArray[pathArray.length - 1]))
                     .forEach(pp=>{
                         resultList.push(pp);
                     });
-                
+
                 resultList.push(alternativePathArray);
-    
+
                 subSearchResults
                     .map(pp => pp.concat(DEFAULT_RESOURCE))
                     .forEach(pp => {
                         resultList.push(pp);
                     });
-    
+
                 return resultList;
             } else {
                 return [

@@ -83,6 +83,16 @@ Mockettaro will cache HTTP codes and response bodies for the provided cache life
 ```{r, engine='bash', run}
 mockettaro -t 30000
 ```
+### Silent
+Disable all logs except errors
+```{r, engine='bash', run}
+mockettaro -s
+```
+### Verbose
+Display all levels log messages
+```{r, engine='bash', run}
+mockettaro --verbose
+```
 
 ## Managing Mocks
 ### GUI - ServiceDesigner
@@ -270,7 +280,12 @@ mockettaro -r services
 ## License
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
-##Changelog
+## Changelog
+### 1.3.5
+- Fully migrated to ES6
+- Command line logics moved to MockettaroProgram class
+- MockettaroProgram covered by tests
+- Added -s / --silent and --verbose for silent and verbose mode
 ### 1.3.4
 - Fixed Error Handler
 - Mockettaro core refactored as an ES6 Class
