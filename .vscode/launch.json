@@ -6,10 +6,10 @@
     "configurations": [
 
         {
+            "name": "Launch Program",
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\examples\\expressUse.js"
+            "program": "${workspaceFolder}/examples/expressUse.js"
         }
     ]
 }

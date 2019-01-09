@@ -8,16 +8,17 @@ chai.should();
 
 describe('mockettaro', ()=>{
     let testServer;
-    before(function (done) {
-        const debugMode = !true;
-        server.use(`/test`, mockettaro({
-            directory: '/examples/mocks',
+    before(done => {
+        const debugMode = false;
+        server.use('/test', mockettaro({
+            directory: '../examples/mocks',
+            cwd: __dirname,
             errors: true,
             verbose: debugMode,
-            info: debugMode
+            info: true
         }));
         testServer = server.listen(9999, done);
-    })
+    });
 
     describe('REST server', () => {
 

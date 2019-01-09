@@ -10,8 +10,9 @@
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
-## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
+## WARNING: Cwd param needed now. Read documentation below on upgrade from 1.3.4
 ## WARNING: No default root resource. Read documentation below on upgrade from 1.3.1
+## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
 
 ## Installation
 ### Global
@@ -34,13 +35,16 @@ It will serve the current working directory tree as a REST API (matching JSON fi
 ### Nodejs Express
 ```js
 const express = require('express');
-const { mockettaro, logger } = require('mockettaro');
+const { mockettaro } = require('mockettaro');
+const logger = require("@marketto/js-logger").global();
 
 const app = express();
 app.use('/mocks', mockettaro({
     //foldername to seek for folderTree / json files
-        directory : 'mocks'
-    }));
+    directory : 'mocks',
+    //Current working directory to use as a targed for the given directory
+    cwd: __dirname
+}));
 
 const port = 3000;
 app.listen(port, () => {
@@ -267,6 +271,12 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ##Changelog
+### 1.3.4
+- Fixed Error Handler
+- Mockettaro core refactored as an ES6 Class
+- Fixed working directory issue
+- Implemented cwd in mockettaro
+- Updated test and debug config to pass cwd
 ### 1.3.3
 - Removed all unused dependencies
 - Removed logger and chalk dependency
