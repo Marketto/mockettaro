@@ -281,6 +281,11 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.6
+- Fixed Resource RegExp
+- Path and resource RegExps moved as static property in MockettaroProgram
+- Added unit tests for Path and Resource regexps
+- Added test for corrupted json mock reading
 ### 1.3.5
 - Fully migrated to ES6
 - Command line logics moved to MockettaroProgram class

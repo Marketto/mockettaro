@@ -146,7 +146,7 @@ describe('Mockettaro', ()=>{
                             });
                     });
                 });
-                
+
                 /*describe('Accepting XML only', () => {
                     it('Should return 200 and an xml of shops', done => {
                         chai.request(server).get('/test/cities/Rome/San Paolo/shops')
@@ -225,6 +225,47 @@ describe('Mockettaro', ()=>{
         });
     });
 
+    describe('MockettaroProgram', () => {
+        const { RESOURCE_MATCHER, FOLDER_MATCHER } = require('../dist/mockettaro-program.class');
+        describe('RESOURCE_MATCHER', () => {
+            it('Should match test/example', () => {
+                RESOURCE_MATCHER.test('test/example').should.be.true;
+            });
+            it('Should not match test/example?arg=val', () => {
+                RESOURCE_MATCHER.test('test/example?arg=val').should.be.false;
+            });
+            it('Should not match test/@example', () => {
+                RESOURCE_MATCHER.test('test/@example').should.be.false;
+            });
+            it('Should match /test/example', () => {
+                RESOURCE_MATCHER.test('/test/example').should.be.true;
+            });
+        });
+        describe('FOLDER_MATCHER', () => {
+            it('Should match test/example', () => {
+                FOLDER_MATCHER.test('test/example').should.be.true;
+            });
+            it('Should match test\\example', () => {
+                FOLDER_MATCHER.test('test\\example').should.be.true;
+            });
+            it('Should match X:\\test\\example', () => {
+                FOLDER_MATCHER.test('X:\\test\\example').should.be.true;
+            });
+            it('Should match /test/', () => {
+                FOLDER_MATCHER.test('/test/').should.be.true;
+            });
+            it('Should match ../example/try', () => {
+                FOLDER_MATCHER.test('../example/try').should.be.true;
+            });
+            it('Should match ./example/try', () => {
+                FOLDER_MATCHER.test('./example/try').should.be.true;
+            });
+            it('Should not match example/[try]', () => {
+                FOLDER_MATCHER.test('example/[try]').should.be.false;
+            });
+        });
+    });
+
     describe('Command line mockettaro (MockettaroProgram)', () => {
         const port = 8888;
         const resource = 'mocks';
@@ -232,10 +273,9 @@ describe('Mockettaro', ()=>{
         let server;
         before(done => {
             const logger = require("@marketto/js-logger").global();
-            const mockettaroProgram = require('../dist/mockettaro-program.class');
+            const {MockettaroProgram} = require('../dist/mockettaro-program.class');
             const path = require('path');
-
-            mockettaroProgram({
+            MockettaroProgram({
                 argv: [
                     process.argv[0],
                     'commandline.js',
@@ -257,12 +297,26 @@ describe('Mockettaro', ()=>{
         describe('Cities resource', ()=>{
             describe('GET', () => {
                 it('Should return status 200 and an Array of cities on GET from file', done => {
-                    chai.request(server.router).get(`/${resource}/cities`)
+                    chai.request(server).get(`/${resource}/cities`)
                         .end((req, res) => {
                             res.status.should.be.equal(200);
                             res.body.should.be.an('array').that.include.something.that.deep.equals({
                                 "name": "Toulouse"
                             });
+                            done();
+                        });
+                });
+            });
+        });
+
+        describe('Error handling', () => {
+            describe('Corrupted Json', () => {
+                it('Should return status 500 on GET', done => {
+                    chai.request(server).get(`/${resource}/errors/corruptedJson`)
+                        .end((req, res) => {
+                            res.status.should.be.equal(500);
+                            res.header.should.not.own.property('cached-response');
+                            res.header.should.not.own.property('cached-status');
                             done();
                         });
                 });
