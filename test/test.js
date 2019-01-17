@@ -226,56 +226,77 @@ describe('Mockettaro', ()=>{
     });
 
     describe('MockettaroProgram', () => {
-        const { RESOURCE_MATCHER, FOLDER_MATCHER } = require('../dist/mockettaro-program.class');
+        const { MockettaroProgram } = require('../dist/mockettaro-program.class');
+
         describe('RESOURCE_MATCHER', () => {
-            it('Should match test/example', () => {
-                RESOURCE_MATCHER.test('test/example').should.be.true;
-            });
-            it('Should not match test/example?arg=val', () => {
-                RESOURCE_MATCHER.test('test/example?arg=val').should.be.false;
-            });
-            it('Should not match test/@example', () => {
-                RESOURCE_MATCHER.test('test/@example').should.be.false;
-            });
-            it('Should match /test/example', () => {
-                RESOURCE_MATCHER.test('/test/example').should.be.true;
-            });
+            it('Should match test/example', () => MockettaroProgram.RESOURCE_MATCHER.test('test/example').should.be.true);
+            it('Should not match test/example?arg=val', () => MockettaroProgram.RESOURCE_MATCHER.test('test/example?arg=val').should.be.false);
+            it('Should not match test/@example', () => MockettaroProgram.RESOURCE_MATCHER.test('test/@example').should.be.false);
+            it('Should match /test/example', () => MockettaroProgram.RESOURCE_MATCHER.test('/test/example').should.be.true);
         });
         describe('FOLDER_MATCHER', () => {
-            it('Should match test/example', () => {
-                FOLDER_MATCHER.test('test/example').should.be.true;
+            it('Should match test/example', () => MockettaroProgram.FOLDER_MATCHER.test('test/example').should.be.true);
+            it('Should match test\\example', () => MockettaroProgram.FOLDER_MATCHER.test('test\\example').should.be.true);
+            it('Should match X:\\test\\example', () => MockettaroProgram.FOLDER_MATCHER.test('X:\\test\\example').should.be.true);
+            it('Should match /test/', () => MockettaroProgram.FOLDER_MATCHER.test('/test/').should.be.true);
+            it('Should match ../example/try', () => MockettaroProgram.FOLDER_MATCHER.test('../example/try').should.be.true);
+            it('Should match ./example/try', () => MockettaroProgram.FOLDER_MATCHER.test('./example/try').should.be.true);
+            it('Should not match example/[try]', () => MockettaroProgram.FOLDER_MATCHER.test('example/[try]').should.be.false);
+        });
+
+        describe('cmdParser', () => {
+            const mockettaroProgramCmdParser = (...args) => MockettaroProgram.cmdParser(['node', 'mockettaro', ...args]);
+
+            it('Should not parse port, delay, cacheLifetime and set MINs / MAXs', () => {
+                const program = mockettaroProgramCmdParser(
+                    '-p', '345',
+                    '-d', '75000000',
+                    '-t', '990000007'
+                );
+                program.port.should.be.equal(MockettaroProgram.MIN_PORT);
+                program.responseDelay.should.be.equal(MockettaroProgram.MAX_DELAY);
+                program.cacheLifetime.should.be.equal(MockettaroProgram.MAX_CACHE_LIFETIME);
             });
-            it('Should match test\\example', () => {
-                FOLDER_MATCHER.test('test\\example').should.be.true;
+            it('Should parse port, delay, cacheLifetime, resource and folder', () => {
+                const program = mockettaroProgramCmdParser(
+                    '-p', '7894',
+                    '-r', 'test/example',
+                    '-f', './test/example',
+                    '-d', '150',
+                    '-t', '9600'
+                );
+                program.port.should.be.equal(7894);
+                program.resource.should.be.equal('test/example');
+                program.folder.should.be.equal('./test/example');
+                program.responseDelay.should.be.equal(150);
+                program.cacheLifetime.should.be.equal(9600);
             });
-            it('Should match X:\\test\\example', () => {
-                FOLDER_MATCHER.test('X:\\test\\example').should.be.true;
-            });
-            it('Should match /test/', () => {
-                FOLDER_MATCHER.test('/test/').should.be.true;
-            });
-            it('Should match ../example/try', () => {
-                FOLDER_MATCHER.test('../example/try').should.be.true;
-            });
-            it('Should match ./example/try', () => {
-                FOLDER_MATCHER.test('./example/try').should.be.true;
-            });
-            it('Should not match example/[try]', () => {
-                FOLDER_MATCHER.test('example/[try]').should.be.false;
+            it('Should not parse port, delay, cacheLifetime, resource, folder and set DEFAULTs', () => {
+                const program = mockettaroProgramCmdParser(
+                    '-p', 'uj6r',
+                    '-r', 'te@st/exam#ple',
+                    '-f', '.../te@st/exa!mple',
+                    '-d', 'xyz',
+                    '-t', '#kk'
+                );
+                program.port.should.be.equal(MockettaroProgram.DEFAULT_PORT);
+                program.resource.should.be.equal(MockettaroProgram.DEFAULT_RESOURCE);
+                program.folder.should.be.equal(MockettaroProgram.DEFAULT_FOLDER);
+                program.responseDelay.should.be.equal(MockettaroProgram.DEFAULT_DELAY);
+                program.cacheLifetime.should.be.equal(MockettaroProgram.DEFAULT_CACHE_LIFETIME);
             });
         });
     });
 
     describe('Command line mockettaro (MockettaroProgram)', () => {
-        const port = 8888;
+        const port = '8888';
         const resource = 'mocks';
 
         let server;
         before(done => {
-            const logger = require("@marketto/js-logger").global();
-            const {MockettaroProgram} = require('../dist/mockettaro-program.class');
+            const {mockettaroProgram} = require('../dist/mockettaro-program.class');
             const path = require('path');
-            MockettaroProgram({
+            mockettaroProgram({
                 argv: [
                     process.argv[0],
                     'commandline.js',
@@ -291,7 +312,7 @@ describe('Mockettaro', ()=>{
             }).then(serverInstance => {
                 server = serverInstance;
                 done();
-            }).catch(err => logger.error(err));
+            }).catch(err => console.error(err));
         });
 
         describe('Cities resource', ()=>{

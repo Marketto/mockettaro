@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-const { MockettaroProgram } = require('./dist/mockettaroProgram.class');
-MockettaroProgram(process);
+const { mockettaroProgram } = require('./dist/mockettaroProgram.class');
+mockettaroProgram(process);

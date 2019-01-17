@@ -62,7 +62,7 @@ class Mockettaro {
             'warn': errors || verbose
         };
 
-        this.srcPath = Mockettaro.ABSOLUTE_PATH_MATCHER.test(directory) ? directory : path.join(cwd, directory);
+        this.srcPath = this.constructor.ABSOLUTE_PATH_MATCHER.test(directory) ? directory : path.join(cwd, directory);
         this.cacheLifetime = cacheLifetime;
         this.responseDelay = responseDelay;
 
@@ -70,7 +70,7 @@ class Mockettaro {
         this.server.use(bodyParser.json());
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.server.use(this.configRoute, RequestValidator.jsonSchemaRoute, ResourceLoader.statusCodeRoute, ResourceLoader.jsonRoute, this.returnResponse);
-        this.server.use(Mockettaro.errorHandler);
+        this.server.use(this.constructor.errorHandler);
 
         return this.server;
     }

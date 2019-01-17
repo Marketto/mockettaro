@@ -10,7 +10,6 @@
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
-## WARNING: Cwd param needed now. Read documentation below on upgrade from 1.3.4
 ## WARNING: No default root resource. Read documentation below on upgrade from 1.3.1
 ## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
 
@@ -281,6 +280,9 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.7
+- Implemented MockettaroProgram.parser and MIN, MAX and DEFAULT constants
+- Implemented MockettaroProgram.parser tests for parsing and setting MIN, MAX or DEFAULTS
 ### 1.3.6
 - Fixed Resource RegExp
 - Path and resource RegExps moved as static property in MockettaroProgram
