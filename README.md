@@ -280,6 +280,8 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.10
+- Fixed missing args for MockettaroProgram
 ### 1.3.9
 - Fixed typo in dependency
 ### 1.3.8
