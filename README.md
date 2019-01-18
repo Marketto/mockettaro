@@ -280,6 +280,8 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.9
+- Fixed typo in dependency
 ### 1.3.8
 - Arg Number Parser moved as static method
 - Added more tests
