@@ -280,6 +280,10 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.8
+- Arg Number Parser moved as static method
+- Added more tests
+- Removed deprecated code
 ### 1.3.7
 - Implemented MockettaroProgram.parser and MIN, MAX and DEFAULT constants
 - Implemented MockettaroProgram.parser tests for parsing and setting MIN, MAX or DEFAULTS

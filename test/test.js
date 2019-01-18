@@ -309,10 +309,12 @@ describe('Mockettaro', ()=>{
                     '-s'
                 ],
                 cwd: process.cwd()
-            }).then(serverInstance => {
+            })
+            .then(serverInstance => {
                 server = serverInstance;
                 done();
-            }).catch(err => console.error(err));
+            })
+            .catch(done);
         });
 
         describe('Cities resource', ()=>{
@@ -349,6 +351,29 @@ describe('Mockettaro', ()=>{
                 server.close();
                 server = undefined;
             }
+        });
+    });
+
+    describe('Command line mockettaro (MockettaroProgram) Errors', () => {
+        it('Should throw an error on Silent + Verbose', done => {
+            const {mockettaroProgram} = require('../dist/mockettaro-program.class');
+            mockettaroProgram({
+                argv: [
+                    process.argv[0],
+                    'commandline.js',
+                    '--verbose',
+                    '-s'
+                ],
+                cwd: process.cwd()
+            })
+            .then(server => {
+                server.should.be.null;
+                server.close();
+            })
+            .catch(err => {
+                err.message.should.be.equal('Can\'t run in both silent and verbose mode');
+                done();
+            });
         });
     });
 });

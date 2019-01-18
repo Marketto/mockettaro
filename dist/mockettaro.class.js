@@ -140,17 +140,10 @@ class Mockettaro {
      */
     static errorHandler(err, req, res, next) { //eslint-disable-line no-unused-vars
         const logger = require('@marketto/js-logger').global();
-        if(err instanceof Error) {
-            logger.warn(err.message);
-            res
-                .status(500)
-                .send(err.message);
-        } else {
-            logger.error(err);
-            res
-                .status(500)
-                .send(err);
-        }
+        logger.warn(err.message);
+        res
+            .status(500)
+            .send(err.message);
     }
 }
 

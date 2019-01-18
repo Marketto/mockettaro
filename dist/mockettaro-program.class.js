@@ -114,6 +114,21 @@ class MockettaroProgram {
 
     /**
      * @static
+     * @method numericArgParser
+     * @param {RegExp} matcher Number regexp matcher
+     * @param {number} min Lower limit
+     * @param {number} max Upper limit
+     * @returns {Function<string>:<number>} Parser
+     */
+    static numericArgParser(matcher = /\d+/, min = 0, max = 99999999) {
+        return (v = '') => {
+            const parsedV = parseInt((v.match(matcher) || [])[0]);
+            return isNaN(parsedV) ? null : Math.min(Math.max(min, parsedV), max);
+        };
+    }
+
+    /**
+     * @static
      * @method cmdParser
      * @param {Array<string>} argv command line arguments
      * @returns {Commander} Returns a commander instanced with parsed argv
@@ -122,21 +137,14 @@ class MockettaroProgram {
         const pkgjson = require('../package.json');
         const program = require('commander');
 
-        const parseNum = (matcher = /\d+/, min = 0, max = 99999999) => {
-            return (v = '') => {
-                const parsedV = parseInt((v.match(matcher) || [])[0]);
-                return isNaN(parsedV) ? null : Math.min(Math.max(min, parsedV), max);
-            };
-        }
-
         return program
           .version(pkgjson.version, '-v, --version')
           .description(pkgjson.description)
-          .option('-p, --port <number>', 'Serve on specified port', parseNum(/\d{3,5}/, this.MIN_PORT, this.MAX_PORT), this.DEFAULT_PORT)
+          .option('-p, --port <number>', 'Serve on specified port', this.numericArgParser(/\d{3,5}/, this.MIN_PORT, this.MAX_PORT), this.DEFAULT_PORT)
           .option('-r, --resource <path>', 'Root resource to serve', this.RESOURCE_MATCHER, this.DEFAULT_RESOURCE)
           .option('-f, --folder <path>', 'Sub-folder to fetch for files', this.FOLDER_MATCHER, this.DEFAULT_FOLDER)
-          .option('-d, --response-delay <milliseconds>', 'Response delay in ms', parseNum(/\d{1,6}/, 0, this.MAX_DELAY), this.DEFAULT_DELAY)
-          .option('-t, --cache-lifetime <milliseconds>', 'JSON cache lifetime', parseNum(/\d{1,8}/, 0, this.MAX_CACHE_LIFETIME), this.DEFAULT_CACHE_LIFETIME)
+          .option('-d, --response-delay <milliseconds>', 'Response delay in ms', this.numericArgParser(/\d{1,6}/, 0, this.MAX_DELAY), this.DEFAULT_DELAY)
+          .option('-t, --cache-lifetime <milliseconds>', 'JSON cache lifetime', this.numericArgParser(/\d{1,8}/, 0, this.MAX_CACHE_LIFETIME), this.DEFAULT_CACHE_LIFETIME)
           .option('-s, --silent', 'No logs')
           .option('--verbose', 'Verbose logs')
           .parse(argv);
