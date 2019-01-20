@@ -1,10 +1,23 @@
-const logger = require('@marketto/js-logger').global();
-const fs = require('fs');
-const jsonschemaValidator = require('jsonschema').Validator;
-const { PathRetriever } = require('./path-retriever.class');
-
+/**
+ * @class RequestValidator
+ */
 class RequestValidator {
+
+    /**
+     * @static
+     * @description jsonSchema Express Route
+     * @method jsonSchemaRoute
+     * @param {Express.req} req Request
+     * @param {Express.res} res Response
+     * @param {Express.next} next Next route
+     * @memberof RequestValidator
+     */
     static jsonSchemaRoute(req, res, next){
+        const logger = require('@marketto/js-logger').global();
+        const fs = require('fs');
+        const jsonschemaValidator = require('jsonschema').Validator;
+        const { PathRetriever } = require('./path-retriever.class');
+
         const jsonschemaPath = PathRetriever.find({
             target : req.servicePath,
             ext : 'schema.json',

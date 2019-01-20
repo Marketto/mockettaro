@@ -1,23 +1,6 @@
-/**
- * @class Mockettaro
- */
 class Mockettaro {
     /**
-     * Absolute path win/*nix
-     *
-     * @readonly
-     * @static
-     * @returns {Regexp} Regular expression to match an absolute win/*nix path
-     * @memberof Mockettaro
-     */
-    static get ABSOLUTE_PATH_MATCHER() {
-        return /(?:^\/)|(?:^\w:\\)/i;
-    }
-
-    /**
-     * Creates an instance of Mockettaro.
-     *
-     * @param {Object} [config = {directory: './', responseDelay: 0, cacheLifetime: 3000, cwd: __dirname, verbose: false, errors: true, info: true}] Configuration param object
+     * @description Creates an instance of Mockettaro.
      * @param {string} [directory = './'] Mock source path
      * @param {number} [responseDelay = 0] Response delay to simulate
      * @param {number} [cacheLifetime = 3000] Response Codes and Bodies cache life time
@@ -25,15 +8,14 @@ class Mockettaro {
      * @param {Object} [verbose = false] Verbose log level
      * @param {Object} [errors = true] Error log level
      * @param {Object} [info = true] Info log level
-     *
      * @returns {Express} Express instance
-     * @memberof Mockettaro
+     * @example new Mockettaro({directory: './'})
      */
     constructor({
         directory = './',
         responseDelay = 0,
         cacheLifetime = 3000,
-        cwd = __dirname,
+        cwd = process.cwd(),
         verbose = false,
         errors = true,
         info = true
@@ -41,7 +23,7 @@ class Mockettaro {
         directory: './',
         responseDelay: 0,
         cacheLifetime: 3000,
-        cwd: __dirname,
+        cwd: process.cwd(),
         verbose: false,
         errors: true,
         info: true
@@ -76,14 +58,26 @@ class Mockettaro {
     }
 
     /**
-     * Configuration Route
-     *
+     * @readonly
+     * @static
+     * @param ABSOLUTE_PATH_MATCHER
+     * @description Absolute path win/*nix
+     * @returns {Regexp} Regular expression to match an absolute win/*nix path
+     * @memberof Mockettaro
+     * @example Mockettaro.ABSOLUTE_PATH_MATCHER
+     */
+    static get ABSOLUTE_PATH_MATCHER() {
+        return /(?:^\/)|(?:^\w:\\)/i;
+    }
+
+    /**
+     * @method configRoute
+     * @description Configuration Route
      * @param {Express.Request} req Request / previous route params
      * @param {Express.Response} res Response instance
      * @param {Function} next Callback to be called to step forward in route chain
-     *
-     * @returns {void}
      * @memberof Mockettaro
+     * @example const express = require('express');<br>const app = express();<br>...<br>app.use(Mockettaro.configRoute);
      */
     get configRoute() {
         const {srcPath, cacheLifetime} = this;
@@ -96,13 +90,12 @@ class Mockettaro {
     }
 
     /**
-     * Configuration Route
-     *
+     * @method returnResponse
+     * @description Configuration Route
      * @param {Express.Request} req Request / previous route params
      * @param {Express.Response} res Response instance
-     *
-     * @returns {void}
      * @memberof Mockettaro
+     * @example const express = require('express');<br>const app = express();<br>...<br>app.use(Mockettaro.returnResponse);
      */
     get returnResponse() {
         const {responseDelay} = this;
@@ -129,14 +122,14 @@ class Mockettaro {
     }
 
     /**
-     * Error Handler Route
-     *
+     * @method errorHandler
+     * @description Error Handler Route
      * @param {string|Error} err Raised error
      * @param {Express.Request} [req] Request / previous route params
      * @param {Express.Response} res Response instance
      * @param {Function} [next] Callback to be called to step forward in route chain, needed for Express to manage it as an Error Handler
-     * @returns {void}
      * @memberof Mockettaro
+     * @example const express = require('express');<br>const app = express();<br>...<br>app.use(Mockettaro.errorHandler);
      */
     static errorHandler(err, req, res, next) { //eslint-disable-line no-unused-vars
         const logger = require('@marketto/js-logger').global();

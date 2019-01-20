@@ -1,8 +1,6 @@
-const logger = require('@marketto/js-logger').global();
-const fs = require('fs');
-const path = require('path');
-const DEFAULT_RESOURCE = 'default';
-
+/**
+ * @class PathRetriever
+ */
 class PathRetriever {
 
     /**
@@ -18,11 +16,22 @@ class PathRetriever {
      * @memberof PathRetriever
      */
     static find({ target = '', ext = 'json', prefix, cwd }){
+        const fs = require('fs');
+        const path = require('path');
         const possiblePaths = this.seekPathList({target, ext, prefix});
         const firstAvailablePath = possiblePaths.find( pathToCheck => {
                 return fs.existsSync(path.join(cwd, pathToCheck));
             });
         return firstAvailablePath && path.join(cwd, firstAvailablePath);
+    }
+
+    /**
+     * @static
+     * @property DEFAULT_RESOURCE
+     * @memberof PathRetriever
+     */
+    static get DEFAULT_RESOURCE() {
+        return 'default';
     }
 
     /**
@@ -37,10 +46,13 @@ class PathRetriever {
      * @memberof PathRetriever
      */
     static seekPathList({ target = '', ext = 'json', prefix }) {
+        const logger = require('@marketto/js-logger').global();
+        const path = require('path');
+
         target = (target.match(/^(.+[^/])\/?$/) || [])[1] || '';
-        function partialSearch(pathArray) {
+        const partialSearch = pathArray => {
             const subPathArray = pathArray.slice(0, pathArray.length - 1);
-            const alternativePathArray = (subPathArray).concat(DEFAULT_RESOURCE);
+            const alternativePathArray = (subPathArray).concat(this.DEFAULT_RESOURCE);
 
             if (pathArray.length > 1) {
                 const subSearchResults = partialSearch(subPathArray);
@@ -56,7 +68,7 @@ class PathRetriever {
                 resultList.push(alternativePathArray);
 
                 subSearchResults
-                    .map(pp => pp.concat(DEFAULT_RESOURCE))
+                    .map(pp => pp.concat(this.DEFAULT_RESOURCE))
                     .forEach(pp => {
                         resultList.push(pp);
                     });

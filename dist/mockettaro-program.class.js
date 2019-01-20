@@ -1,12 +1,11 @@
-/**
- * @class MockettaroProgram
- */
 class MockettaroProgram {
     /**
      * @static
      * @readonly
      * @property RESOURCE_MATCHER
      * @returns {RegExp}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.RESOURCE_MATCHER
      */
     static get RESOURCE_MATCHER() {
         return /^(?:\/?[a-z0-9_-]+)+$/i;
@@ -17,6 +16,8 @@ class MockettaroProgram {
      * @readonly
      * @property FOLDER_MATCHER
      * @returns {RegExp}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.FOLDER_MATCHER
      */
     static get FOLDER_MATCHER() {
         return /^(?:(?:[a-z]:|\.{0,2})?(\\|\/))?([^!#$%&+={}[\]\n]+(\\|\/))*[^!#$%&+={}[\]\n]+$/i;
@@ -27,6 +28,8 @@ class MockettaroProgram {
      * @readonly
      * @property DEFAULT_PORT
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.DEFAULT_PORT
      */
     static get DEFAULT_PORT() {
         return 8080;
@@ -37,6 +40,8 @@ class MockettaroProgram {
      * @readonly
      * @property DEFAULT_RESOURCE
      * @returns {string}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.DEFAULT_RESOURCE
      */
     static get DEFAULT_RESOURCE() {
         return '';
@@ -47,6 +52,8 @@ class MockettaroProgram {
      * @readonly
      * @property DEFAULT_FOLDER
      * @returns {string}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.DEFAULT_RESOURCE
      */
     static get DEFAULT_FOLDER() {
         return './';
@@ -57,6 +64,8 @@ class MockettaroProgram {
      * @readonly
      * @property DEFAULT_DELAY
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.DEFAULT_DELAY
      */
     static get DEFAULT_DELAY() {
         return 0;
@@ -67,6 +76,8 @@ class MockettaroProgram {
      * @readonly
      * @property DEFAULT_CACHE_LIFETIME
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.DEFAULT_CACHE_LIFETIME
      */
     static get DEFAULT_CACHE_LIFETIME() {
         return 3000;
@@ -77,6 +88,8 @@ class MockettaroProgram {
      * @readonly
      * @property MIN_PORT
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.MIN_PORT
      */
     static get MIN_PORT() {
         return 3000;
@@ -87,6 +100,8 @@ class MockettaroProgram {
      * @readonly
      * @property MAX_PORT
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.MAX_PORT
      */
     static get MAX_PORT() {
         return 30000;
@@ -97,6 +112,8 @@ class MockettaroProgram {
      * @readonly
      * @property MAX_DELAY
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.MAX_DELAY
      */
     static get MAX_DELAY() {
         return 120000;
@@ -107,6 +124,8 @@ class MockettaroProgram {
      * @readonly
      * @property MAX_CACHE_LIFETIME
      * @returns {number}
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.MAX_CACHE_LIFETIME
      */
     static get MAX_CACHE_LIFETIME() {
         return 720000;
@@ -118,7 +137,9 @@ class MockettaroProgram {
      * @param {RegExp} matcher Number regexp matcher
      * @param {number} min Lower limit
      * @param {number} max Upper limit
-     * @returns {Function<string>:<number>} Parser
+     * @returns {Function} Parser
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.numericArgParser(/\d+/, 0, 100)
      */
     static numericArgParser(matcher = /\d+/, min = 0, max = 99999999) {
         return (v = '') => {
@@ -132,8 +153,10 @@ class MockettaroProgram {
      * @method cmdParser
      * @param {Array<string>} argv command line arguments
      * @returns {Commander} Returns a commander instanced with parsed argv
+     * @memberof MockettaroProgram
+     * @example MockettaroProgram.cmdParser('abc', 'abc', '-p', '...')
      */
-    static cmdParser(argv) {
+    static cmdParser(...argv) {
         const pkgjson = require('../package.json');
         const program = require('commander');
 
@@ -152,14 +175,13 @@ class MockettaroProgram {
 
     /**
      * @constructor
-     * @param {Object} param Main parameter object
-     * @param {Array<string>} param.argv command line arguments
-     * @param {string|Function} param.cwd Current Working Directory
+     * @param {Array<string>} argv command line arguments
+     * @param {string|Function} cwd Current Working Directory
      * @returns {Promise<number>} Returns the copy process final status
      */
-    constructor({argv = [], cwd = process.cwd()}) {
+    constructor({argv = process.argv, cwd = process.cwd()}) {
 
-        const program = this.constructor.cmdParser(argv)
+        const program = this.constructor.cmdParser(...argv)
 
         if (program.verbose && program.silent) {
             throw new Error('Can\'t run in both silent and verbose mode');

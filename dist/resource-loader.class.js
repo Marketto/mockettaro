@@ -1,20 +1,23 @@
-const logger = require('@marketto/js-logger').global();
-const fs = require('fs');
-const memoryCache = require('memory-cache');
-const { PathRetriever } = require('./path-retriever.class');
-
 /**
- * Resource loader utility
+ * @description Resource loader utility
+ * @class ResourceLoader
  */
 class ResourceLoader {
     /**
-     * Hanlde Route Http Status Code
-     *
-     * @param {Object} req Express Request
-     * @param {Object} [res] Express Response (unused)
-     * @param {Function} next Express Next callback
+     * @description Hanlde Route Http Status Code
+     * @static
+     * @method statusCodeRoute
+     * @param {Express.req} req Request
+     * @param {Express.res} res Response
+     * @param {Express.next} next Next route
+     * @memberof ResourceLoader
      */
     static statusCodeRoute(req, res, next) {
+        const logger = require('@marketto/js-logger').global();
+        const fs = require('fs');
+        const memoryCache = require('memory-cache');
+        const { PathRetriever } = require('./path-retriever.class');
+
         const cacheKey = JSON.stringify([req.servicePath, req.method, 'code']);
         const cachedStatus = memoryCache.get(cacheKey);
         const cacheLifetime = req.cacheLifetime || 300;
@@ -59,13 +62,20 @@ class ResourceLoader {
     }
 
     /**
-     * Hanlde Route Http response Json body and request json-schema validation
-     *
-     * @param {Object} req Express Request
-     * @param {Object} [res] Express Response (unused)
-     * @param {Function} next Express Next callback
+     * @description Hanlde Route Http response Json body and request json-schema validation
+     * @static
+     * @method statusCodeRoute
+     * @param {Express.req} req Request
+     * @param {Express.res} res Response
+     * @param {Express.next} next Next route
+     * @memberof ResourceLoader
      */
     static jsonRoute(req, res, next){
+        const logger = require('@marketto/js-logger').global();
+        const fs = require('fs');
+        const memoryCache = require('memory-cache');
+        const { PathRetriever } = require('./path-retriever.class');
+
         const cacheKey = JSON.stringify([req.servicePath, req.method])
         const cachedData = memoryCache.get(cacheKey);
         const cacheLifetime = req.cacheLifetime || 300;

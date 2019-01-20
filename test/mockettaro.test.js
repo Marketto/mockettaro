@@ -245,7 +245,7 @@ describe('Mockettaro', ()=>{
         });
 
         describe('cmdParser', () => {
-            const mockettaroProgramCmdParser = (...args) => MockettaroProgram.cmdParser(['node', 'mockettaro', ...args]);
+            const mockettaroProgramCmdParser = (...args) => MockettaroProgram.cmdParser('node', 'mockettaro', ...args);
 
             it('Should not parse port, delay, cacheLifetime and set MINs / MAXs', () => {
                 const program = mockettaroProgramCmdParser(

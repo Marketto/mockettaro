@@ -3,5 +3,6 @@
     "jsDocCompletion.enabled": true,
     "previewjsdoc.autoOpenBrowser": true,
     "jslint.enable": false,
-    "jshint.enable": false
+    "jshint.enable": false,
+    "previewjsdoc.confFile": "./jsdoc.json"
 }

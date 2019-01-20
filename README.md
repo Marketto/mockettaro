@@ -10,8 +10,9 @@
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
-## WARNING: No default root resource. Read documentation below on upgrade from 1.3.1
-## WARNING: Major implementation changes. Read documentation below on upgrade from 1.2.2
+## Upgrade warning
+* No default root resource. Read documentation below on upgrade from 1.3.1
+* Major implementation changes. Read documentation below on upgrade from 1.2.2
 
 ## Installation
 ### Global
@@ -280,6 +281,9 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.11
+- Minor fixes
+- Completed jsdoc
 ### 1.3.10
 - Fixed missing args for MockettaroProgram
 ### 1.3.9
