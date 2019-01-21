@@ -281,6 +281,12 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.3.12
+- Used standard paths for bin and lib
+- Fixed default params for MockettaroProgram
+- Divided tests per class
+- Added bin Unit 
+- Added separate unit test to prevent cache test issues
 ### 1.3.11
 - Minor fixes
 - Completed jsdoc

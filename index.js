@@ -1,3 +1,3 @@
-const mockettaro = require('./dist/mockettaro.class');
+const mockettaro = require('./lib/mockettaro.class');
 
 module.exports.mockettaro = mockettaro;
