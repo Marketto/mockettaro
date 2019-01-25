@@ -281,6 +281,8 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.4.0
+- Docs
 ### 1.3.12
 - Used standard paths for bin and lib
 - Fixed default params for MockettaroProgram

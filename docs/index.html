@@ -1,0 +1,340 @@
+<!-- start:readme.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Mockettaro</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Mockettaro","systemSummary":"Node Rest Mock Server","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Mockettaro
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Mockettaro.html">Mockettaro</a></li>
+											<li><a href="MockettaroProgram.html">MockettaroProgram</a></li>
+											<li><a href="PathRetriever.html">PathRetriever</a></li>
+											<li><a href="RequestValidator.html">RequestValidator</a></li>
+											<li><a href="ResourceLoader.html">ResourceLoader</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">readme</span>
+				<h1><span class="name">Mockettaro</span></h1>
+				<div class="summary"><p>Node Rest Mock Server</p></div>			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+		<section class="readme-section">
+			<article><h1>Mockettaro</h1><p><a href="https://www.npmjs.org/package/mockettaro"><img src="http://img.shields.io/npm/v/mockettaro.svg?style=flat" alt="NPM Version"></a>
+<a href="https://npmcharts.com/compare/mockettaro?minimal=true"><img src="https://img.shields.io/npm/dm/mockettaro.svg?style=flat" alt="NPM Downloads"></a>
+<a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=alert_status" alt="Quality Gate"></a>
+<a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=coverage" alt="Coverage"></a>
+<a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=sqale_rating" alt="Maintainability"></a>
+<a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=reliability_rating" alt="Reliability"></a>
+<a href="http://ci.marketto.it/job/Mockettaro"><img src="http://ci.marketto.it/buildStatus/icon?job=Mockettaro" alt="Build Status"></a></p>
+<p>Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code</p>
+<h2>Upgrade warning</h2><ul>
+<li>No default root resource. Read documentation below on upgrade from 1.3.1</li>
+<li>Major implementation changes. Read documentation below on upgrade from 1.2.2</li>
+</ul>
+<h2>Installation</h2><h3>Global</h3><p><code>`</code>{r, engine='bash', global_install}
+npm install mockettaro -g</p>
+<pre class="prettyprint source"><code>
+### Project dependency
+```{r, engine='bash', dev_install}
+npm install mockettaro --save-dev</code></pre><h2>Getting Started</h2><h3>Command line</h3><p><code>`</code>{r, engine='bash', run}
+mockettaro</p>
+<pre class="prettyprint source"><code>It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/
+
+### Nodejs Express
+```js
+const express = require('express');
+const { mockettaro } = require('mockettaro');
+const logger = require(&quot;@marketto/js-logger&quot;).global();
+
+const app = express();
+app.use('/mocks', mockettaro({
+    //foldername to seek for folderTree / json files
+    directory : 'mocks',
+    //Current working directory to use as a targed for the given directory
+    cwd: __dirname
+}));
+
+const port = 3000;
+app.listen(port, () => {
+    logger.info(`Mockettaro test server running on  port ${port}`);
+});</code></pre><h2>Command line overview</h2><h3>Version</h3><p>Display the current Mockettaro version
+<code>`</code>{r, engine='bash', run}
+mockettaro -v</p>
+<pre class="prettyprint source"><code>### Port number
+Mockettaro server will listen on the provided port
+```{r, engine='bash', run}
+mockettaro -p 1234</code></pre><h3>URI Resource root path</h3><p>Mockettaro will serve resources, using the provided path as the root
+<code>`</code>{r, engine='bash', run}
+mockettaro -r my-mock/resource</p>
+<pre class="prettyprint source"><code>### Folder for static files
+Mockettaro will load resources, matching the resource entry URI, fetching the provided local path
+```{r, engine='bash', run}
+mockettaro -f ./mocks/rest</code></pre><h3>Delay in ms to provide responses</h3><p>Mockettaro will serve resources waiting the delay ms before providing each positive response
+<code>`</code>{r, engine='bash', run}
+mockettaro -d 1500</p>
+<pre class="prettyprint source"><code>### Cache Lifetime in ms
+Mockettaro will cache HTTP codes and response bodies for the provided cache lifetime ms
+```{r, engine='bash', run}
+mockettaro -t 30000</code></pre><h3>Silent</h3><p>Disable all logs except errors
+<code>`</code>{r, engine='bash', run}
+mockettaro -s</p>
+<pre class="prettyprint source"><code>### Verbose
+Display all levels log messages
+```{r, engine='bash', run}
+mockettaro --verbose</code></pre><h2>Managing Mocks</h2><h3>GUI - ServiceDesigner</h3><p>To quickly design your RESTful services mocks/json schemas you can use <a href="http://servicedesigner.marketto.it/">MK Service Designer</a>, available also on <a href="https://github.com/Marketto/mkServiceDesigner">GitHub</a>, and export a Mockettaro package which would be ready to use.</p>
+<p><a href="http://servicedesigner.marketto.it/">Online Service Designer</a>
+Once extracted, from the package folder, run from the command line:
+<code>`</code>{r, engine='bash', run}
+mockettaro</p>
+<pre class="prettyprint source"><code>
+### Hello World
+Create a folder with a file named test.GET.json which contains the following:
+```json
+{
+    &quot;message&quot; : &quot;Hello world!&quot;
+}</code></pre><p>From the command line run:
+<code>`</code>{r, engine='bash', run}
+mockettaro</p>
+<pre class="prettyprint source"><code>try to visit http://localhost:8080/test
+
+### RESTful services Mocks
+Consider you have a /customer API which provide a list @ /customer and details @ /customer/{uid}
+In your Mock folder (anywhere) create the following folder structure:</code></pre><p>/
+├── customer
+│   ├── foo.GET.json
+│   ├── default.PUT.schema.json
+│   ├── default.PUT.json
+│   ├── foo.DELETE.code
+│   └── default.GET.json
+├── customer.POST.schema.json
+├── customer.POST.json
+├── customer.POST.code
+└── customer.GET.json</p>
+<pre class="prettyprint source"><code>
+#### customer.GET.json
+```json
+{
+    &quot;data&quot; : [
+        {
+            &quot;uid&quot;   : &quot;foo&quot;,
+            &quot;name&quot;  : &quot;Bar Foo&quot;
+        },
+        {
+            &quot;uid&quot;   : &quot;smith&quot;,
+            &quot;name&quot;  : &quot;John Smith&quot;
+        }
+    ]
+}</code></pre><h4>customer/foo.GET.json</h4><pre class="prettyprint source lang-json"><code>{
+    &quot;data&quot; : {
+        &quot;uid&quot;   : &quot;foo&quot;,
+        &quot;name&quot;  : &quot;Bar Foo&quot;
+    }
+}</code></pre><h4>customer/default.GET.json</h4><pre class="prettyprint source lang-json"><code>{
+    &quot;data&quot; : {
+        &quot;uid&quot;   : &quot;smith&quot;,
+        &quot;name&quot;  : &quot;John Smith&quot;
+    }
+}</code></pre><h4>customer/foo.PUT.json</h4><pre class="prettyprint source lang-json"><code>{}</code></pre><h4>customer/default.PUT.schema.json</h4><p>All PUT request to /customer/xxxx will be validated against it!</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
+    &quot;properties&quot;: {
+        &quot;firstName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 3
+        },
+        &quot;lastName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 3
+        },
+        &quot;birthDate&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 10,
+            &quot;format&quot;: &quot;date-time&quot;
+        },
+        &quot;gender&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [
+                &quot;M&quot;,
+                &quot;F&quot;
+            ]
+        }
+    },
+    &quot;title&quot;: &quot;customer/{uid}&quot;
+}</code></pre><h4>customer/foo.DELETE.code</h4><pre class="prettyprint source lang-text"><code>204</code></pre><h4>customer.POST.schema.json</h4><p>All POST request to /customer will be validated against it!</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
+    &quot;properties&quot;: {
+        &quot;firstName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 3
+        },
+        &quot;lastName&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 3
+        },
+        &quot;birthDate&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;minLength&quot;: 10,
+            &quot;format&quot;: &quot;date-time&quot;
+        },
+        &quot;gender&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [
+                &quot;M&quot;,
+                &quot;F&quot;
+            ]
+        }
+    },
+    &quot;required&quot;: [
+        &quot;firstName&quot;,
+        &quot;lastName&quot;
+    ],
+    &quot;title&quot;: &quot;customer&quot;
+}</code></pre><h4>customer.POST.code</h4><p>All POST request to /customer , if passing validation, will have a response with the provided HTTP status code</p>
+<pre class="prettyprint source lang-text"><code>201</code></pre><h4>customer.POST.json</h4><p>All POST request to /customer , if passing validation, will have a response with the following HTTP body</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;uid&quot; : &quot;newCustomer&quot;
+}</code></pre><h4>Run mock server</h4><p><code>{r, engine='bash', run}
+mockettaro -r services</code></p>
+<h4>URL to test</h4><ul>
+<li>http://localhost:8080/services/customer           GET, POST</li>
+<li>http://localhost:8080/services/customer/foo       GET, PUT, DELETE</li>
+<li>http://localhost:8080/services/customer/smith     GET, PUT</li>
+<li>http://localhost:8080/services/customer/anything  GET, PUT</li>
+</ul>
+<h2>Author</h2><p><strong>Marco Ricupero</strong> - <a href="https://github.com/Marketto">Github</a> - <a href="http://blog.marketto.it">Blog</a></p>
+<h2>License</h2><p>This project is licensed under the MIT License - see the <a href="/LICENSE">License</a> file for details</p>
+<h2>Changelog</h2><h3>1.4.0</h3><ul>
+<li>Docs<h3>1.3.12</h3></li>
+<li>Used standard paths for bin and lib</li>
+<li>Fixed default params for MockettaroProgram</li>
+<li>Divided tests per class</li>
+<li>Added bin Unit </li>
+<li>Added separate unit test to prevent cache test issues<h3>1.3.11</h3></li>
+<li>Minor fixes</li>
+<li>Completed jsdoc<h3>1.3.10</h3></li>
+<li>Fixed missing args for MockettaroProgram<h3>1.3.9</h3></li>
+<li>Fixed typo in dependency<h3>1.3.8</h3></li>
+<li>Arg Number Parser moved as static method</li>
+<li>Added more tests</li>
+<li>Removed deprecated code<h3>1.3.7</h3></li>
+<li>Implemented MockettaroProgram.parser and MIN, MAX and DEFAULT constants</li>
+<li>Implemented MockettaroProgram.parser tests for parsing and setting MIN, MAX or DEFAULTS<h3>1.3.6</h3></li>
+<li>Fixed Resource RegExp</li>
+<li>Path and resource RegExps moved as static property in MockettaroProgram</li>
+<li>Added unit tests for Path and Resource regexps</li>
+<li>Added test for corrupted json mock reading<h3>1.3.5</h3></li>
+<li>Fully migrated to ES6</li>
+<li>Command line logics moved to MockettaroProgram class</li>
+<li>MockettaroProgram covered by tests</li>
+<li>Added -s / --silent and --verbose for silent and verbose mode<h3>1.3.4</h3></li>
+<li>Fixed Error Handler</li>
+<li>Mockettaro core refactored as an ES6 Class</li>
+<li>Fixed working directory issue</li>
+<li>Implemented cwd in mockettaro</li>
+<li>Updated test and debug config to pass cwd<h3>1.3.3</h3></li>
+<li>Removed all unused dependencies</li>
+<li>Removed logger and chalk dependency</li>
+<li>Used @marketto/js-logger to log event on console</li>
+<li>Removed 'use strict' since it's moving to ES6<h3>1.3.2</h3></li>
+<li>Log info on missing and found json</li>
+<li>Fixed compatibility issues with Windows</li>
+<li>Updated example expressUse.json implementation</li>
+<li>Added launch.json for development purpose<h3>1.3.1</h3></li>
+<li>Info logger level is true bny default</li>
+<li>Warning logger level is on for debbugging purpose</li>
+<li>Improved compatibility with trailing slash api<h3>1.3.0</h3></li>
+<li>Core reworked in classes ES6</li>
+<li>Command Line property -f --folder added</li>
+<li>Removed server method, import the lib as { mockettaro } and use it like mockettaro()</li>
+<li>Mockettaro router accept only an object of optional params in input {directory, responseDelay, cacheLifetime, verbose, errors }</li>
+<li>Provided logger micro-logging embedded utility</li>
+</ul></article>
+		</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 25th Jan 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:readme.hbs -->
