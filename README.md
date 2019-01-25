@@ -281,6 +281,8 @@ mockettaro -r services
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
 
 ## Changelog
+### 1.4.1
+- Sonar config to exclude docs from coverage
 ### 1.4.0
 - Docs
 ### 1.3.12

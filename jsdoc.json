@@ -3,7 +3,8 @@
         "includePattern": ".+\\.js(doc|x)?$",
         "exclude": [
             "node_modules",
-            "doc"
+            "docs",
+            "test"
         ]
     },
     "opts": {
