@@ -7,6 +7,7 @@
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=sqale_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
 [![Reliability](https://sonarcloud.io/api/project_badges/measure?project=mockettaro&metric=reliability_rating)](https://sonarcloud.io/dashboard/index/mockettaro)
 [![Build Status](http://ci.marketto.it/buildStatus/icon?job=Mockettaro)](http://ci.marketto.it/job/Mockettaro)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro?ref=badge_shield)
 
 Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
 
@@ -279,6 +280,9 @@ mockettaro -r services
 
 ## License
 This project is licensed under the MIT License - see the [License](/LICENSE) file for details
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro?ref=badge_large)
 
 ## Changelog
 ### 1.4.1
