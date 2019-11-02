@@ -70,30 +70,54 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 		<section class="readme-section">
-			<article><h1>Mockettaro</h1><p><a href="https://www.npmjs.org/package/mockettaro"><img src="http://img.shields.io/npm/v/mockettaro.svg?style=flat" alt="NPM Version"></a>
+			<article><h1>mockettaro</h1>
+<p><a href="https://www.npmjs.org/package/mockettaro"><img src="http://img.shields.io/npm/v/mockettaro.svg?style=flat" alt="NPM Version"></a>
 <a href="https://npmcharts.com/compare/mockettaro?minimal=true"><img src="https://img.shields.io/npm/dm/mockettaro.svg?style=flat" alt="NPM Downloads"></a>
+<a href="https://david-dm.org/Marketto/mockettaro"><img src="https://david-dm.org/Marketto/mockettaro.svg" alt="Dependency status"></a>
+<a href="https://david-dm.org/Marketto/mockettaro?type=dev"><img src="https://david-dm.org/Marketto/mockettaro/dev-status.svg" alt="Dev dependency status"></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro.svg?type=shield" alt="FOSSA Status"></a>
 <a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=alert_status" alt="Quality Gate"></a>
 <a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=coverage" alt="Coverage"></a>
 <a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=sqale_rating" alt="Maintainability"></a>
 <a href="https://sonarcloud.io/dashboard/index/mockettaro"><img src="https://sonarcloud.io/api/project_badges/measure?project=mockettaro&amp;metric=reliability_rating" alt="Reliability"></a>
-<a href="http://ci.marketto.it/job/Mockettaro"><img src="http://ci.marketto.it/buildStatus/icon?job=Mockettaro" alt="Build Status"></a></p>
-<p>Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code</p>
-<h2>Upgrade warning</h2><ul>
+<a href="http://ci.marketto.it/job/Mockettaro"><img src="http://ci.marketto.it/buildStatus/icon?job=Mockettaro" alt="Build Status"></a>
+<a href="http://blog.marketto.it"><img src="https://img.shields.io/badge/blog-marketto-blue.svg" alt="Blog"></a>
+<a href="https://ko-fi.com/marketto"><img src="https://img.shields.io/badge/Ko--fi-donate-blueviolet" alt="Buy me a coffee"></a></p>
+<p>Instant Server for JSON and XML Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code and xml/json automatic conversion driven by Accept header</p>
+<h2>Upgrade warning</h2>
+<ul>
 <li>No default root resource. Read documentation below on upgrade from 1.3.1</li>
 <li>Major implementation changes. Read documentation below on upgrade from 1.2.2</li>
 </ul>
-<h2>Installation</h2><h3>Global</h3><p><code>`</code>{r, engine='bash', global_install}
-npm install mockettaro -g</p>
-<pre class="prettyprint source"><code>
-### Project dependency
-```{r, engine='bash', dev_install}
-npm install mockettaro --save-dev</code></pre><h2>Getting Started</h2><h3>Command line</h3><p><code>`</code>{r, engine='bash', run}
-mockettaro</p>
-<pre class="prettyprint source"><code>It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/
-
-### Nodejs Express
-```js
-const express = require('express');
+<h2>Supported files for mocks</h2>
+<ul>
+<li><strong>.json</strong> =&gt; <em>resource</em></li>
+<li><strong>.xml</strong> =&gt; <em>resource</em></li>
+<li><strong>.code</strong> =&gt; <em>plain text with custom response status code</em></li>
+<li><strong>.schema.json</strong> =&gt; <em>request validator</em></li>
+</ul>
+<h2>Installation</h2>
+<h3>Global</h3>
+<h4>npm</h4>
+<pre class="prettyprint source lang-{r,"><code>npm i mockettaro -g
+</code></pre>
+<h4>yarn</h4>
+<pre class="prettyprint source lang-{r,"><code>yarn global add mockettaro
+</code></pre>
+<h3>Project dependency</h3>
+<h4>npm</h4>
+<pre class="prettyprint source lang-{r,"><code>npm i mockettaro --save-dev
+</code></pre>
+<h4>yarn</h4>
+<pre class="prettyprint source lang-{r,"><code>yarn add mockettaro --dev
+</code></pre>
+<h2>Getting Started</h2>
+<h3>Command line</h3>
+<pre class="prettyprint source lang-{r,"><code>mockettaro
+</code></pre>
+<p>It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/</p>
+<h3>Nodejs Express</h3>
+<pre class="prettyprint source lang-js"><code>const express = require('express');
 const { mockettaro } = require('mockettaro');
 const logger = require(&quot;@marketto/js-logger&quot;).global();
 
@@ -108,49 +132,62 @@ app.use('/mocks', mockettaro({
 const port = 3000;
 app.listen(port, () => {
     logger.info(`Mockettaro test server running on  port ${port}`);
-});</code></pre><h2>Command line overview</h2><h3>Version</h3><p>Display the current Mockettaro version
-<code>`</code>{r, engine='bash', run}
-mockettaro -v</p>
-<pre class="prettyprint source"><code>### Port number
-Mockettaro server will listen on the provided port
-```{r, engine='bash', run}
-mockettaro -p 1234</code></pre><h3>URI Resource root path</h3><p>Mockettaro will serve resources, using the provided path as the root
-<code>`</code>{r, engine='bash', run}
-mockettaro -r my-mock/resource</p>
-<pre class="prettyprint source"><code>### Folder for static files
-Mockettaro will load resources, matching the resource entry URI, fetching the provided local path
-```{r, engine='bash', run}
-mockettaro -f ./mocks/rest</code></pre><h3>Delay in ms to provide responses</h3><p>Mockettaro will serve resources waiting the delay ms before providing each positive response
-<code>`</code>{r, engine='bash', run}
-mockettaro -d 1500</p>
-<pre class="prettyprint source"><code>### Cache Lifetime in ms
-Mockettaro will cache HTTP codes and response bodies for the provided cache lifetime ms
-```{r, engine='bash', run}
-mockettaro -t 30000</code></pre><h3>Silent</h3><p>Disable all logs except errors
-<code>`</code>{r, engine='bash', run}
-mockettaro -s</p>
-<pre class="prettyprint source"><code>### Verbose
-Display all levels log messages
-```{r, engine='bash', run}
-mockettaro --verbose</code></pre><h2>Managing Mocks</h2><h3>GUI - ServiceDesigner</h3><p>To quickly design your RESTful services mocks/json schemas you can use <a href="http://servicedesigner.marketto.it/">MK Service Designer</a>, available also on <a href="https://github.com/Marketto/mkServiceDesigner">GitHub</a>, and export a Mockettaro package which would be ready to use.</p>
+});
+</code></pre>
+<h2>Command line overview</h2>
+<h3>Version</h3>
+<p>Display the current Mockettaro version</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -v
+</code></pre>
+<h3>Port number</h3>
+<p>Mockettaro server will listen on the provided port</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -p 1234
+</code></pre>
+<h3>URI Resource root path</h3>
+<p>Mockettaro will serve resources, using the provided path as the root</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -r my-mock/resource
+</code></pre>
+<h3>Folder for static files</h3>
+<p>Mockettaro will load resources, matching the resource entry URI, fetching the provided local path</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -f ./mocks/rest
+</code></pre>
+<h3>Delay in ms to provide responses</h3>
+<p>Mockettaro will serve resources waiting the delay ms before providing each positive response</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -d 1500
+</code></pre>
+<h3>Cache Lifetime in ms</h3>
+<p>Mockettaro will cache HTTP codes and response bodies for the provided cache lifetime ms</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -t 30000
+</code></pre>
+<h3>Silent</h3>
+<p>Disable all logs except errors</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -s
+</code></pre>
+<h3>Verbose</h3>
+<p>Display all levels log messages</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro --verbose
+</code></pre>
+<h2>Managing Mocks</h2>
+<h3>GUI - ServiceDesigner</h3>
+<p>To quickly design your RESTful services mocks/json schemas you can use <a href="http://servicedesigner.marketto.it/">MK Service Designer</a>, available also on <a href="https://github.com/Marketto/mkServiceDesigner">GitHub</a>, and export a Mockettaro package which would be ready to use.</p>
 <p><a href="http://servicedesigner.marketto.it/">Online Service Designer</a>
-Once extracted, from the package folder, run from the command line:
-<code>`</code>{r, engine='bash', run}
-mockettaro</p>
-<pre class="prettyprint source"><code>
-### Hello World
-Create a folder with a file named test.GET.json which contains the following:
-```json
-{
+Once extracted, from the package folder, run from the command line:</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro
+</code></pre>
+<h3>Hello World</h3>
+<p>Create a folder with a file named test.GET.json which contains the following:</p>
+<pre class="prettyprint source lang-json"><code>{
     &quot;message&quot; : &quot;Hello world!&quot;
-}</code></pre><p>From the command line run:
-<code>`</code>{r, engine='bash', run}
-mockettaro</p>
-<pre class="prettyprint source"><code>try to visit http://localhost:8080/test
-
-### RESTful services Mocks
-Consider you have a /customer API which provide a list @ /customer and details @ /customer/{uid}
-In your Mock folder (anywhere) create the following folder structure:</code></pre><p>/
+}
+</code></pre>
+<p>From the command line run:</p>
+<pre class="prettyprint source lang-{r,"><code>mockettaro
+</code></pre>
+<p>try to visit http://localhost:8080/test</p>
+<h3>RESTful services Mocks</h3>
+<p>Consider you have a /customer API which provide a list @ /customer and details @ /customer/{uid}
+In your Mock folder (anywhere) create the following folder structure:</p>
+<pre class="prettyprint source"><code>/
 ├── customer
 │   ├── foo.GET.json
 │   ├── default.PUT.schema.json
@@ -160,11 +197,10 @@ In your Mock folder (anywhere) create the following folder structure:</code></pr
 ├── customer.POST.schema.json
 ├── customer.POST.json
 ├── customer.POST.code
-└── customer.GET.json</p>
-<pre class="prettyprint source"><code>
-#### customer.GET.json
-```json
-{
+└── customer.GET.json
+</code></pre>
+<h4>customer.GET.json</h4>
+<pre class="prettyprint source lang-json"><code>{
     &quot;data&quot; : [
         {
             &quot;uid&quot;   : &quot;foo&quot;,
@@ -175,17 +211,29 @@ In your Mock folder (anywhere) create the following folder structure:</code></pr
             &quot;name&quot;  : &quot;John Smith&quot;
         }
     ]
-}</code></pre><h4>customer/foo.GET.json</h4><pre class="prettyprint source lang-json"><code>{
+}
+</code></pre>
+<h4>customer/foo.GET.json</h4>
+<pre class="prettyprint source lang-json"><code>{
     &quot;data&quot; : {
         &quot;uid&quot;   : &quot;foo&quot;,
         &quot;name&quot;  : &quot;Bar Foo&quot;
     }
-}</code></pre><h4>customer/default.GET.json</h4><pre class="prettyprint source lang-json"><code>{
+}
+</code></pre>
+<h4>customer/default.GET.json</h4>
+<pre class="prettyprint source lang-json"><code>{
     &quot;data&quot; : {
         &quot;uid&quot;   : &quot;smith&quot;,
         &quot;name&quot;  : &quot;John Smith&quot;
     }
-}</code></pre><h4>customer/foo.PUT.json</h4><pre class="prettyprint source lang-json"><code>{}</code></pre><h4>customer/default.PUT.schema.json</h4><p>All PUT request to /customer/xxxx will be validated against it!</p>
+}
+</code></pre>
+<h4>customer/foo.PUT.json</h4>
+<pre class="prettyprint source lang-json"><code>{}
+</code></pre>
+<h4>customer/default.PUT.schema.json</h4>
+<p>All PUT request to /customer/xxxx will be validated against it!</p>
 <pre class="prettyprint source lang-json"><code>{
     &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
     &quot;properties&quot;: {
@@ -211,7 +259,13 @@ In your Mock folder (anywhere) create the following folder structure:</code></pr
         }
     },
     &quot;title&quot;: &quot;customer/{uid}&quot;
-}</code></pre><h4>customer/foo.DELETE.code</h4><pre class="prettyprint source lang-text"><code>204</code></pre><h4>customer.POST.schema.json</h4><p>All POST request to /customer will be validated against it!</p>
+}
+</code></pre>
+<h4>customer/foo.DELETE.code</h4>
+<pre class="prettyprint source lang-text"><code>204
+</code></pre>
+<h4>customer.POST.schema.json</h4>
+<p>All POST request to /customer will be validated against it!</p>
 <pre class="prettyprint source lang-json"><code>{
     &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
     &quot;properties&quot;: {
@@ -241,66 +295,131 @@ In your Mock folder (anywhere) create the following folder structure:</code></pr
         &quot;lastName&quot;
     ],
     &quot;title&quot;: &quot;customer&quot;
-}</code></pre><h4>customer.POST.code</h4><p>All POST request to /customer , if passing validation, will have a response with the provided HTTP status code</p>
-<pre class="prettyprint source lang-text"><code>201</code></pre><h4>customer.POST.json</h4><p>All POST request to /customer , if passing validation, will have a response with the following HTTP body</p>
+}
+</code></pre>
+<h4>customer.POST.code</h4>
+<p>All POST request to /customer , if passing validation, will have a response with the provided HTTP status code</p>
+<pre class="prettyprint source lang-text"><code>201
+</code></pre>
+<h4>customer.POST.json</h4>
+<p>All POST request to /customer , if passing validation, will have a response with the following HTTP body</p>
 <pre class="prettyprint source lang-json"><code>{
     &quot;uid&quot; : &quot;newCustomer&quot;
-}</code></pre><h4>Run mock server</h4><p><code>{r, engine='bash', run}
-mockettaro -r services</code></p>
-<h4>URL to test</h4><ul>
+}
+</code></pre>
+<h4>Run mock server</h4>
+<pre class="prettyprint source lang-{r,"><code>mockettaro -r services
+</code></pre>
+<h4>URL to test</h4>
+<ul>
 <li>http://localhost:8080/services/customer           GET, POST</li>
 <li>http://localhost:8080/services/customer/foo       GET, PUT, DELETE</li>
 <li>http://localhost:8080/services/customer/smith     GET, PUT</li>
 <li>http://localhost:8080/services/customer/anything  GET, PUT</li>
 </ul>
-<h2>Author</h2><p><strong>Marco Ricupero</strong> - <a href="https://github.com/Marketto">Github</a> - <a href="http://blog.marketto.it">Blog</a></p>
-<h2>License</h2><p>This project is licensed under the MIT License - see the <a href="/LICENSE">License</a> file for details</p>
-<h2>Changelog</h2><h3>1.4.0</h3><ul>
-<li>Docs<h3>1.3.12</h3></li>
+<h2>Changelog</h2>
+<h3>1.4.2</h3>
+<ul>
+<li>Improved performance implementing iterators</li>
+<li>Implemented xml support for mocks</li>
+<li>Implemented dynamic response conversion to json or xml depending on request Accept type (JSON default)</li>
+<li>Improved unit tests to ensure they are independent from others</li>
+</ul>
+<h3>1.4.1</h3>
+<ul>
+<li>Sonar config to exclude docs from coverage</li>
+</ul>
+<h3>1.4.0</h3>
+<ul>
+<li>Docs</li>
+</ul>
+<h3>1.3.12</h3>
+<ul>
 <li>Used standard paths for bin and lib</li>
 <li>Fixed default params for MockettaroProgram</li>
 <li>Divided tests per class</li>
-<li>Added bin Unit </li>
-<li>Added separate unit test to prevent cache test issues<h3>1.3.11</h3></li>
+<li>Added bin Unit</li>
+<li>Added separate unit test to prevent cache test issues</li>
+</ul>
+<h3>1.3.11</h3>
+<ul>
 <li>Minor fixes</li>
-<li>Completed jsdoc<h3>1.3.10</h3></li>
-<li>Fixed missing args for MockettaroProgram<h3>1.3.9</h3></li>
-<li>Fixed typo in dependency<h3>1.3.8</h3></li>
+<li>Completed jsdoc</li>
+</ul>
+<h3>1.3.10</h3>
+<ul>
+<li>Fixed missing args for MockettaroProgram</li>
+</ul>
+<h3>1.3.9</h3>
+<ul>
+<li>Fixed typo in dependency</li>
+</ul>
+<h3>1.3.8</h3>
+<ul>
 <li>Arg Number Parser moved as static method</li>
 <li>Added more tests</li>
-<li>Removed deprecated code<h3>1.3.7</h3></li>
+<li>Removed deprecated code</li>
+</ul>
+<h3>1.3.7</h3>
+<ul>
 <li>Implemented MockettaroProgram.parser and MIN, MAX and DEFAULT constants</li>
-<li>Implemented MockettaroProgram.parser tests for parsing and setting MIN, MAX or DEFAULTS<h3>1.3.6</h3></li>
+<li>Implemented MockettaroProgram.parser tests for parsing and setting MIN, MAX or DEFAULTS</li>
+</ul>
+<h3>1.3.6</h3>
+<ul>
 <li>Fixed Resource RegExp</li>
 <li>Path and resource RegExps moved as static property in MockettaroProgram</li>
 <li>Added unit tests for Path and Resource regexps</li>
-<li>Added test for corrupted json mock reading<h3>1.3.5</h3></li>
+<li>Added test for corrupted json mock reading</li>
+</ul>
+<h3>1.3.5</h3>
+<ul>
 <li>Fully migrated to ES6</li>
 <li>Command line logics moved to MockettaroProgram class</li>
 <li>MockettaroProgram covered by tests</li>
-<li>Added -s / --silent and --verbose for silent and verbose mode<h3>1.3.4</h3></li>
+<li>Added -s / --silent and --verbose for silent and verbose mode</li>
+</ul>
+<h3>1.3.4</h3>
+<ul>
 <li>Fixed Error Handler</li>
 <li>Mockettaro core refactored as an ES6 Class</li>
 <li>Fixed working directory issue</li>
 <li>Implemented cwd in mockettaro</li>
-<li>Updated test and debug config to pass cwd<h3>1.3.3</h3></li>
+<li>Updated test and debug config to pass cwd</li>
+</ul>
+<h3>1.3.3</h3>
+<ul>
 <li>Removed all unused dependencies</li>
 <li>Removed logger and chalk dependency</li>
 <li>Used @marketto/js-logger to log event on console</li>
-<li>Removed 'use strict' since it's moving to ES6<h3>1.3.2</h3></li>
+<li>Removed 'use strict' since it's moving to ES6</li>
+</ul>
+<h3>1.3.2</h3>
+<ul>
 <li>Log info on missing and found json</li>
 <li>Fixed compatibility issues with Windows</li>
 <li>Updated example expressUse.json implementation</li>
-<li>Added launch.json for development purpose<h3>1.3.1</h3></li>
+<li>Added launch.json for development purpose</li>
+</ul>
+<h3>1.3.1</h3>
+<ul>
 <li>Info logger level is true bny default</li>
 <li>Warning logger level is on for debbugging purpose</li>
-<li>Improved compatibility with trailing slash api<h3>1.3.0</h3></li>
+<li>Improved compatibility with trailing slash api</li>
+</ul>
+<h3>1.3.0</h3>
+<ul>
 <li>Core reworked in classes ES6</li>
 <li>Command Line property -f --folder added</li>
 <li>Removed server method, import the lib as { mockettaro } and use it like mockettaro()</li>
 <li>Mockettaro router accept only an object of optional params in input {directory, responseDelay, cacheLifetime, verbose, errors }</li>
 <li>Provided logger micro-logging embedded utility</li>
-</ul></article>
+</ul>
+<h2>LICENSE</h2>
+<p><a href="LICENSE">MIT License</a></p>
+<p><a href="https://app.fossa.io/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro?ref=badge_large"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FMarketto%2Fmockettaro.svg?type=large" alt="FOSSA Status"></a></p>
+<h2>AUTHOR</h2>
+<p><a href="mailto:marco.ricupero@gmail.com">Marco Ricupero</a></p></article>
 		</section>
 			</div>
 				<div class="col-md-3 side-content">
@@ -310,7 +429,7 @@ mockettaro -r services</code></p>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 25th Jan 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 2nd Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

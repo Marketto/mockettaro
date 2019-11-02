@@ -23,5 +23,5 @@ describe('Commandline', () => {
             }
             done();
         });
-    });
+    }).timeout(2500);
 });

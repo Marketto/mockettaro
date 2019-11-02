@@ -1,9 +1,10 @@
+<!-- start:source.tmpl.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>RequestValidator</title>
+		<title>type-handler.class.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -13,7 +14,7 @@
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Mockettaro","systemSummary":"Node Rest Mock Server","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
-			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_TOC_ENABLED = false;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
@@ -61,138 +62,78 @@
 	</header>
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
-				<span class="kind">class</span>
-				<h1><span class="name">RequestValidator</span></h1>
+				<span class="kind">source</span>
+				<h1><span class="name">type-handler.class.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
-			<div class="col-md-9 main-content">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_class.html">Classes</a></li>
-							<li class="active">RequestValidator</li>
-						</ol>
-					<section>
-							<dl class="symbol primary">
-								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">RequestValidator</span><span class="signature-params">()</span><span class="signature-type"></span></h2>
-</dt>
-<dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="request-validator.class.js.html">request-validator.class.js</a>, <a href="request-validator.class.js.html#line-6">line 6</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-							</dl>
-							<article class="secondary">
-									<h3>Methods</h3>
-									<dl class="symbol">
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".jsonSchemaRoute" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">jsonSchemaRoute</span><span class="signature-params">( <span class="signature-param">req</span>, <span class="signature-param">res</span>, <span class="signature-param">next</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">jsonSchema Express Route</div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>req</code></td>
-							<td><span class="param-type">Express.Request</span></td>
-							<td class="last">
-									Request
-							</td>
-						</tr>
-						<tr>
-								<td><code>res</code></td>
-							<td><span class="param-type">Express.Response</span></td>
-							<td class="last">
-									Response
-							</td>
-						</tr>
-						<tr>
-								<td><code>next</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									Next route
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">const express = require('express');
+const j2xParser = new (require('fast-xml-parser').j2xParser)();
+const xmlBodyparser = require('express-xml-bodyparser');
+const logger = require('@marketto/js-logger').global();
+const { RequestValidator } = require('./request-validator.class');
+const { ResourceLoader } = require('./resource-loader.class');
+
+class TypeHandler {
+    /**
+    * @description Hanlde Route by accepted request type
+    * @static
+    * @method router
+    * @memberof TypeHandler
+    */
+    static get router() {
+        const router = express.Router();
+
+
+        router.use(
+            express.json(),
+            express.urlencoded({ extended: true }),
+            xmlBodyparser(),
+            RequestValidator.jsonSchemaRoute,
+            ResourceLoader.statusCodeRoute,
+            ResourceLoader.resourceRoute,
+            this.encodeResponseBody
+        );
+        return router;
+    }
+
+    /**
+     * @description Encode body to accepted format if handled
+     * @static
+     * @method encodeResponseBody
+     * @param {Express.Request} req Request
+     * @param {Express.Response} res Response
+     * @param {Function} next Next route
+     * @memberof TypeHandler
+     */
+    static encodeResponseBody(req, res, next) {
+        const [type] = ResourceLoader.acceptedTypes(req);
+        if (req.resBody) {
+            req.resJsonBody = req.resBody;
+            switch(type) {
+                case 'xml':
+                    req.resBody = `&lt;?xml version="1.0" encoding="UTF-8" ?>${j2xParser.parse(req.resJsonBody)}`;
+                    res.set('Content-Type', 'application/xml');
+                    logger.debug(`response body: ${req.resBody}`);
+                    break;
+                case 'json':
+                    break;
+                default:
+                    res.set('Content-Type', 'text/plain');
+                    logger.debug('No special encode needed');
+                }
+            }
+            next();
+    }
+}
+
+module.exports.TypeHandler = TypeHandler;</code></pre>
+		</section>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="request-validator.class.js.html">request-validator.class.js</a>, <a href="request-validator.class.js.html#line-11">line 11</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-									</dl>
-							</article>
-					</section>
-			</div>
-				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
-				</div>
 		</div>
 	</div>
 	<footer>
@@ -224,3 +165,4 @@
 	
 </body>
 </html>
+<!-- end:source.tmpl.hbs -->

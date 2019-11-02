@@ -71,7 +71,14 @@
 			<div class="col-md-12 main-content">
 		<section class="source-section">
 			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">const fs = require('fs');
+const path = require('path');
+const logger = require('@marketto/js-logger').global();
+const memoryCache = require('memory-cache');
+const fastXmlParser = require('fast-xml-parser');
+const { PathRetriever } = require('./path-retriever.class');
+
+/**
  * @description Resource loader utility
  * @class ResourceLoader
  */
@@ -80,16 +87,12 @@ class ResourceLoader {
      * @description Hanlde Route Http Status Code
      * @static
      * @method statusCodeRoute
-     * @param {Express.req} req Request
-     * @param {Express.res} res Response
-     * @param {Express.next} next Next route
+     * @param {Express.Request} req Request
+     * @param {Express.Response} res Response
+     * @param {Function} next Next route
      * @memberof ResourceLoader
      */
     static statusCodeRoute(req, res, next) {
-        const logger = require('@marketto/js-logger').global();
-        const fs = require('fs');
-        const memoryCache = require('memory-cache');
-        const { PathRetriever } = require('./path-retriever.class');
 
         const cacheKey = JSON.stringify([req.servicePath, req.method, 'code']);
         const cachedStatus = memoryCache.get(cacheKey);
@@ -135,21 +138,73 @@ class ResourceLoader {
     }
 
     /**
-     * @description Hanlde Route Http response Json body and request json-schema validation
+     * @property TYPES
      * @static
-     * @method statusCodeRoute
-     * @param {Express.req} req Request
-     * @param {Express.res} res Response
-     * @param {Express.next} next Next route
+     * @returns {Array&lt;string>}
      * @memberof ResourceLoader
      */
-    static jsonRoute(req, res, next){
-        const logger = require('@marketto/js-logger').global();
-        const fs = require('fs');
-        const memoryCache = require('memory-cache');
-        const { PathRetriever } = require('./path-retriever.class');
+    static get TYPES() {
+        return ['json', 'xml'];
+    }
 
-        const cacheKey = JSON.stringify([req.servicePath, req.method])
+    /**
+     * @description Determinates mock types to seek based on accept request header
+     * @static
+     * @method acceptedTypes
+     * @param {Express.Request} req Request
+     * @returns {Array&lt;string>}
+     * @memberof ResourceLoader
+     */
+    static acceptedTypes(req) {
+        logger.debug(`Req accept JSON: ${req.accepts('json')}`);
+        logger.debug(`Req accept XML: ${req.accepts('xml')}`);
+        return this.TYPES.sort((typeA, typeB) => !req.accepts(typeA) - !req.accepts(typeB));
+    }
+
+    /**
+     * @description Recognize content type and returns it parsed
+     * @static
+     * @param {string} content Raw content to parse
+     * @param {string} fileExtension fileExtension
+     * @returns {Object}
+     * @memberof ResourceLoader
+     */
+    static autoParse(content, fileExtension) {
+        const fileType = ((fileExtension.match(/[^.]+$/i) || [])[0] || '').toLowerCase();
+        const PARSE_CFG = {
+            xml: input => {
+                const valid = fastXmlParser.validate(input);
+                if (valid !== true) {
+                    throw new Error(valid.err.msg);
+                }
+                return fastXmlParser.parse(input);
+            },
+            json: input => {
+                return JSON.parse(input);
+            }
+        };
+
+        logger.debug(`Content type ${fileType}`);
+
+        const parser = PARSE_CFG[fileType];
+        if (!parser) {
+            throw new Error(`Can't parse ${fileType} files`);
+        }
+        return parser(content);
+    }
+
+    /**
+     * @description Hanlde Route Http response raw body (json/xml etc) and request json-schema validation
+     * @static
+     * @method statusCodeRoute
+     * @param {Express.Request} req Request
+     * @param {Express.Response} res Response
+     * @param {Function} next Next route
+     * @memberof ResourceLoader
+     */
+    static resourceRoute(req, res, next){
+        const acceptedTypes = ResourceLoader.acceptedTypes(req);
+        const cacheKey = JSON.stringify([req.servicePath, req.method, ...acceptedTypes]);
         const cachedData = memoryCache.get(cacheKey);
         const cacheLifetime = req.cacheLifetime || 300;
 
@@ -160,28 +215,29 @@ class ResourceLoader {
 
             next();
         } else {
+            logger.debug(`Accepted types: ${JSON.stringify(acceptedTypes)}`);
             const mockPath = PathRetriever.find({
                 target : req.servicePath,
-                ext : 'json',
+                ext : acceptedTypes,
                 prefix: req.method,
                 cwd: req.workingDir
             });
             if (mockPath){
-                logger.info(`JSON File found: ${mockPath}`);
+                logger.info(`File found: ${mockPath}`);
                 try{
-                    const jsonData = JSON.parse(fs.readFileSync(mockPath, {
+                    const jsonData = ResourceLoader.autoParse(fs.readFileSync(mockPath, {
                         encoding: 'utf-8'
-                    }));
+                    }), path.extname(mockPath));
                     memoryCache.put(cacheKey, jsonData, cacheLifetime);
                     logger.debug(`Served ${mockPath} for ${req.method} on ${req.url}`);
                     req.resBody = jsonData;
 
                     next();
                 } catch (err) {
-                    next(new Error(`Unable to read or parse JSON file @${mockPath} ${err}`));
+                    next(new Error(`Unable to read or parse file @${mockPath} ${err}`));
                 }
             } else {
-                logger.info(`JSON File not found for ${req.servicePath}`);
+                logger.info(`File not found for ${req.servicePath}`);
                 next();
             }
         }
@@ -196,7 +252,7 @@ exports.ResourceLoader = ResourceLoader;
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 25th Jan 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 2nd Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -71,7 +71,10 @@
 			<div class="col-md-12 main-content">
 		<section class="source-section">
 			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">const fs = require('fs');
+const path = require('path');
+
+/**
  * @class PathRetriever
  */
 class PathRetriever {
@@ -82,25 +85,27 @@ class PathRetriever {
      * @static
      * @param {Object} settings Path Seek Settings Object
      * @param {string} [settings.target=''] Target resource path
-     * @param {string} [settings.ext='json'] Mosck target extension to find
+     * @param {string|Array&lt;string>} [settings.ext='json'] Mock target extension to find
      * @param {string} prefix Mock prefix: {PATH}.{PREFIX}.{EXT}
-     * @param {string} cwd Current Working Directory: Path to seek for resources
+     * @param {string} [cwd=process.cwd()] Current Working Directory: Path to seek for resources
      * @returns {string} Existing resource path
      * @memberof PathRetriever
      */
-    static find({ target = '', ext = 'json', prefix, cwd }){
-        const fs = require('fs');
-        const path = require('path');
+    static find({ target = '', ext = 'json', prefix, cwd = process.cwd() }){
         const possiblePaths = this.seekPathList({target, ext, prefix});
-        const firstAvailablePath = possiblePaths.find( pathToCheck => {
-                return fs.existsSync(path.join(cwd, pathToCheck));
-            });
-        return firstAvailablePath &amp;&amp; path.join(cwd, firstAvailablePath);
+        for (const relativeTargetPath of possiblePaths) {
+            const targetPath = path.join(cwd, relativeTargetPath);
+            if (fs.existsSync(targetPath)) {
+                return targetPath;
+            }
+        }
+        return null;
     }
 
     /**
      * @static
      * @property DEFAULT_RESOURCE
+     * @returns {string}
      * @memberof PathRetriever
      */
     static get DEFAULT_RESOURCE() {
@@ -108,65 +113,84 @@ class PathRetriever {
     }
 
     /**
+     * Uri path resource matcher
+     *
+     * @static
+     * @property PATH_RESOURCE_MATCHER
+     * @returns {RegExp}
+     * @memberof PathRetriever
+     */
+    static get PATH_RESOURCE_MATCHER() {
+        return /([^/]+)/g;
+    }
+
+    /**
+     * Returns a list of all possible paths, for the given resource, sorted by priority
+     *
+     * @static
+     * @param {Array&lt;string>} relativePath Target resource path array
+     * @returns {Array&lt;Array&lt;string>>} List of possible paths
+     * @memberof PathRetriever
+     */
+    static *partialSearch(pathArray) {
+        if (!Array.isArray(pathArray)) {
+            throw new Error(`pathArray should be an Array, ${pathArray} provided`);
+        }
+        if (pathArray.length > 1) {
+            const subPathArray = pathArray.slice(0, -1);
+            const subSearchResults = this.partialSearch(subPathArray);
+            const cachedSubSearchResults = [];
+            const targetResource = pathArray.slice(-1);
+
+            //Yielding subSearchResults with target resource ending restored
+            for (const subPath of subSearchResults) {
+                yield [...subPath, targetResource];
+                cachedSubSearchResults.push(subPath);
+            }
+
+            //Yielding cached subSearchResults with default resource ending replaced
+            for (const subPath of cachedSubSearchResults) {
+                yield [...subPath, this.DEFAULT_RESOURCE];
+            }
+        } else {
+            //Yielding pathArray
+            yield pathArray;
+            //Yielding pathArray with default resource ending replaced
+            yield [this.DEFAULT_RESOURCE];
+        }
+    }
+
+    /**
      * Returns a list of all possible paths, for the given resource settings, sorted by priority
      *
      * @static
      * @param {Object} settings Path Seek Settings Object
-     * @param {string} [settings.target=''] Target resource path
-     * @param {string} [settings.ext='json'] Mosck target extension to find
+     * @param {string} settings.target Target resource path
+     * @param {string|Array&lt;string>} [settings.ext='json'] Mock target extension to find
      * @param {string} prefix Mock prefix: {PATH}.{PREFIX}.{EXT}
      * @returns {Array&lt;string>} List of possible paths
      * @memberof PathRetriever
      */
-    static seekPathList({ target = '', ext = 'json', prefix }) {
-        const logger = require('@marketto/js-logger').global();
-        const path = require('path');
+    static *seekPathList({ target, ext = 'json', prefix }) {
+        if (!target) {
+            throw new Error('target path is mandatory');
+        }
 
-        target = (target.match(/^(.+[^/])\/?$/) || [])[1] || '';
-        const partialSearch = pathArray => {
-            const subPathArray = pathArray.slice(0, pathArray.length - 1);
-            const alternativePathArray = (subPathArray).concat(this.DEFAULT_RESOURCE);
+        const extList = [].concat(ext);
+        const pathArray = target.match(this.PATH_RESOURCE_MATCHER);
+        const partialResults = this.partialSearch(pathArray);
 
-            if (pathArray.length > 1) {
-                const subSearchResults = partialSearch(subPathArray);
-
-                let resultList = [pathArray];
-
-                subSearchResults
-                    .map(pp => pp.concat(pathArray[pathArray.length - 1]))
-                    .forEach(pp=>{
-                        resultList.push(pp);
-                    });
-
-                resultList.push(alternativePathArray);
-
-                subSearchResults
-                    .map(pp => pp.concat(this.DEFAULT_RESOURCE))
-                    .forEach(pp => {
-                        resultList.push(pp);
-                    });
-
-                return resultList;
-            } else {
-                return [
-                    pathArray,
-                    alternativePathArray
-                ];
+        for (const pathLikelihood of partialResults) {
+            const pathLikelihoodStr =  pathLikelihood.join('/');
+            if (prefix) {
+                for (const currentExt of extList) {
+                    yield `${pathLikelihoodStr}.${prefix}.${currentExt}`;
+                }
+            }
+            for (const currentExt of extList) {
+                yield `${pathLikelihoodStr}.${currentExt}`;
             }
         }
-
-        const pathArray = target.split(/\/|\\/)
-            .filter(e => !!e);
-        const partialResults = partialSearch(pathArray);
-        const fullResults = Array(partialResults.length * 2);
-        for (let i = 0; i &lt; partialResults.length; i++) {
-            const partialPathStr =  path.join(...partialResults[i]);
-            const f = i * 2;
-            fullResults[f] = `${partialPathStr}.${prefix}.${ext}`;
-            fullResults[f + 1] = `${partialPathStr}.${ext}`;
-        }
-        logger.debug(`Path FullSearch: ${JSON.stringify(fullResults, null, 4)}`);
-        return fullResults;
     }
 }
 
@@ -178,7 +202,7 @@ exports.PathRetriever = PathRetriever;
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 25th Jan 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 2nd Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

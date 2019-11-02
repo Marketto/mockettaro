@@ -1,6 +1,6 @@
 {
   "name": "mockettaro",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {
@@ -29,10 +29,10 @@
   "homepage": "https://marketto.github.io/mockettaro",
   "dependencies": {
     "@marketto/js-logger": "^1.0.0",
-    "body-parser": "^1.18.2",
     "commander": "^2.15.1",
     "express": "^4.16.3",
-    "fs": "0.0.1-security",
+    "express-xml-bodyparser": "^0.3.0",
+    "fast-xml-parser": "^3.14.0",
     "jsonschema": "^1.2.2",
     "memory-cache": "^0.2.0",
     "path": "^0.12.7"
@@ -43,8 +43,8 @@
     "chai-things": "^0.2.0",
     "coveralls": "^3.0.1",
     "foodoc": "0.0.9",
-    "jsdoc": "^3.5.5",
+    "jsdoc": "^3.6.3",
     "mocha": "^5.1.1",
-    "nyc": "^11.7.3"
+    "nyc": "^14.1.1"
   }
 }

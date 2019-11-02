@@ -14,21 +14,37 @@
 [![Blog](https://img.shields.io/badge/blog-marketto-blue.svg)](http://blog.marketto.it)
 [![Buy me a coffee](https://img.shields.io/badge/Ko--fi-donate-blueviolet)](https://ko-fi.com/marketto)
 
-Instant Server for JSON Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code
+Instant Server for JSON and XML Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code and xml/json automatic conversion driven by Accept header
 
 ## Upgrade warning
 * No default root resource. Read documentation below on upgrade from 1.3.1
 * Major implementation changes. Read documentation below on upgrade from 1.2.2
 
+## Supported files for mocks
+* **.json** => *resource*
+* **.xml** => *resource*
+* **.code** => *plain text with custom response status code*
+* **.schema.json** => *request validator*
+
 ## Installation
 ### Global
-```{r, engine='bash', global_install}
-npm install mockettaro -g
+#### npm
+```{r, engine='bash', dev_install}
+npm i mockettaro -g
+```
+#### yarn
+```{r, engine='bash', dev_install}
+yarn global add mockettaro
 ```
 
 ### Project dependency
+#### npm
 ```{r, engine='bash', dev_install}
-npm install mockettaro --save-dev
+npm i mockettaro --save-dev
+```
+#### yarn
+```{r, engine='bash', dev_install}
+yarn add mockettaro --dev
 ```
 
 ## Getting Started
@@ -279,6 +295,11 @@ mockettaro -r services
 
 
 ## Changelog
+### 1.4.2
+- Improved performance implementing iterators
+- Implemented xml support for mocks
+- Implemented dynamic response conversion to json or xml depending on request Accept type (JSON default)
+- Improved unit tests to ensure they are independent from others
 ### 1.4.1
 - Sonar config to exclude docs from coverage
 ### 1.4.0
