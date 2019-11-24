@@ -209,9 +209,12 @@ describe('Mockettaro REST resources', ()=>{
                     shop.name.should.be.equals('Figaro');
                     shop.should.be.an('object').that.own.property('type');
                     shop.type.should.be.equals('Barber shop');
+                    done();
                 })
-                .catch(err => err.should.be.not.ok)
-                .finally(done);
+                .catch(err => {
+                    err.should.be.not.ok;
+                    done();
+                });
             });
         });
     });
