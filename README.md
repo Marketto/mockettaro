@@ -62,10 +62,15 @@ const logger = require("@marketto/js-logger").global();
 
 const app = express();
 app.use('/mocks', mockettaro({
-    //foldername to seek for folderTree / json files
-    directory : 'mocks',
+    //foldername to seek for folderTree / json or xml files
+    directory : 'mocks', //default: './'
     //Current working directory to use as a targed for the given directory
-    cwd: __dirname
+    cwd: __dirname, //default: process.cwd()
+    responseDelay: 1000, //default: 0
+    cacheLifetime: 1000, //default: 3000
+    verbose: false, //default
+    errors: true, //default
+    info: true //default
 }));
 
 const port = 3000;

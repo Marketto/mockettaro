@@ -4,5 +4,6 @@
     "previewjsdoc.autoOpenBrowser": true,
     "jslint.enable": false,
     "jshint.enable": false,
-    "previewjsdoc.confFile": "./jsdoc.json"
+    "previewjsdoc.confFile": "./jsdoc.json",
+    "tslint.enable": false
 }
