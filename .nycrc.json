@@ -1,0 +1,15 @@
+{
+    "include": [
+        "lib/**/*.js",
+        "bin/**/*.js"
+    ],
+    "exclude": [
+        "**/docs/**/*",
+        "**/examples/**/*"
+    ],
+    "reporter": [
+        "lcovonly",
+        "text",
+        "text-summary"
+    ]
+}

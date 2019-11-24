@@ -26,6 +26,10 @@ Instant Server for JSON and XML Mocks with support for REST structure, VERB spec
 * **.code** => *plain text with custom response status code*
 * **.schema.json** => *request validator*
 
+## Supported responses
+* **JSON** => *Default*
+* **XML** => *"Accept"*: ***"application/xml"***
+
 ## Installation
 ### Global
 #### npm
@@ -151,6 +155,7 @@ In your Mock folder (anywhere) create the following folder structure:
 /
 ├── customer
 │   ├── foo.GET.json
+│   ├── foo.GET.delay
 │   ├── default.PUT.schema.json
 │   ├── default.PUT.json
 │   ├── foo.DELETE.code
@@ -185,6 +190,12 @@ In your Mock folder (anywhere) create the following folder structure:
         "name"  : "Bar Foo"
     }
 }
+```
+
+#### customer/foo.GET.delay
+Delay in milliseconds for the matching resource
+```text
+500
 ```
 
 #### customer/default.GET.json
@@ -234,6 +245,7 @@ All PUT request to /customer/xxxx will be validated against it!
 ```
 
 #### customer/foo.DELETE.code
+Status code to return in response for the matching resource
 ```text
 204
 ```
@@ -288,8 +300,13 @@ All POST request to /customer , if passing validation, will have a response with
 ```
 
 #### Run mock server
+##### Global
 ```{r, engine='bash', run}
 mockettaro -r services
+```
+##### NPX
+```{r, engine='bash', run}
+npx mockettaro -r services
 ```
 
 #### URL to test
@@ -300,6 +317,14 @@ mockettaro -r services
 
 
 ## Changelog
+### 1.4.3
+- Fixed delay parameter bug
+- Fixed resource delay cache bug
+- Package json scripts now use npx
+- Tests and coverage use only nyc and mocha
+- Mocha and Nyc config/parameters moved to test/mocha.opts and .nycrc.json
+- jsdoc comments review
+- Increased test coverage over classes (error handling focused)
 ### 1.4.2
 - Improved performance implementing iterators
 - Implemented xml support for mocks

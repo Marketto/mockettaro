@@ -5,5 +5,6 @@
     "jslint.enable": false,
     "jshint.enable": false,
     "previewjsdoc.confFile": "./jsdoc.json",
-    "tslint.enable": false
+    "tslint.enable": false,
+    "coverage-gutters.lcovname": "coverage/lcov.info"
 }

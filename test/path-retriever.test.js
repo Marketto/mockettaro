@@ -1,5 +1,4 @@
-const chai = require('chai');
-chai.should();
+const { expect } = require('./test.utils');
 
 describe('PathRetriever', () => {
     const { PathRetriever } = require('../lib/path-retriever.class');
@@ -80,6 +79,16 @@ describe('PathRetriever', () => {
 
         it('Should find cities/Rome/default/shops xml path', () => {
             PathRetriever.find({target: 'examples/mocks/cities/Rome/eur/shops', ext: 'xml'}).should.be.ok;
+        });
+    });
+
+    describe('partialSearch', () => {
+        it('Should throw error passing param different from Array', () => {
+            expect(() => {
+                for(let x of PathRetriever.partialSearch(33)){
+                    x;
+                }
+            }).to.throw(Error, 'pathArray should be an Array, 33 provided');
         });
     });
 });

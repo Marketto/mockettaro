@@ -213,7 +213,7 @@
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Absolute path win/*nix</div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5>Properties</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -225,22 +225,15 @@
 					<tbody>
 						<tr>
 								<td><code>ABSOLUTE_PATH_MATCHER</code></td>
-							<td></td>
+							<td><span class="param-type">Regexp</span></td>
 							<td class="last">
+									Regular expression to match an absolute win/*nix path
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Regexp</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description">Regular expression to match an absolute win/*nix path</div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
 						<pre class="prettyprint source language-javascript"><code class="language-javascript">Mockettaro.ABSOLUTE_PATH_MATCHER</code></pre>
 					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -263,7 +256,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-66">line 66</a></p>
+									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-65">line 65</a></p>
 								</div>
 							</div>
 			
@@ -276,6 +269,149 @@
 									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".configRoute" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">configRoute</span><span class="signature-params">( <span class="signature-param">req</span>, <span class="signature-param">res</span>, <span class="signature-param">next</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Configuration Route</div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>req</code></td>
+							<td><span class="param-type">Express.Request</span></td>
+							<td class="last">
+									Request / previous route params
+							</td>
+						</tr>
+						<tr>
+								<td><code>res</code></td>
+							<td><span class="param-type">Express.Response</span></td>
+							<td class="last">
+									Response instance
+							</td>
+						</tr>
+						<tr>
+								<td><code>next</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									Callback to be called to step forward in route chain
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">const express &#x3D; require(&#x27;express&#x27;);&lt;br&gt;const app &#x3D; express();&lt;br&gt;...&lt;br&gt;app.use(Mockettaro.configRoute);</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-69">line 69</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".returnResponse" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">returnResponse</span><span class="signature-params">( <span class="signature-param">req</span>, <span class="signature-param">res</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Configuration Route</div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>req</code></td>
+							<td><span class="param-type">Express.Request</span></td>
+							<td class="last">
+									Request / previous route params
+							</td>
+						</tr>
+						<tr>
+								<td><code>res</code></td>
+							<td><span class="param-type">Express.Response</span></td>
+							<td class="last">
+									Response instance
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">const express &#x3D; require(&#x27;express&#x27;);&lt;br&gt;const app &#x3D; express();&lt;br&gt;...&lt;br&gt;app.use(Mockettaro.returnResponse);</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-86">line 86</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".errorHandler" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">errorHandler</span><span class="signature-params">( <span class="signature-param">err</span> [,&nbsp;<span class="signature-param">req</span>&nbsp;], <span class="signature-param">res</span> [,&nbsp;<span class="signature-param">next</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
@@ -353,150 +489,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-120">line 120</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".returnResponse" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">returnResponse</span><span class="signature-params">( <span class="signature-param">req</span>, <span class="signature-param">res</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Configuration Route</div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>req</code></td>
-							<td><span class="param-type">Express.Request</span></td>
-							<td class="last">
-									Request / previous route params
-							</td>
-						</tr>
-						<tr>
-								<td><code>res</code></td>
-							<td><span class="param-type">Express.Response</span></td>
-							<td class="last">
-									Response instance
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">const express &#x3D; require(&#x27;express&#x27;);&lt;br&gt;const app &#x3D; express();&lt;br&gt;...&lt;br&gt;app.use(Mockettaro.returnResponse);</code></pre>
-					</div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-89">line 89</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".configRoute" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">configRoute</span><span class="signature-params">( <span class="signature-param">req</span>, <span class="signature-param">res</span>, <span class="signature-param">next</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Configuration Route</div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>req</code></td>
-							<td><span class="param-type">Express.Request</span></td>
-							<td class="last">
-									Request / previous route params
-							</td>
-						</tr>
-						<tr>
-								<td><code>res</code></td>
-							<td><span class="param-type">Express.Response</span></td>
-							<td class="last">
-									Response instance
-							</td>
-						</tr>
-						<tr>
-								<td><code>next</code></td>
-							<td><span class="param-type">function</span></td>
-							<td class="last">
-									Callback to be called to step forward in route chain
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">const express &#x3D; require(&#x27;express&#x27;);&lt;br&gt;const app &#x3D; express();&lt;br&gt;...&lt;br&gt;app.use(Mockettaro.configRoute);</code></pre>
-					</div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-70">line 70</a></p>
+									<p class="form-control-static"><a href="mockettaro.class.js.html">mockettaro.class.js</a>, <a href="mockettaro.class.js.html#line-115">line 115</a></p>
 								</div>
 							</div>
 			
@@ -517,7 +510,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 2nd Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 25th Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

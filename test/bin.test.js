@@ -1,10 +1,4 @@
-const chai = require('chai');
-const logger = require("@marketto/js-logger").global();
-
-chai.use(require('chai-things'));
-chai.should();
-
-logger.config = { error: true, info: false, debug: false, warn: false };
+const { expect } = require('./test.utils');
 
 describe('Commandline', () => {
     const { exec } = require('child_process');
@@ -12,15 +6,16 @@ describe('Commandline', () => {
 
     it('Should return package version', done => {
         exec(`node ${pkgjson.bin.mockettaro} -v`, (err, stdout, stderr) => {
-            (!err).should.be.true;
-            (!stderr).should.be.true;
+            expect(err).to.be.null;
+            stderr.should.be.equal('');
             stdout.should.match(new RegExp(`\\s*${pkgjson.version}\\s*`));
-            if (err) {
-                logger.error(err);
-            }
-            if (stderr) {
-                logger.error(err);
-            }
+            done();
+        });
+    }).timeout(2500);
+
+    it('Should return error', done => {
+        exec(`node ${pkgjson.bin.mockettaro} -s --verbose`, err => {
+            expect(err).to.be.an('Error');
             done();
         });
     }).timeout(2500);
