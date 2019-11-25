@@ -19,9 +19,12 @@
     "mock",
     "server",
     "rest",
-    "json"
+    "json",
+    "xml",
+    "es6",
+    "cache"
   ],
-  "author": "Marco Ricupero",
+  "author": "Marco Ricupero <marco.ricupero@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Marketto/mockettaro/issues"
