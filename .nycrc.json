@@ -8,7 +8,6 @@
         "**/examples/**/*"
     ],
     "reporter": [
-        "lcovonly",
         "text",
         "text-summary"
     ]

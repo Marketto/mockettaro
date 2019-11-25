@@ -4,8 +4,8 @@
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha",
-    "coverage": "npx nyc npm run test",
+    "test": "npx nyc npx mocha",
+    "coverage": "mkdir coverage \n npm run test && npx nyc report --reporter=text-lcov | npx relcov > coverage/lcov.info",
     "docs": "npx jsdoc . -c jsdoc.json"
   },
   "bin": {
@@ -46,6 +46,7 @@
     "mocha": "^5.1.1",
     "moment": "^2.24.0",
     "nyc": "^14.1.1",
+    "relcov": "^1.0.6",
     "request": "^2.88.0"
   }
 }
