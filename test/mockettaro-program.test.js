@@ -32,7 +32,7 @@ describe('MockettaroProgram', () => {
                     '-d', '75000000',
                     '-t', '990000007'
                 );
-                program.port.should.be.equal(MockettaroProgram.DEFAULT_PORT);
+                program.port.should.be.equal(MockettaroProgram.MIN_PORT);
                 program.responseDelay.should.be.equal(MockettaroProgram.MAX_DELAY);
                 program.cacheLifetime.should.be.equal(MockettaroProgram.MAX_CACHE_LIFETIME);
             });

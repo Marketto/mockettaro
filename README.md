@@ -317,6 +317,9 @@ npx mockettaro -r services
 
 
 ## Changelog
+### 1.4.4
+- Fixed min port number: 80
+- Increased test coverage over classes (error handling focused)
 ### 1.4.3
 - Fixed delay parameter bug
 - Fixed resource delay cache bug
