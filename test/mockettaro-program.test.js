@@ -28,7 +28,7 @@ describe('MockettaroProgram', () => {
 
             it('Should not parse port, delay, cacheLifetime and set MINs / MAXs', () => {
                 const program = mockettaroProgramCmdParser(
-                    '-p', '345',
+                    '-p', `${MockettaroProgram.MIN_PORT - 1}`,
                     '-d', '75000000',
                     '-t', '990000007'
                 );
@@ -36,6 +36,14 @@ describe('MockettaroProgram', () => {
                 program.responseDelay.should.be.equal(MockettaroProgram.MAX_DELAY);
                 program.cacheLifetime.should.be.equal(MockettaroProgram.MAX_CACHE_LIFETIME);
             });
+
+            it('Should parse port 80', () => {
+                const program = mockettaroProgramCmdParser(
+                    '-p', '80'
+                );
+                program.port.should.be.equal(80);
+            });
+
             it('Should parse port, delay, cacheLifetime, resource and folder', () => {
                 const program = mockettaroProgramCmdParser(
                     '-p', '7894',
