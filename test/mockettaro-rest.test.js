@@ -30,7 +30,7 @@ describe('Mockettaro REST resources', ()=>{
                 res.status.should.be.equal(204);
                 res.body.should.be.an('object').that.is.empty;
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -44,7 +44,7 @@ describe('Mockettaro REST resources', ()=>{
                     res.body.should.be.an('object').that.is.empty;
                     res.header.should.not.own.property('cached-response');
                     res.header.should.include({
-                        'cached-status': 'ResourceLoader'
+                        'cached-config': 'ResourceLoader'
                     });
                     done();
                 });
@@ -60,7 +60,7 @@ describe('Mockettaro REST resources', ()=>{
                 res.status.should.be.equal(202);
                 res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -73,7 +73,7 @@ describe('Mockettaro REST resources', ()=>{
                     res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
                     res.header.should.include({
                         'cached-response': 'ResourceLoader',
-                        'cached-status': 'ResourceLoader'
+                        'cached-config': 'ResourceLoader'
                     });
                     done();
                 });
@@ -91,7 +91,7 @@ describe('Mockettaro REST resources', ()=>{
                     "name": "Toulouse"
                 });
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -108,7 +108,7 @@ describe('Mockettaro REST resources', ()=>{
                     res.header.should.include({
                                 'cached-response': 'ResourceLoader'
                             });
-                    res.header.should.not.own.property('cached-status');
+                    res.header.should.not.own.property('cached-config');
                     done();
                 });
             });
@@ -126,7 +126,7 @@ describe('Mockettaro REST resources', ()=>{
                 res.status.should.be.equal(201);
                 res.body.should.be.an('object').that.have.property('status').that.is.equal("OK");
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -136,7 +136,7 @@ describe('Mockettaro REST resources', ()=>{
             .end((req, res) => {
                 res.status.should.be.equal(400);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -154,7 +154,7 @@ describe('Mockettaro REST resources', ()=>{
                         "type" : "barber shop"
                     });
                     res.header.should.not.own.property('cached-response');
-                    res.header.should.not.own.property('cached-status');
+                    res.header.should.not.own.property('cached-config');
                     done();
                 });
             });
@@ -172,7 +172,7 @@ describe('Mockettaro REST resources', ()=>{
                             "type" : "barber shop"
                         });
                         res.header.should.own.property('cached-response');
-                        res.header.should.not.own.property('cached-status');
+                        res.header.should.not.own.property('cached-config');
                         done();
                     });
                 });
@@ -201,7 +201,7 @@ describe('Mockettaro REST resources', ()=>{
                     statusCode.should.be.equal(200);
                     headers['content-type'].split('; ').should.contain('application/xml');
                     headers.should.not.own.property('cached-response');
-                    headers.should.not.own.property('cached-status');
+                    headers.should.not.own.property('cached-config');
 
                     body.should.be.an('object').that.own.property('shop');
                     const { shop } = body;
@@ -231,7 +231,7 @@ describe('Mockettaro REST resources', ()=>{
                     "type" : "park"
                 });
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 moment.duration(moment().diff(timer)).asSeconds().should.be.gte(2);
                 done();
             });
@@ -249,8 +249,54 @@ describe('Mockettaro REST resources', ()=>{
                         "type" : "park"
                     });
                     res.header.should.not.own.property('cached-response');
-                    res.header.should.not.own.property('cached-status');
+                    res.header.should.not.own.property('cached-config');
                     moment.duration(moment().diff(timer)).asSeconds().should.be.gte(4);
+                    done();
+                });
+            });
+        }).timeout(5000);
+    });
+
+    describe('Custom Headers', () => {
+        it('Should return defined headers', done => {
+            chai.request(server).get('/test/cities/NewYork/places')
+            .set('Accept', 'application/json')
+            .end((req, res) => {
+                res.status.should.be.equal(200);
+                res.body.should.be.an('array').that.include.something.that.deep.equals({
+                    "name" : "Central park",
+                    "type" : "park"
+                });
+
+                //Custom headers
+                res.header.should.own.property('state').that.is.equal("NY");
+                res.header.should.own.property('location').that.is.equal("http://example.com");
+
+                // Cache test
+                res.header.should.not.own.property('cached-response');
+                res.header.should.not.own.property('cached-config');
+                done();
+            });
+        }).timeout(2500);
+
+        it('Should return defined headers from cache', done => {
+            chai.request(server).get('/test/cities/NewYork/places').then(() => {
+                chai.request(server).get('/test/cities/NewYork/places')
+                .set('Accept', 'application/json')
+                .end((req, res) => {
+                    res.status.should.be.equal(200);
+                    res.body.should.be.an('array').that.include.something.that.deep.equals({
+                        "name" : "Central park",
+                        "type" : "park"
+                    });
+
+                    //Custom headers
+                    res.header.should.own.property('state').that.is.equal("NY");
+                    res.header.should.own.property('location').that.is.equal("http://example.com");
+    
+                    //Cache test
+                    res.header.should.own.property('cached-response');
+                    res.header.should.own.property('cached-config');
                     done();
                 });
             });
