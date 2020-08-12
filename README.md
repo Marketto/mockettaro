@@ -14,21 +14,27 @@
 [![Blog](https://img.shields.io/badge/blog-marketto-blue.svg)](http://blog.marketto.it)
 [![Buy me a coffee](https://img.shields.io/badge/Ko--fi-donate-blueviolet)](https://ko-fi.com/marketto)
 
-Instant Server for JSON and XML Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .code files to specify response HTTP status code and xml/json automatic conversion driven by Accept header
+Instant Server for JSON and XML Mocks with support for REST structure, VERB specific or generic file mapping, schema for request validation and .config.yml files to specify response delay, HTTP status code and headers; supporting xml/json automatic conversion driven by Accept header
 
 ## Upgrade warning
+* Config files .code and .delay are no longer supported by 2.0.0, please use .config.yml files
 * No default root resource. Read documentation below on upgrade from 1.3.1
 * Major implementation changes. Read documentation below on upgrade from 1.2.2
 
 ## Supported files for mocks
 * **.json** => *resource*
 * **.xml** => *resource*
-* **.code** => *plain text with custom response status code*
+* **.config.yml** => *yaml config for custom status, delay and headers*
 * **.schema.json** => *request validator*
 
 ## Supported responses
 * **JSON** => *Default*
 * **XML** => *"Accept"*: ***"application/xml"***
+
+## Supported config (.config.yml)
+* **status** *numeric*
+* **delay** *numeric*
+* **headers** *List of Key/Value*
 
 ## Installation
 ### Global
@@ -158,11 +164,11 @@ In your Mock folder (anywhere) create the following folder structure:
 │   ├── foo.GET.delay
 │   ├── default.PUT.schema.json
 │   ├── default.PUT.json
-│   ├── foo.DELETE.code
+│   ├── foo.DELETE.config.yml
 │   └── default.GET.json
 ├── customer.POST.schema.json
 ├── customer.POST.json
-├── customer.POST.code
+├── customer.POST.config.yml
 └── customer.GET.json
 ```
 
@@ -244,10 +250,13 @@ All PUT request to /customer/xxxx will be validated against it!
 }
 ```
 
-#### customer/foo.DELETE.code
-Status code to return in response for the matching resource
-```text
-204
+#### customer/foo.DELETE.config.yml
+Config to return custom code and/or delay and/or headers in response for the matching resource
+```yaml
+status: 204
+#delay: 0
+headers:
+    test-header: Mockettaro
 ```
 
 #### customer.POST.schema.json
@@ -285,10 +294,13 @@ All POST request to /customer will be validated against it!
 }
 ```
 
-#### customer.POST.code
+#### customer.POST.config.yml
 All POST request to /customer , if passing validation, will have a response with the provided HTTP status code
-```text
-201
+```yaml
+status: 201 # Response status code
+#delay: 0 # Response delay in ms
+#headers: # list of headers
+#   test-header: Mockettaro # custom header
 ```
 
 #### customer.POST.json
@@ -317,6 +329,13 @@ npx mockettaro -r services
 
 
 ## Changelog
+### 2.0.0
+- Introduced config.yml files for custom settings
+- Added support for custom HTTP status code in config.yml files
+- Added support for custom responde delay in config.yml files
+- Added support for custom headers in config.yml files
+- Removed support for .code files
+- Removed support for .delay files
 ### 1.4.4
 - Fixed min port number: 80
 - Increased test coverage over classes (error handling focused)
