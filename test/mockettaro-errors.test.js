@@ -32,7 +32,7 @@ describe('Mockettaro Error handling', () => {
             .end((req, res) => {
                 res.status.should.be.equal(404);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -45,7 +45,7 @@ describe('Mockettaro Error handling', () => {
             .end((req, res) => {
                 res.status.should.be.equal(500);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
@@ -58,33 +58,51 @@ describe('Mockettaro Error handling', () => {
             .end((req, res) => {
                 res.status.should.be.equal(500);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
     });
 
-    describe('Code file read', () => {
-        it('Should return status 500 on GET', done => {
+    describe('Typo in config file', () => {
+        it('Code: Should return status 500 on GET', done => {
             chai.request(server).get('/test/errors/invalidCode')
             .set('Accept', 'application/json')
             .end((req, res) => {
                 res.status.should.be.equal(500);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
                 done();
             });
         });
-    });
 
-    describe('Delay file read', () => {
-        it('Should return status 500 on GET', done => {
+        it('Delay: Should return status 500 on GET', done => {
             chai.request(server).get('/test/errors/invalidDelay')
             .set('Accept', 'application/json')
             .end((req, res) => {
                 res.status.should.be.equal(500);
                 res.header.should.not.own.property('cached-response');
-                res.header.should.not.own.property('cached-status');
+                res.header.should.not.own.property('cached-config');
+                done();
+            });
+        });
+    });
+
+    describe('Error in config file', () => {
+        it('Should return status 500 on Malformed Yaml', done => {
+            chai.request(server).get('/test/errors/invalidConfig')
+            .set('Accept', 'application/json')
+            .end((req, res) => {
+                res.status.should.be.equal(500);
+                done();
+            });
+        });
+
+        it('Should return status 500 primitive value Yaml', done => {
+            chai.request(server).get('/test/errors/syntaxError')
+            .set('Accept', 'application/json')
+            .end((req, res) => {
+                res.status.should.be.equal(500);
                 done();
             });
         });

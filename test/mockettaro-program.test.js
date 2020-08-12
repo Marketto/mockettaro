@@ -135,7 +135,7 @@ describe('MockettaroProgram', () => {
                     .end((req, res) => {
                         res.status.should.be.equal(500);
                         res.header.should.not.own.property('cached-response');
-                        res.header.should.not.own.property('cached-status');
+                        res.header.should.not.own.property('cached-config');
                         done();
                     });
             });

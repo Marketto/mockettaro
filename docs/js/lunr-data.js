@@ -58,154 +58,6 @@ window.lunrData = {
           "list",
           "list:class"
         ],
-        "MockettaroProgram.html": [
-          "class",
-          "mockettaroprogram"
-        ],
-        "MockettaroProgram.html#.RESOURCE_MATCHER": [
-          "lt;static",
-          "member",
-          "mockettaroprogram.resource_match",
-          "readonly&gt",
-          "resource_match"
-        ],
-        "MockettaroProgram.html#.DEFAULT_PORT": [
-          "default_port",
-          "lt;static",
-          "member",
-          "mockettaroprogram.default_port",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.DEFAULT_RESOURCE": [
-          "default_resourc",
-          "lt;static",
-          "member",
-          "mockettaroprogram.default_resourc",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.DEFAULT_FOLDER": [
-          "default_fold",
-          "lt;static",
-          "member",
-          "mockettaroprogram.default_fold",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.DEFAULT_DELAY": [
-          "default_delay",
-          "lt;static",
-          "member",
-          "mockettaroprogram.default_delay",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME": [
-          "default_cache_lifetim",
-          "lt;static",
-          "member",
-          "mockettaroprogram.default_cache_lifetim",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.MIN_PORT": [
-          "lt;static",
-          "member",
-          "min_port",
-          "mockettaroprogram.min_port",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.MAX_PORT": [
-          "lt;static",
-          "max_port",
-          "member",
-          "mockettaroprogram.max_port",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.MAX_DELAY": [
-          "lt;static",
-          "max_delay",
-          "member",
-          "mockettaroprogram.max_delay",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.MAX_CACHE_LIFETIME": [
-          "lt;static",
-          "max_cache_lifetim",
-          "member",
-          "mockettaroprogram.max_cache_lifetim",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.FOLDER_MATCHER": [
-          "folder_match",
-          "lt;static",
-          "member",
-          "mockettaroprogram.folder_match",
-          "readonly&gt"
-        ],
-        "MockettaroProgram.html#.numericArgParser": [
-          "function",
-          "lt;static&gt",
-          "matcher",
-          "max",
-          "min",
-          "mockettaroprogram.numericargpars",
-          "numericargpars"
-        ],
-        "MockettaroProgram.html#.cmdParser": [
-          "argv",
-          "cmdparser",
-          "command",
-          "function",
-          "lt;static&gt",
-          "mockettaroprogram.cmdpars"
-        ],
-        "Mockettaro.html": [
-          "class",
-          "creat",
-          "instanc",
-          "mockettaro"
-        ],
-        "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": [
-          "absolut",
-          "absolute_path_match",
-          "lt;static",
-          "member",
-          "mockettaro.absolute_path_match",
-          "path",
-          "readonly&gt",
-          "win/*nix"
-        ],
-        "Mockettaro.html#.configRoute": [
-          "configrout",
-          "configur",
-          "function",
-          "lt;static&gt",
-          "mockettaro.configrout",
-          "next",
-          "re",
-          "req",
-          "rout"
-        ],
-        "Mockettaro.html#.returnResponse": [
-          "configur",
-          "function",
-          "lt;static&gt",
-          "mockettaro.returnrespons",
-          "re",
-          "req",
-          "returnrespons",
-          "rout"
-        ],
-        "Mockettaro.html#.errorHandler": [
-          "err",
-          "error",
-          "errorhandl",
-          "function",
-          "handler",
-          "lt;static&gt",
-          "mockettaro.errorhandl",
-          "next",
-          "re",
-          "req",
-          "rout"
-        ],
         "PathRetriever.html": [
           "class",
           "pathretriev"
@@ -327,20 +179,6 @@ window.lunrData = {
           "statuscoderout",
           "valid"
         ],
-        "ResourceLoader.html#.delayRoute": [
-          "delay",
-          "delayrout",
-          "function",
-          "hanld",
-          "http",
-          "lt;static&gt",
-          "next",
-          "re",
-          "req",
-          "resourceloader.delayrout",
-          "rout",
-          "valu"
-        ],
         "ResourceLoader.html#.acceptedTypes": [
           "accept",
           "acceptedtyp",
@@ -369,9 +207,157 @@ window.lunrData = {
           "resourceloader.autopars",
           "return",
           "type"
+        ],
+        "Mockettaro.html": [
+          "class",
+          "creat",
+          "instanc",
+          "mockettaro"
+        ],
+        "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": [
+          "absolut",
+          "absolute_path_match",
+          "lt;static",
+          "member",
+          "mockettaro.absolute_path_match",
+          "path",
+          "readonly&gt",
+          "win/*nix"
+        ],
+        "Mockettaro.html#.resourceConfigRoute": [
+          "configur",
+          "function",
+          "lt;static&gt",
+          "mockettaro.resourceconfigrout",
+          "next",
+          "re",
+          "req",
+          "resourceconfigrout",
+          "rout"
+        ],
+        "Mockettaro.html#.returnResponse": [
+          "configur",
+          "function",
+          "lt;static&gt",
+          "mockettaro.returnrespons",
+          "re",
+          "req",
+          "returnrespons",
+          "rout"
+        ],
+        "Mockettaro.html#.errorHandler": [
+          "err",
+          "error",
+          "errorhandl",
+          "function",
+          "handler",
+          "lt;static&gt",
+          "mockettaro.errorhandl",
+          "next",
+          "re",
+          "req",
+          "rout"
+        ],
+        "MockettaroProgram.html": [
+          "class",
+          "mockettaroprogram"
+        ],
+        "MockettaroProgram.html#.RESOURCE_MATCHER": [
+          "lt;static",
+          "member",
+          "mockettaroprogram.resource_match",
+          "readonly&gt",
+          "resource_match"
+        ],
+        "MockettaroProgram.html#.FOLDER_MATCHER": [
+          "folder_match",
+          "lt;static",
+          "member",
+          "mockettaroprogram.folder_match",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.DEFAULT_PORT": [
+          "default_port",
+          "lt;static",
+          "member",
+          "mockettaroprogram.default_port",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.DEFAULT_RESOURCE": [
+          "default_resourc",
+          "lt;static",
+          "member",
+          "mockettaroprogram.default_resourc",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.DEFAULT_FOLDER": [
+          "default_fold",
+          "lt;static",
+          "member",
+          "mockettaroprogram.default_fold",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.DEFAULT_DELAY": [
+          "default_delay",
+          "lt;static",
+          "member",
+          "mockettaroprogram.default_delay",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME": [
+          "default_cache_lifetim",
+          "lt;static",
+          "member",
+          "mockettaroprogram.default_cache_lifetim",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.MIN_PORT": [
+          "lt;static",
+          "member",
+          "min_port",
+          "mockettaroprogram.min_port",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.MAX_PORT": [
+          "lt;static",
+          "max_port",
+          "member",
+          "mockettaroprogram.max_port",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.MAX_DELAY": [
+          "lt;static",
+          "max_delay",
+          "member",
+          "mockettaroprogram.max_delay",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.MAX_CACHE_LIFETIME": [
+          "lt;static",
+          "max_cache_lifetim",
+          "member",
+          "mockettaroprogram.max_cache_lifetim",
+          "readonly&gt"
+        ],
+        "MockettaroProgram.html#.numericArgParser": [
+          "function",
+          "lt;static&gt",
+          "matcher",
+          "max",
+          "min",
+          "mockettaroprogram.numericargpars",
+          "numericargpars"
+        ],
+        "MockettaroProgram.html#.cmdParser": [
+          "argv",
+          "cmdparser",
+          "command",
+          "function",
+          "lt;static&gt",
+          "mockettaroprogram.cmdpars"
         ]
       },
-      "length": 36
+      "length": 35
     },
     "tokenStore": {
       "root": {
@@ -454,6 +440,203 @@ window.lunrData = {
                                 "tf": 1916.6666666666667
                               }
                             },
+                            ".": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "u": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "_": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "h": {
+                                                        "docs": {},
+                                                        "_": {
+                                                          "docs": {},
+                                                          "m": {
+                                                            "docs": {},
+                                                            "a": {
+                                                              "docs": {},
+                                                              "t": {
+                                                                "docs": {},
+                                                                "c": {
+                                                                  "docs": {},
+                                                                  "h": {
+                                                                    "docs": {
+                                                                      "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                                                                        "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                                                                        "tf": 1150
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "r": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "f": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "g": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "u": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {
+                                                                    "Mockettaro.html#.resourceConfigRoute": {
+                                                                      "ref": "Mockettaro.html#.resourceConfigRoute",
+                                                                      "tf": 1150
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "t": {
+                                    "docs": {},
+                                    "u": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "s": {
+                                                        "docs": {
+                                                          "Mockettaro.html#.returnResponse": {
+                                                            "ref": "Mockettaro.html#.returnResponse",
+                                                            "tf": 1150
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "e": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "h": {
+                                          "docs": {},
+                                          "a": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {},
+                                              "d": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {
+                                                    "Mockettaro.html#.errorHandler": {
+                                                      "ref": "Mockettaro.html#.errorHandler",
+                                                      "tf": 1150
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             "p": {
                               "docs": {},
                               "r": {
@@ -508,6 +691,47 @@ window.lunrData = {
                                                                             "tf": 1150
                                                                           }
                                                                         }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "f": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {},
+                                                        "_": {
+                                                          "docs": {},
+                                                          "m": {
+                                                            "docs": {},
+                                                            "a": {
+                                                              "docs": {},
+                                                              "t": {
+                                                                "docs": {},
+                                                                "c": {
+                                                                  "docs": {},
+                                                                  "h": {
+                                                                    "docs": {
+                                                                      "MockettaroProgram.html#.FOLDER_MATCHER": {
+                                                                        "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
+                                                                        "tf": 1150
                                                                       }
                                                                     }
                                                                   }
@@ -789,47 +1013,6 @@ window.lunrData = {
                                                 }
                                               }
                                             },
-                                            "f": {
-                                              "docs": {},
-                                              "o": {
-                                                "docs": {},
-                                                "l": {
-                                                  "docs": {},
-                                                  "d": {
-                                                    "docs": {},
-                                                    "e": {
-                                                      "docs": {},
-                                                      "r": {
-                                                        "docs": {},
-                                                        "_": {
-                                                          "docs": {},
-                                                          "m": {
-                                                            "docs": {},
-                                                            "a": {
-                                                              "docs": {},
-                                                              "t": {
-                                                                "docs": {},
-                                                                "c": {
-                                                                  "docs": {},
-                                                                  "h": {
-                                                                    "docs": {
-                                                                      "MockettaroProgram.html#.FOLDER_MATCHER": {
-                                                                        "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
-                                                                        "tf": 1150
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
                                             "n": {
                                               "docs": {},
                                               "u": {
@@ -910,185 +1093,6 @@ window.lunrData = {
                                   }
                                 }
                               }
-                            },
-                            ".": {
-                              "docs": {},
-                              "a": {
-                                "docs": {},
-                                "b": {
-                                  "docs": {},
-                                  "s": {
-                                    "docs": {},
-                                    "o": {
-                                      "docs": {},
-                                      "l": {
-                                        "docs": {},
-                                        "u": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {},
-                                            "e": {
-                                              "docs": {},
-                                              "_": {
-                                                "docs": {},
-                                                "p": {
-                                                  "docs": {},
-                                                  "a": {
-                                                    "docs": {},
-                                                    "t": {
-                                                      "docs": {},
-                                                      "h": {
-                                                        "docs": {},
-                                                        "_": {
-                                                          "docs": {},
-                                                          "m": {
-                                                            "docs": {},
-                                                            "a": {
-                                                              "docs": {},
-                                                              "t": {
-                                                                "docs": {},
-                                                                "c": {
-                                                                  "docs": {},
-                                                                  "h": {
-                                                                    "docs": {
-                                                                      "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                                                                        "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                                                                        "tf": 1150
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "c": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "f": {
-                                      "docs": {},
-                                      "i": {
-                                        "docs": {},
-                                        "g": {
-                                          "docs": {},
-                                          "r": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "u": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {
-                                                    "Mockettaro.html#.configRoute": {
-                                                      "ref": "Mockettaro.html#.configRoute",
-                                                      "tf": 1150
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "r": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "u": {
-                                      "docs": {},
-                                      "r": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "r": {
-                                            "docs": {},
-                                            "e": {
-                                              "docs": {},
-                                              "s": {
-                                                "docs": {},
-                                                "p": {
-                                                  "docs": {},
-                                                  "o": {
-                                                    "docs": {},
-                                                    "n": {
-                                                      "docs": {},
-                                                      "s": {
-                                                        "docs": {
-                                                          "Mockettaro.html#.returnResponse": {
-                                                            "ref": "Mockettaro.html#.returnResponse",
-                                                            "tf": 1150
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "e": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {},
-                                    "o": {
-                                      "docs": {},
-                                      "r": {
-                                        "docs": {},
-                                        "h": {
-                                          "docs": {},
-                                          "a": {
-                                            "docs": {},
-                                            "n": {
-                                              "docs": {},
-                                              "d": {
-                                                "docs": {},
-                                                "l": {
-                                                  "docs": {
-                                                    "Mockettaro.html#.errorHandler": {
-                                                      "ref": "Mockettaro.html#.errorHandler",
-                                                      "tf": 1150
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
                             }
                           }
                         }
@@ -1109,8 +1113,28 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
+                      "PathRetriever.html#.DEFAULT_RESOURCE": {
+                        "ref": "PathRetriever.html#.DEFAULT_RESOURCE",
+                        "tf": 110
+                      },
+                      "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
+                        "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
+                        "tf": 110
+                      },
+                      "ResourceLoader.html#.TYPES": {
+                        "ref": "ResourceLoader.html#.TYPES",
+                        "tf": 110
+                      },
+                      "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                        "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                        "tf": 110
+                      },
                       "MockettaroProgram.html#.RESOURCE_MATCHER": {
                         "ref": "MockettaroProgram.html#.RESOURCE_MATCHER",
+                        "tf": 110
+                      },
+                      "MockettaroProgram.html#.FOLDER_MATCHER": {
+                        "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
                         "tf": 110
                       },
                       "MockettaroProgram.html#.DEFAULT_PORT": {
@@ -1148,57 +1172,6 @@ window.lunrData = {
                       "MockettaroProgram.html#.MAX_CACHE_LIFETIME": {
                         "ref": "MockettaroProgram.html#.MAX_CACHE_LIFETIME",
                         "tf": 110
-                      },
-                      "MockettaroProgram.html#.FOLDER_MATCHER": {
-                        "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
-                        "tf": 110
-                      },
-                      "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                        "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                        "tf": 110
-                      },
-                      "PathRetriever.html#.DEFAULT_RESOURCE": {
-                        "ref": "PathRetriever.html#.DEFAULT_RESOURCE",
-                        "tf": 110
-                      },
-                      "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
-                        "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
-                        "tf": 110
-                      },
-                      "ResourceLoader.html#.TYPES": {
-                        "ref": "ResourceLoader.html#.TYPES",
-                        "tf": 110
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "i": {
-            "docs": {},
-            "n": {
-              "docs": {
-                "MockettaroProgram.html#.numericArgParser": {
-                  "ref": "MockettaroProgram.html#.numericArgParser",
-                  "tf": 16.666666666666664
-                }
-              },
-              "_": {
-                "docs": {},
-                "p": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "t": {
-                        "docs": {
-                          "MockettaroProgram.html#.MIN_PORT": {
-                            "ref": "MockettaroProgram.html#.MIN_PORT",
-                            "tf": 683.3333333333334
-                          }
-                        }
                       }
                     }
                   }
@@ -1208,6 +1181,30 @@ window.lunrData = {
           },
           "a": {
             "docs": {},
+            "t": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "h": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
+                          "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
+                          "tf": 12.5
+                        },
+                        "MockettaroProgram.html#.numericArgParser": {
+                          "ref": "MockettaroProgram.html#.numericArgParser",
+                          "tf": 16.666666666666664
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "x": {
               "docs": {
                 "MockettaroProgram.html#.numericArgParser": {
@@ -1299,24 +1296,31 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "t": {
-              "docs": {},
-              "c": {
+            }
+          },
+          "i": {
+            "docs": {},
+            "n": {
+              "docs": {
+                "MockettaroProgram.html#.numericArgParser": {
+                  "ref": "MockettaroProgram.html#.numericArgParser",
+                  "tf": 16.666666666666664
+                }
+              },
+              "_": {
                 "docs": {},
-                "h": {
+                "p": {
                   "docs": {},
-                  "e": {
+                  "o": {
                     "docs": {},
                     "r": {
-                      "docs": {
-                        "MockettaroProgram.html#.numericArgParser": {
-                          "ref": "MockettaroProgram.html#.numericArgParser",
-                          "tf": 16.666666666666664
-                        },
-                        "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
-                          "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
-                          "tf": 12.5
+                      "docs": {},
+                      "t": {
+                        "docs": {
+                          "MockettaroProgram.html#.MIN_PORT": {
+                            "ref": "MockettaroProgram.html#.MIN_PORT",
+                            "tf": 683.3333333333334
+                          }
                         }
                       }
                     }
@@ -1337,6 +1341,32 @@ window.lunrData = {
                   "index.html": {
                     "ref": "index.html",
                     "tf": 17.5
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "x": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "RequestValidator.html#.jsonSchemaRoute": {
+                    "ref": "RequestValidator.html#.jsonSchemaRoute",
+                    "tf": 20
+                  },
+                  "ResourceLoader.html#.statusCodeRoute": {
+                    "ref": "ResourceLoader.html#.statusCodeRoute",
+                    "tf": 20
+                  },
+                  "Mockettaro.html#.resourceConfigRoute": {
+                    "ref": "Mockettaro.html#.resourceConfigRoute",
+                    "tf": 20
+                  },
+                  "Mockettaro.html#.errorHandler": {
+                    "ref": "Mockettaro.html#.errorHandler",
+                    "tf": 16.666666666666664
                   }
                 }
               }
@@ -1385,44 +1415,22 @@ window.lunrData = {
                 }
               }
             }
-          },
-          "e": {
-            "docs": {},
-            "x": {
-              "docs": {},
-              "t": {
-                "docs": {
-                  "Mockettaro.html#.configRoute": {
-                    "ref": "Mockettaro.html#.configRoute",
-                    "tf": 20
-                  },
-                  "Mockettaro.html#.errorHandler": {
-                    "ref": "Mockettaro.html#.errorHandler",
-                    "tf": 16.666666666666664
-                  },
-                  "RequestValidator.html#.jsonSchemaRoute": {
-                    "ref": "RequestValidator.html#.jsonSchemaRoute",
-                    "tf": 20
-                  },
-                  "ResourceLoader.html#.statusCodeRoute": {
-                    "ref": "ResourceLoader.html#.statusCodeRoute",
-                    "tf": 20
-                  },
-                  "ResourceLoader.html#.delayRoute": {
-                    "ref": "ResourceLoader.html#.delayRoute",
-                    "tf": 20
-                  }
-                }
-              }
-            }
           }
         },
         "r": {
           "docs": {},
           "e": {
             "docs": {
-              "Mockettaro.html#.configRoute": {
-                "ref": "Mockettaro.html#.configRoute",
+              "RequestValidator.html#.jsonSchemaRoute": {
+                "ref": "RequestValidator.html#.jsonSchemaRoute",
+                "tf": 20
+              },
+              "ResourceLoader.html#.statusCodeRoute": {
+                "ref": "ResourceLoader.html#.statusCodeRoute",
+                "tf": 20
+              },
+              "Mockettaro.html#.resourceConfigRoute": {
+                "ref": "Mockettaro.html#.resourceConfigRoute",
                 "tf": 20
               },
               "Mockettaro.html#.returnResponse": {
@@ -1432,18 +1440,6 @@ window.lunrData = {
               "Mockettaro.html#.errorHandler": {
                 "ref": "Mockettaro.html#.errorHandler",
                 "tf": 16.666666666666664
-              },
-              "RequestValidator.html#.jsonSchemaRoute": {
-                "ref": "RequestValidator.html#.jsonSchemaRoute",
-                "tf": 20
-              },
-              "ResourceLoader.html#.statusCodeRoute": {
-                "ref": "ResourceLoader.html#.statusCodeRoute",
-                "tf": 20
-              },
-              "ResourceLoader.html#.delayRoute": {
-                "ref": "ResourceLoader.html#.delayRoute",
-                "tf": 20
               }
             },
             "a": {
@@ -1472,8 +1468,20 @@ window.lunrData = {
                             "docs": {},
                             "t": {
                               "docs": {
+                                "ResourceLoader.html#.TYPES": {
+                                  "ref": "ResourceLoader.html#.TYPES",
+                                  "tf": 33.33333333333333
+                                },
+                                "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                                  "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                                  "tf": 33.33333333333333
+                                },
                                 "MockettaroProgram.html#.RESOURCE_MATCHER": {
                                   "ref": "MockettaroProgram.html#.RESOURCE_MATCHER",
+                                  "tf": 33.33333333333333
+                                },
+                                "MockettaroProgram.html#.FOLDER_MATCHER": {
+                                  "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
                                   "tf": 33.33333333333333
                                 },
                                 "MockettaroProgram.html#.DEFAULT_PORT": {
@@ -1510,18 +1518,6 @@ window.lunrData = {
                                 },
                                 "MockettaroProgram.html#.MAX_CACHE_LIFETIME": {
                                   "ref": "MockettaroProgram.html#.MAX_CACHE_LIFETIME",
-                                  "tf": 33.33333333333333
-                                },
-                                "MockettaroProgram.html#.FOLDER_MATCHER": {
-                                  "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
-                                  "tf": 33.33333333333333
-                                },
-                                "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                                  "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                                  "tf": 33.33333333333333
-                                },
-                                "ResourceLoader.html#.TYPES": {
-                                  "ref": "ResourceLoader.html#.TYPES",
                                   "tf": 33.33333333333333
                                 }
                               }
@@ -1571,29 +1567,6 @@ window.lunrData = {
                       },
                       "e": {
                         "docs": {},
-                        "_": {
-                          "docs": {},
-                          "m": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "c": {
-                                  "docs": {},
-                                  "h": {
-                                    "docs": {
-                                      "MockettaroProgram.html#.RESOURCE_MATCHER": {
-                                        "ref": "MockettaroProgram.html#.RESOURCE_MATCHER",
-                                        "tf": 683.3333333333334
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
                         "l": {
                           "docs": {},
                           "o": {
@@ -1663,38 +1636,6 @@ window.lunrData = {
                                                                 }
                                                               }
                                                             }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "d": {
-                                        "docs": {},
-                                        "e": {
-                                          "docs": {},
-                                          "l": {
-                                            "docs": {},
-                                            "a": {
-                                              "docs": {},
-                                              "y": {
-                                                "docs": {},
-                                                "r": {
-                                                  "docs": {},
-                                                  "o": {
-                                                    "docs": {},
-                                                    "u": {
-                                                      "docs": {},
-                                                      "t": {
-                                                        "docs": {
-                                                          "ResourceLoader.html#.delayRoute": {
-                                                            "ref": "ResourceLoader.html#.delayRoute",
-                                                            "tf": 1150
                                                           }
                                                         }
                                                       }
@@ -1776,6 +1717,64 @@ window.lunrData = {
                               }
                             }
                           }
+                        },
+                        "c": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "f": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "g": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "u": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "Mockettaro.html#.resourceConfigRoute": {
+                                                "ref": "Mockettaro.html#.resourceConfigRoute",
+                                                "tf": 670
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "_": {
+                          "docs": {},
+                          "m": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "h": {
+                                    "docs": {
+                                      "MockettaroProgram.html#.RESOURCE_MATCHER": {
+                                        "ref": "MockettaroProgram.html#.RESOURCE_MATCHER",
+                                        "tf": 683.3333333333334
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1800,10 +1799,108 @@ window.lunrData = {
                 }
               }
             },
+            "l": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "v": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "h": {
+                                "docs": {
+                                  "PathRetriever.html#.partialSearch": {
+                                    "ref": "PathRetriever.html#.partialSearch",
+                                    "tf": 20
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "PathRetriever.html#.partialSearch": {
+                        "ref": "PathRetriever.html#.partialSearch",
+                        "tf": 6.25
+                      },
+                      "PathRetriever.html#.seekPathList": {
+                        "ref": "PathRetriever.html#.seekPathList",
+                        "tf": 5.555555555555555
+                      },
+                      "ResourceLoader.html#.autoParse": {
+                        "ref": "ResourceLoader.html#.autoParse",
+                        "tf": 10
+                      }
+                    },
+                    "r": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "s": {
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "n": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {
+                                    "Mockettaro.html#.returnResponse": {
+                                      "ref": "Mockettaro.html#.returnResponse",
+                                      "tf": 675
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "q": {
               "docs": {
-                "Mockettaro.html#.configRoute": {
-                  "ref": "Mockettaro.html#.configRoute",
+                "RequestValidator.html#.jsonSchemaRoute": {
+                  "ref": "RequestValidator.html#.jsonSchemaRoute",
+                  "tf": 20
+                },
+                "ResourceLoader.html#.statusCodeRoute": {
+                  "ref": "ResourceLoader.html#.statusCodeRoute",
+                  "tf": 20
+                },
+                "ResourceLoader.html#.acceptedTypes": {
+                  "ref": "ResourceLoader.html#.acceptedTypes",
+                  "tf": 25
+                },
+                "Mockettaro.html#.resourceConfigRoute": {
+                  "ref": "Mockettaro.html#.resourceConfigRoute",
                   "tf": 20
                 },
                 "Mockettaro.html#.returnResponse": {
@@ -1813,22 +1910,6 @@ window.lunrData = {
                 "Mockettaro.html#.errorHandler": {
                   "ref": "Mockettaro.html#.errorHandler",
                   "tf": 16.666666666666664
-                },
-                "RequestValidator.html#.jsonSchemaRoute": {
-                  "ref": "RequestValidator.html#.jsonSchemaRoute",
-                  "tf": 20
-                },
-                "ResourceLoader.html#.statusCodeRoute": {
-                  "ref": "ResourceLoader.html#.statusCodeRoute",
-                  "tf": 20
-                },
-                "ResourceLoader.html#.delayRoute": {
-                  "ref": "ResourceLoader.html#.delayRoute",
-                  "tf": 20
-                },
-                "ResourceLoader.html#.acceptedTypes": {
-                  "ref": "ResourceLoader.html#.acceptedTypes",
-                  "tf": 25
                 }
               },
               "u": {
@@ -1935,92 +2016,6 @@ window.lunrData = {
                 }
               }
             },
-            "t": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "PathRetriever.html#.partialSearch": {
-                        "ref": "PathRetriever.html#.partialSearch",
-                        "tf": 6.25
-                      },
-                      "PathRetriever.html#.seekPathList": {
-                        "ref": "PathRetriever.html#.seekPathList",
-                        "tf": 5.555555555555555
-                      },
-                      "ResourceLoader.html#.autoParse": {
-                        "ref": "ResourceLoader.html#.autoParse",
-                        "tf": 10
-                      }
-                    },
-                    "r": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "s": {
-                          "docs": {},
-                          "p": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "s": {
-                                  "docs": {
-                                    "Mockettaro.html#.returnResponse": {
-                                      "ref": "Mockettaro.html#.returnResponse",
-                                      "tf": 675
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "v": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "p": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "h": {
-                                "docs": {
-                                  "PathRetriever.html#.partialSearch": {
-                                    "ref": "PathRetriever.html#.partialSearch",
-                                    "tf": 20
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "c": {
               "docs": {},
               "o": {
@@ -2045,8 +2040,16 @@ window.lunrData = {
               "docs": {},
               "t": {
                 "docs": {
-                  "Mockettaro.html#.configRoute": {
-                    "ref": "Mockettaro.html#.configRoute",
+                  "RequestValidator.html#.jsonSchemaRoute": {
+                    "ref": "RequestValidator.html#.jsonSchemaRoute",
+                    "tf": 16.666666666666664
+                  },
+                  "ResourceLoader.html#.statusCodeRoute": {
+                    "ref": "ResourceLoader.html#.statusCodeRoute",
+                    "tf": 4.166666666666666
+                  },
+                  "Mockettaro.html#.resourceConfigRoute": {
+                    "ref": "Mockettaro.html#.resourceConfigRoute",
                     "tf": 25
                   },
                   "Mockettaro.html#.returnResponse": {
@@ -2056,18 +2059,6 @@ window.lunrData = {
                   "Mockettaro.html#.errorHandler": {
                     "ref": "Mockettaro.html#.errorHandler",
                     "tf": 16.666666666666664
-                  },
-                  "RequestValidator.html#.jsonSchemaRoute": {
-                    "ref": "RequestValidator.html#.jsonSchemaRoute",
-                    "tf": 16.666666666666664
-                  },
-                  "ResourceLoader.html#.statusCodeRoute": {
-                    "ref": "ResourceLoader.html#.statusCodeRoute",
-                    "tf": 4.166666666666666
-                  },
-                  "ResourceLoader.html#.delayRoute": {
-                    "ref": "ResourceLoader.html#.delayRoute",
-                    "tf": 10
                   }
                 }
               }
@@ -2207,12 +2198,7 @@ window.lunrData = {
                   }
                 },
                 "u": {
-                  "docs": {
-                    "ResourceLoader.html#.statusCodeRoute": {
-                      "ref": "ResourceLoader.html#.statusCodeRoute",
-                      "tf": 10
-                    }
-                  },
+                  "docs": {},
                   "s": {
                     "docs": {},
                     "c": {
@@ -2334,23 +2320,6 @@ window.lunrData = {
                       "docs": {},
                       "_": {
                         "docs": {},
-                        "p": {
-                          "docs": {},
-                          "o": {
-                            "docs": {},
-                            "r": {
-                              "docs": {},
-                              "t": {
-                                "docs": {
-                                  "MockettaroProgram.html#.DEFAULT_PORT": {
-                                    "ref": "MockettaroProgram.html#.DEFAULT_PORT",
-                                    "tf": 683.3333333333334
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
                         "r": {
                           "docs": {},
                           "e": {
@@ -2365,16 +2334,33 @@ window.lunrData = {
                                     "docs": {},
                                     "c": {
                                       "docs": {
-                                        "MockettaroProgram.html#.DEFAULT_RESOURCE": {
-                                          "ref": "MockettaroProgram.html#.DEFAULT_RESOURCE",
-                                          "tf": 683.3333333333334
-                                        },
                                         "PathRetriever.html#.DEFAULT_RESOURCE": {
                                           "ref": "PathRetriever.html#.DEFAULT_RESOURCE",
                                           "tf": 700
+                                        },
+                                        "MockettaroProgram.html#.DEFAULT_RESOURCE": {
+                                          "ref": "MockettaroProgram.html#.DEFAULT_RESOURCE",
+                                          "tf": 683.3333333333334
                                         }
                                       }
                                     }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "p": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "t": {
+                                "docs": {
+                                  "MockettaroProgram.html#.DEFAULT_PORT": {
+                                    "ref": "MockettaroProgram.html#.DEFAULT_PORT",
+                                    "tf": 683.3333333333334
                                   }
                                 }
                               }
@@ -2459,37 +2445,6 @@ window.lunrData = {
                                   }
                                 }
                               }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "y": {
-                  "docs": {
-                    "ResourceLoader.html#.delayRoute": {
-                      "ref": "ResourceLoader.html#.delayRoute",
-                      "tf": 10
-                    }
-                  },
-                  "r": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "u": {
-                        "docs": {},
-                        "t": {
-                          "docs": {
-                            "ResourceLoader.html#.delayRoute": {
-                              "ref": "ResourceLoader.html#.delayRoute",
-                              "tf": 670
                             }
                           }
                         }
@@ -2586,14 +2541,6 @@ window.lunrData = {
                       "ref": "list_class.html",
                       "tf": 635
                     },
-                    "MockettaroProgram.html": {
-                      "ref": "MockettaroProgram.html",
-                      "tf": 110
-                    },
-                    "Mockettaro.html": {
-                      "ref": "Mockettaro.html",
-                      "tf": 110
-                    },
                     "PathRetriever.html": {
                       "ref": "PathRetriever.html",
                       "tf": 110
@@ -2605,6 +2552,114 @@ window.lunrData = {
                     "ResourceLoader.html": {
                       "ref": "ResourceLoader.html",
                       "tf": 110
+                    },
+                    "Mockettaro.html": {
+                      "ref": "Mockettaro.html",
+                      "tf": 110
+                    },
+                    "MockettaroProgram.html": {
+                      "ref": "MockettaroProgram.html",
+                      "tf": 110
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "w": {
+            "docs": {},
+            "d": {
+              "docs": {
+                "PathRetriever.html#.find": {
+                  "ref": "PathRetriever.html#.find",
+                  "tf": 16.666666666666664
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "f": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "g": {
+                    "docs": {
+                      "ResourceLoader.html#.statusCodeRoute": {
+                        "ref": "ResourceLoader.html#.statusCodeRoute",
+                        "tf": 10
+                      }
+                    },
+                    "u": {
+                      "docs": {},
+                      "r": {
+                        "docs": {
+                          "Mockettaro.html#.resourceConfigRoute": {
+                            "ref": "Mockettaro.html#.resourceConfigRoute",
+                            "tf": 25
+                          },
+                          "Mockettaro.html#.returnResponse": {
+                            "ref": "Mockettaro.html#.returnResponse",
+                            "tf": 25
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "t": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "ResourceLoader.html#.autoParse": {
+                          "ref": "ResourceLoader.html#.autoParse",
+                          "tf": 30
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "m": {
+              "docs": {},
+              "m": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "MockettaroProgram.html#.cmdParser": {
+                          "ref": "MockettaroProgram.html#.cmdParser",
+                          "tf": 25
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "Mockettaro.html": {
+                      "ref": "Mockettaro.html",
+                      "tf": 16.666666666666664
                     }
                   }
                 }
@@ -2636,129 +2691,6 @@ window.lunrData = {
                       }
                     }
                   }
-                }
-              }
-            }
-          },
-          "o": {
-            "docs": {},
-            "m": {
-              "docs": {},
-              "m": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "d": {
-                      "docs": {
-                        "MockettaroProgram.html#.cmdParser": {
-                          "ref": "MockettaroProgram.html#.cmdParser",
-                          "tf": 25
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "n": {
-              "docs": {},
-              "f": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "g": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "u": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "Mockettaro.html#.configRoute": {
-                                "ref": "Mockettaro.html#.configRoute",
-                                "tf": 670
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "u": {
-                      "docs": {},
-                      "r": {
-                        "docs": {
-                          "Mockettaro.html#.configRoute": {
-                            "ref": "Mockettaro.html#.configRoute",
-                            "tf": 25
-                          },
-                          "Mockettaro.html#.returnResponse": {
-                            "ref": "Mockettaro.html#.returnResponse",
-                            "tf": 25
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "t": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "ResourceLoader.html#.autoParse": {
-                          "ref": "ResourceLoader.html#.autoParse",
-                          "tf": 30
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "d": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "ResourceLoader.html#.statusCodeRoute": {
-                    "ref": "ResourceLoader.html#.statusCodeRoute",
-                    "tf": 10
-                  }
-                }
-              }
-            }
-          },
-          "r": {
-            "docs": {},
-            "e": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "Mockettaro.html": {
-                      "ref": "Mockettaro.html",
-                      "tf": 16.666666666666664
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "w": {
-            "docs": {},
-            "d": {
-              "docs": {
-                "PathRetriever.html#.find": {
-                  "ref": "PathRetriever.html#.find",
-                  "tf": 16.666666666666664
                 }
               }
             }
@@ -2827,8 +2759,20 @@ window.lunrData = {
                         "docs": {},
                         "c": {
                           "docs": {
+                            "ResourceLoader.html#.TYPES": {
+                              "ref": "ResourceLoader.html#.TYPES",
+                              "tf": 33.33333333333333
+                            },
+                            "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                              "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                              "tf": 33.33333333333333
+                            },
                             "MockettaroProgram.html#.RESOURCE_MATCHER": {
                               "ref": "MockettaroProgram.html#.RESOURCE_MATCHER",
+                              "tf": 33.33333333333333
+                            },
+                            "MockettaroProgram.html#.FOLDER_MATCHER": {
+                              "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
                               "tf": 33.33333333333333
                             },
                             "MockettaroProgram.html#.DEFAULT_PORT": {
@@ -2866,18 +2810,6 @@ window.lunrData = {
                             "MockettaroProgram.html#.MAX_CACHE_LIFETIME": {
                               "ref": "MockettaroProgram.html#.MAX_CACHE_LIFETIME",
                               "tf": 33.33333333333333
-                            },
-                            "MockettaroProgram.html#.FOLDER_MATCHER": {
-                              "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
-                              "tf": 33.33333333333333
-                            },
-                            "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                              "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                              "tf": 33.33333333333333
-                            },
-                            "ResourceLoader.html#.TYPES": {
-                              "ref": "ResourceLoader.html#.TYPES",
-                              "tf": 33.33333333333333
                             }
                           },
                           "&": {
@@ -2886,26 +2818,6 @@ window.lunrData = {
                               "docs": {},
                               "t": {
                                 "docs": {
-                                  "MockettaroProgram.html#.numericArgParser": {
-                                    "ref": "MockettaroProgram.html#.numericArgParser",
-                                    "tf": 16.666666666666664
-                                  },
-                                  "MockettaroProgram.html#.cmdParser": {
-                                    "ref": "MockettaroProgram.html#.cmdParser",
-                                    "tf": 25
-                                  },
-                                  "Mockettaro.html#.configRoute": {
-                                    "ref": "Mockettaro.html#.configRoute",
-                                    "tf": 20
-                                  },
-                                  "Mockettaro.html#.returnResponse": {
-                                    "ref": "Mockettaro.html#.returnResponse",
-                                    "tf": 25
-                                  },
-                                  "Mockettaro.html#.errorHandler": {
-                                    "ref": "Mockettaro.html#.errorHandler",
-                                    "tf": 16.666666666666664
-                                  },
                                   "PathRetriever.html#.DEFAULT_RESOURCE": {
                                     "ref": "PathRetriever.html#.DEFAULT_RESOURCE",
                                     "tf": 50
@@ -2926,10 +2838,6 @@ window.lunrData = {
                                     "ref": "ResourceLoader.html#.statusCodeRoute",
                                     "tf": 20
                                   },
-                                  "ResourceLoader.html#.delayRoute": {
-                                    "ref": "ResourceLoader.html#.delayRoute",
-                                    "tf": 20
-                                  },
                                   "ResourceLoader.html#.acceptedTypes": {
                                     "ref": "ResourceLoader.html#.acceptedTypes",
                                     "tf": 25
@@ -2937,6 +2845,26 @@ window.lunrData = {
                                   "ResourceLoader.html#.autoParse": {
                                     "ref": "ResourceLoader.html#.autoParse",
                                     "tf": 20
+                                  },
+                                  "Mockettaro.html#.resourceConfigRoute": {
+                                    "ref": "Mockettaro.html#.resourceConfigRoute",
+                                    "tf": 20
+                                  },
+                                  "Mockettaro.html#.returnResponse": {
+                                    "ref": "Mockettaro.html#.returnResponse",
+                                    "tf": 25
+                                  },
+                                  "Mockettaro.html#.errorHandler": {
+                                    "ref": "Mockettaro.html#.errorHandler",
+                                    "tf": 16.666666666666664
+                                  },
+                                  "MockettaroProgram.html#.numericArgParser": {
+                                    "ref": "MockettaroProgram.html#.numericArgParser",
+                                    "tf": 16.666666666666664
+                                  },
+                                  "MockettaroProgram.html#.cmdParser": {
+                                    "ref": "MockettaroProgram.html#.cmdParser",
+                                    "tf": 25
                                   }
                                 }
                               }
@@ -2995,459 +2923,6 @@ window.lunrData = {
             }
           }
         },
-        "f": {
-          "docs": {},
-          "o": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "d": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "_": {
-                      "docs": {},
-                      "m": {
-                        "docs": {},
-                        "a": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "c": {
-                              "docs": {},
-                              "h": {
-                                "docs": {
-                                  "MockettaroProgram.html#.FOLDER_MATCHER": {
-                                    "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
-                                    "tf": 683.3333333333334
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "u": {
-            "docs": {},
-            "n": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "t": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "n": {
-                        "docs": {
-                          "MockettaroProgram.html#.numericArgParser": {
-                            "ref": "MockettaroProgram.html#.numericArgParser",
-                            "tf": 126.66666666666666
-                          },
-                          "MockettaroProgram.html#.cmdParser": {
-                            "ref": "MockettaroProgram.html#.cmdParser",
-                            "tf": 110
-                          },
-                          "Mockettaro.html#.configRoute": {
-                            "ref": "Mockettaro.html#.configRoute",
-                            "tf": 110
-                          },
-                          "Mockettaro.html#.returnResponse": {
-                            "ref": "Mockettaro.html#.returnResponse",
-                            "tf": 110
-                          },
-                          "Mockettaro.html#.errorHandler": {
-                            "ref": "Mockettaro.html#.errorHandler",
-                            "tf": 110
-                          },
-                          "PathRetriever.html#.find": {
-                            "ref": "PathRetriever.html#.find",
-                            "tf": 110
-                          },
-                          "PathRetriever.html#.partialSearch": {
-                            "ref": "PathRetriever.html#.partialSearch",
-                            "tf": 110
-                          },
-                          "PathRetriever.html#.seekPathList": {
-                            "ref": "PathRetriever.html#.seekPathList",
-                            "tf": 110
-                          },
-                          "RequestValidator.html#.jsonSchemaRoute": {
-                            "ref": "RequestValidator.html#.jsonSchemaRoute",
-                            "tf": 110
-                          },
-                          "ResourceLoader.html#.statusCodeRoute": {
-                            "ref": "ResourceLoader.html#.statusCodeRoute",
-                            "tf": 110
-                          },
-                          "ResourceLoader.html#.delayRoute": {
-                            "ref": "ResourceLoader.html#.delayRoute",
-                            "tf": 110
-                          },
-                          "ResourceLoader.html#.acceptedTypes": {
-                            "ref": "ResourceLoader.html#.acceptedTypes",
-                            "tf": 110
-                          },
-                          "ResourceLoader.html#.autoParse": {
-                            "ref": "ResourceLoader.html#.autoParse",
-                            "tf": 110
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "i": {
-            "docs": {},
-            "n": {
-              "docs": {},
-              "d": {
-                "docs": {
-                  "PathRetriever.html#.find": {
-                    "ref": "PathRetriever.html#.find",
-                    "tf": 673.8095238095237
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "s": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "PathRetriever.html#.find": {
-                      "ref": "PathRetriever.html#.find",
-                      "tf": 7.142857142857142
-                    }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "x": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "s": {
-                            "docs": {
-                              "ResourceLoader.html#.autoParse": {
-                                "ref": "ResourceLoader.html#.autoParse",
-                                "tf": 20
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "a": {
-          "docs": {},
-          "r": {
-            "docs": {},
-            "g": {
-              "docs": {},
-              "v": {
-                "docs": {
-                  "MockettaroProgram.html#.cmdParser": {
-                    "ref": "MockettaroProgram.html#.cmdParser",
-                    "tf": 25
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "y": {
-                  "docs": {},
-                  ".": {
-                    "docs": {},
-                    "&": {
-                      "docs": {},
-                      "l": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          ";": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "r": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "a": {
-                                    "docs": {},
-                                    "y": {
-                                      "docs": {},
-                                      ".": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "l": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {},
-                                              ";": {
-                                                "docs": {},
-                                                "s": {
-                                                  "docs": {},
-                                                  "t": {
-                                                    "docs": {},
-                                                    "r": {
-                                                      "docs": {},
-                                                      "i": {
-                                                        "docs": {},
-                                                        "n": {
-                                                          "docs": {},
-                                                          "g": {
-                                                            "docs": {},
-                                                            "&": {
-                                                              "docs": {},
-                                                              "g": {
-                                                                "docs": {},
-                                                                "t": {
-                                                                  "docs": {},
-                                                                  ";": {
-                                                                    "docs": {},
-                                                                    "&": {
-                                                                      "docs": {},
-                                                                      "g": {
-                                                                        "docs": {},
-                                                                        "t": {
-                                                                          "docs": {
-                                                                            "PathRetriever.html#.partialSearch": {
-                                                                              "ref": "PathRetriever.html#.partialSearch",
-                                                                              "tf": 20
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "s": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "i": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "g": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "PathRetriever.html#.seekPathList": {
-                                                  "ref": "PathRetriever.html#.seekPathList",
-                                                  "tf": 16.666666666666664
-                                                },
-                                                "ResourceLoader.html#.acceptedTypes": {
-                                                  "ref": "ResourceLoader.html#.acceptedTypes",
-                                                  "tf": 25
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "b": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "u": {
-                    "docs": {},
-                    "t": {
-                      "docs": {
-                        "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                          "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                          "tf": 16.666666666666664
-                        }
-                      },
-                      "e": {
-                        "docs": {},
-                        "_": {
-                          "docs": {},
-                          "p": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "h": {
-                                  "docs": {},
-                                  "_": {
-                                    "docs": {},
-                                    "m": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "t": {
-                                          "docs": {},
-                                          "c": {
-                                            "docs": {},
-                                            "h": {
-                                              "docs": {
-                                                "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                                                  "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                                                  "tf": 683.3333333333334
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "c": {
-            "docs": {},
-            "c": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "p": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "ResourceLoader.html#.acceptedTypes": {
-                        "ref": "ResourceLoader.html#.acceptedTypes",
-                        "tf": 6.25
-                      }
-                    },
-                    "e": {
-                      "docs": {},
-                      "d": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          "y": {
-                            "docs": {},
-                            "p": {
-                              "docs": {
-                                "ResourceLoader.html#.acceptedTypes": {
-                                  "ref": "ResourceLoader.html#.acceptedTypes",
-                                  "tf": 675
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "u": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "p": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "s": {
-                        "docs": {
-                          "ResourceLoader.html#.autoParse": {
-                            "ref": "ResourceLoader.html#.autoParse",
-                            "tf": 670
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "p": {
           "docs": {},
           "a": {
@@ -3456,10 +2931,6 @@ window.lunrData = {
               "docs": {},
               "h": {
                 "docs": {
-                  "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                    "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                    "tf": 16.666666666666664
-                  },
                   "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
                     "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
                     "tf": 12.5
@@ -3475,6 +2946,10 @@ window.lunrData = {
                   "PathRetriever.html#.seekPathList": {
                     "ref": "PathRetriever.html#.seekPathList",
                     "tf": 5.555555555555555
+                  },
+                  "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                    "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                    "tf": 16.666666666666664
                   }
                 },
                 "r": {
@@ -3902,29 +3377,28 @@ window.lunrData = {
             }
           }
         },
-        "w": {
+        "u": {
           "docs": {},
-          "i": {
+          "r": {
             "docs": {},
-            "n": {
+            "i": {
+              "docs": {
+                "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
+                  "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
+                  "tf": 12.5
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            "i": {
               "docs": {},
-              "/": {
-                "docs": {},
-                "*": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "i": {
-                      "docs": {},
-                      "x": {
-                        "docs": {
-                          "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-                            "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-                            "tf": 16.666666666666664
-                          }
-                        }
-                      }
-                    }
+              "l": {
+                "docs": {
+                  "ResourceLoader.html": {
+                    "ref": "ResourceLoader.html",
+                    "tf": 16.666666666666664
                   }
                 }
               }
@@ -3933,48 +3407,6 @@ window.lunrData = {
         },
         "e": {
           "docs": {},
-          "r": {
-            "docs": {},
-            "r": {
-              "docs": {
-                "Mockettaro.html#.errorHandler": {
-                  "ref": "Mockettaro.html#.errorHandler",
-                  "tf": 16.666666666666664
-                }
-              },
-              "o": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "Mockettaro.html#.errorHandler": {
-                      "ref": "Mockettaro.html#.errorHandler",
-                      "tf": 16.666666666666664
-                    }
-                  },
-                  "h": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "d": {
-                          "docs": {},
-                          "l": {
-                            "docs": {
-                              "Mockettaro.html#.errorHandler": {
-                                "ref": "Mockettaro.html#.errorHandler",
-                                "tf": 666.6666666666666
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "x": {
             "docs": {},
             "i": {
@@ -4022,79 +3454,210 @@ window.lunrData = {
                 }
               }
             }
-          }
-        },
-        "h": {
-          "docs": {},
-          "a": {
+          },
+          "r": {
             "docs": {},
-            "n": {
-              "docs": {},
-              "d": {
+            "r": {
+              "docs": {
+                "Mockettaro.html#.errorHandler": {
+                  "ref": "Mockettaro.html#.errorHandler",
+                  "tf": 16.666666666666664
+                }
+              },
+              "o": {
                 "docs": {},
-                "l": {
-                  "docs": {},
-                  "e": {
+                "r": {
+                  "docs": {
+                    "Mockettaro.html#.errorHandler": {
+                      "ref": "Mockettaro.html#.errorHandler",
+                      "tf": 16.666666666666664
+                    }
+                  },
+                  "h": {
                     "docs": {},
-                    "r": {
-                      "docs": {
-                        "Mockettaro.html#.errorHandler": {
-                          "ref": "Mockettaro.html#.errorHandler",
-                          "tf": 16.666666666666664
+                    "a": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "d": {
+                          "docs": {},
+                          "l": {
+                            "docs": {
+                              "Mockettaro.html#.errorHandler": {
+                                "ref": "Mockettaro.html#.errorHandler",
+                                "tf": 666.6666666666666
+                              }
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
-              },
-              "l": {
+              }
+            }
+          }
+        },
+        "f": {
+          "docs": {},
+          "i": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "d": {
+                "docs": {
+                  "PathRetriever.html#.find": {
+                    "ref": "PathRetriever.html#.find",
+                    "tf": 673.8095238095237
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "s": {
                 "docs": {},
-                "d": {
+                "t": {
                   "docs": {
-                    "ResourceLoader.html#.statusCodeRoute": {
-                      "ref": "ResourceLoader.html#.statusCodeRoute",
-                      "tf": 4.166666666666666
-                    },
-                    "ResourceLoader.html#.delayRoute": {
-                      "ref": "ResourceLoader.html#.delayRoute",
-                      "tf": 10
+                    "PathRetriever.html#.find": {
+                      "ref": "PathRetriever.html#.find",
+                      "tf": 7.142857142857142
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "x": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "s": {
+                            "docs": {
+                              "ResourceLoader.html#.autoParse": {
+                                "ref": "ResourceLoader.html#.autoParse",
+                                "tf": 20
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
           },
-          "t": {
+          "u": {
             "docs": {},
-            "t": {
+            "n": {
               "docs": {},
-              "p": {
-                "docs": {
-                  "ResourceLoader.html#.statusCodeRoute": {
-                    "ref": "ResourceLoader.html#.statusCodeRoute",
-                    "tf": 4.166666666666666
-                  },
-                  "ResourceLoader.html#.delayRoute": {
-                    "ref": "ResourceLoader.html#.delayRoute",
-                    "tf": 10
+              "c": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "n": {
+                        "docs": {
+                          "PathRetriever.html#.find": {
+                            "ref": "PathRetriever.html#.find",
+                            "tf": 110
+                          },
+                          "PathRetriever.html#.partialSearch": {
+                            "ref": "PathRetriever.html#.partialSearch",
+                            "tf": 110
+                          },
+                          "PathRetriever.html#.seekPathList": {
+                            "ref": "PathRetriever.html#.seekPathList",
+                            "tf": 110
+                          },
+                          "RequestValidator.html#.jsonSchemaRoute": {
+                            "ref": "RequestValidator.html#.jsonSchemaRoute",
+                            "tf": 110
+                          },
+                          "ResourceLoader.html#.statusCodeRoute": {
+                            "ref": "ResourceLoader.html#.statusCodeRoute",
+                            "tf": 110
+                          },
+                          "ResourceLoader.html#.acceptedTypes": {
+                            "ref": "ResourceLoader.html#.acceptedTypes",
+                            "tf": 110
+                          },
+                          "ResourceLoader.html#.autoParse": {
+                            "ref": "ResourceLoader.html#.autoParse",
+                            "tf": 110
+                          },
+                          "Mockettaro.html#.resourceConfigRoute": {
+                            "ref": "Mockettaro.html#.resourceConfigRoute",
+                            "tf": 110
+                          },
+                          "Mockettaro.html#.returnResponse": {
+                            "ref": "Mockettaro.html#.returnResponse",
+                            "tf": 110
+                          },
+                          "Mockettaro.html#.errorHandler": {
+                            "ref": "Mockettaro.html#.errorHandler",
+                            "tf": 110
+                          },
+                          "MockettaroProgram.html#.numericArgParser": {
+                            "ref": "MockettaroProgram.html#.numericArgParser",
+                            "tf": 126.66666666666666
+                          },
+                          "MockettaroProgram.html#.cmdParser": {
+                            "ref": "MockettaroProgram.html#.cmdParser",
+                            "tf": 110
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
           },
-          "e": {
+          "o": {
             "docs": {},
-            "a": {
+            "l": {
               "docs": {},
               "d": {
                 "docs": {},
                 "e": {
                   "docs": {},
                   "r": {
-                    "docs": {
-                      "ResourceLoader.html#.acceptedTypes": {
-                        "ref": "ResourceLoader.html#.acceptedTypes",
-                        "tf": 6.25
+                    "docs": {},
+                    "_": {
+                      "docs": {},
+                      "m": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              "h": {
+                                "docs": {
+                                  "MockettaroProgram.html#.FOLDER_MATCHER": {
+                                    "ref": "MockettaroProgram.html#.FOLDER_MATCHER",
+                                    "tf": 683.3333333333334
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -4103,28 +3666,281 @@ window.lunrData = {
             }
           }
         },
-        "u": {
+        "a": {
           "docs": {},
           "r": {
             "docs": {},
-            "i": {
-              "docs": {
-                "PathRetriever.html#.PATH_RESOURCE_MATCHER": {
-                  "ref": "PathRetriever.html#.PATH_RESOURCE_MATCHER",
-                  "tf": 12.5
+            "r": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "y": {
+                  "docs": {},
+                  ".": {
+                    "docs": {},
+                    "&": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          ";": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "y": {
+                                      "docs": {},
+                                      ".": {
+                                        "docs": {},
+                                        "&": {
+                                          "docs": {},
+                                          "l": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {},
+                                              ";": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "g": {
+                                                            "docs": {},
+                                                            "&": {
+                                                              "docs": {},
+                                                              "g": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {},
+                                                                  ";": {
+                                                                    "docs": {},
+                                                                    "&": {
+                                                                      "docs": {},
+                                                                      "g": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {
+                                                                            "PathRetriever.html#.partialSearch": {
+                                                                              "ref": "PathRetriever.html#.partialSearch",
+                                                                              "tf": 20
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "s": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "g": {
+                                        "docs": {},
+                                        "&": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "PathRetriever.html#.seekPathList": {
+                                                  "ref": "PathRetriever.html#.seekPathList",
+                                                  "tf": 16.666666666666664
+                                                },
+                                                "ResourceLoader.html#.acceptedTypes": {
+                                                  "ref": "ResourceLoader.html#.acceptedTypes",
+                                                  "tf": 25
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "g": {
+              "docs": {},
+              "v": {
+                "docs": {
+                  "MockettaroProgram.html#.cmdParser": {
+                    "ref": "MockettaroProgram.html#.cmdParser",
+                    "tf": 25
+                  }
                 }
               }
             }
           },
-          "t": {
+          "c": {
             "docs": {},
-            "i": {
+            "c": {
               "docs": {},
-              "l": {
-                "docs": {
-                  "ResourceLoader.html": {
-                    "ref": "ResourceLoader.html",
-                    "tf": 16.666666666666664
+              "e": {
+                "docs": {},
+                "p": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "ResourceLoader.html#.acceptedTypes": {
+                        "ref": "ResourceLoader.html#.acceptedTypes",
+                        "tf": 6.25
+                      }
+                    },
+                    "e": {
+                      "docs": {},
+                      "d": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "y": {
+                            "docs": {},
+                            "p": {
+                              "docs": {
+                                "ResourceLoader.html#.acceptedTypes": {
+                                  "ref": "ResourceLoader.html#.acceptedTypes",
+                                  "tf": 675
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "p": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "r": {
+                      "docs": {},
+                      "s": {
+                        "docs": {
+                          "ResourceLoader.html#.autoParse": {
+                            "ref": "ResourceLoader.html#.autoParse",
+                            "tf": 670
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "b": {
+            "docs": {},
+            "s": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "u": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                          "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                          "tf": 16.666666666666664
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "_": {
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "h": {
+                                  "docs": {},
+                                  "_": {
+                                    "docs": {},
+                                    "m": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "h": {
+                                              "docs": {
+                                                "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                                                  "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                                                  "tf": 683.3333333333334
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -4230,21 +4046,13 @@ window.lunrData = {
             }
           }
         },
-        "v": {
+        "h": {
           "docs": {},
           "a": {
             "docs": {},
-            "l": {
+            "n": {
               "docs": {},
-              "u": {
-                "docs": {
-                  "ResourceLoader.html#.delayRoute": {
-                    "ref": "ResourceLoader.html#.delayRoute",
-                    "tf": 10
-                  }
-                }
-              },
-              "i": {
+              "l": {
                 "docs": {},
                 "d": {
                   "docs": {
@@ -4252,6 +4060,74 @@ window.lunrData = {
                       "ref": "ResourceLoader.html#.statusCodeRoute",
                       "tf": 4.166666666666666
                     }
+                  }
+                }
+              },
+              "d": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "Mockettaro.html#.errorHandler": {
+                          "ref": "Mockettaro.html#.errorHandler",
+                          "tf": 16.666666666666664
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "t": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "p": {
+                "docs": {
+                  "ResourceLoader.html#.statusCodeRoute": {
+                    "ref": "ResourceLoader.html#.statusCodeRoute",
+                    "tf": 4.166666666666666
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "ResourceLoader.html#.acceptedTypes": {
+                        "ref": "ResourceLoader.html#.acceptedTypes",
+                        "tf": 6.25
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "y": {
+          "docs": {},
+          "a": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "ResourceLoader.html#.statusCodeRoute": {
+                    "ref": "ResourceLoader.html#.statusCodeRoute",
+                    "tf": 10
                   }
                 }
               }
@@ -4311,9 +4187,58 @@ window.lunrData = {
               }
             }
           }
+        },
+        "v": {
+          "docs": {},
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "d": {
+                  "docs": {
+                    "ResourceLoader.html#.statusCodeRoute": {
+                      "ref": "ResourceLoader.html#.statusCodeRoute",
+                      "tf": 4.166666666666666
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "w": {
+          "docs": {},
+          "i": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "/": {
+                "docs": {},
+                "*": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "x": {
+                        "docs": {
+                          "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+                            "ref": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+                            "tf": 16.666666666666664
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
-      "length": 271
+      "length": 259
     },
     "corpusTokens": [
       "absolut",
@@ -4328,9 +4253,8 @@ window.lunrData = {
       "bodi",
       "class",
       "cmdparser",
-      "code",
       "command",
-      "configrout",
+      "config",
       "configur",
       "content",
       "creat",
@@ -4340,8 +4264,6 @@ window.lunrData = {
       "default_fold",
       "default_port",
       "default_resourc",
-      "delay",
-      "delayrout",
       "determin",
       "document",
       "err",
@@ -4384,8 +4306,8 @@ window.lunrData = {
       "mock",
       "mockettaro",
       "mockettaro.absolute_path_match",
-      "mockettaro.configrout",
       "mockettaro.errorhandl",
+      "mockettaro.resourceconfigrout",
       "mockettaro.returnrespons",
       "mockettaroprogram",
       "mockettaroprogram.cmdpars",
@@ -4430,10 +4352,10 @@ window.lunrData = {
       "requestvalidator.jsonschemarout",
       "resourc",
       "resource_match",
+      "resourceconfigrout",
       "resourceload",
       "resourceloader.acceptedtyp",
       "resourceloader.autopars",
-      "resourceloader.delayrout",
       "resourceloader.statuscoderout",
       "resourceloader.typ",
       "respons",
@@ -4448,15 +4370,14 @@ window.lunrData = {
       "set",
       "sort",
       "static&gt",
-      "statu",
       "statuscoderout",
       "string",
       "type",
       "uri",
       "util",
       "valid",
-      "valu",
-      "win/*nix"
+      "win/*nix",
+      "yaml"
     ],
     "pipeline": [
       "trimmer",
@@ -4497,198 +4418,6 @@ window.lunrData = {
       "summary": "All documented classes.",
       "description": "",
       "body": ""
-    },
-    "MockettaroProgram.html": {
-      "id": "MockettaroProgram.html",
-      "kind": "class",
-      "title": "MockettaroProgram",
-      "longname": "MockettaroProgram",
-      "name": "MockettaroProgram",
-      "tags": "MockettaroProgram",
-      "summary": "",
-      "description": "",
-      "body": ""
-    },
-    "MockettaroProgram.html#.RESOURCE_MATCHER": {
-      "id": "MockettaroProgram.html#.RESOURCE_MATCHER",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; RESOURCE_MATCHER",
-      "longname": "MockettaroProgram.RESOURCE_MATCHER",
-      "name": "RESOURCE_MATCHER",
-      "tags": "MockettaroProgram.RESOURCE_MATCHER RESOURCE_MATCHER",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.DEFAULT_PORT": {
-      "id": "MockettaroProgram.html#.DEFAULT_PORT",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; DEFAULT_PORT",
-      "longname": "MockettaroProgram.DEFAULT_PORT",
-      "name": "DEFAULT_PORT",
-      "tags": "MockettaroProgram.DEFAULT_PORT DEFAULT_PORT",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.DEFAULT_RESOURCE": {
-      "id": "MockettaroProgram.html#.DEFAULT_RESOURCE",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; DEFAULT_RESOURCE",
-      "longname": "MockettaroProgram.DEFAULT_RESOURCE",
-      "name": "DEFAULT_RESOURCE",
-      "tags": "MockettaroProgram.DEFAULT_RESOURCE DEFAULT_RESOURCE",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.DEFAULT_FOLDER": {
-      "id": "MockettaroProgram.html#.DEFAULT_FOLDER",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; DEFAULT_FOLDER",
-      "longname": "MockettaroProgram.DEFAULT_FOLDER",
-      "name": "DEFAULT_FOLDER",
-      "tags": "MockettaroProgram.DEFAULT_FOLDER DEFAULT_FOLDER",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.DEFAULT_DELAY": {
-      "id": "MockettaroProgram.html#.DEFAULT_DELAY",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; DEFAULT_DELAY",
-      "longname": "MockettaroProgram.DEFAULT_DELAY",
-      "name": "DEFAULT_DELAY",
-      "tags": "MockettaroProgram.DEFAULT_DELAY DEFAULT_DELAY",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME": {
-      "id": "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; DEFAULT_CACHE_LIFETIME",
-      "longname": "MockettaroProgram.DEFAULT_CACHE_LIFETIME",
-      "name": "DEFAULT_CACHE_LIFETIME",
-      "tags": "MockettaroProgram.DEFAULT_CACHE_LIFETIME DEFAULT_CACHE_LIFETIME",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.MIN_PORT": {
-      "id": "MockettaroProgram.html#.MIN_PORT",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; MIN_PORT",
-      "longname": "MockettaroProgram.MIN_PORT",
-      "name": "MIN_PORT",
-      "tags": "MockettaroProgram.MIN_PORT MIN_PORT",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.MAX_PORT": {
-      "id": "MockettaroProgram.html#.MAX_PORT",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; MAX_PORT",
-      "longname": "MockettaroProgram.MAX_PORT",
-      "name": "MAX_PORT",
-      "tags": "MockettaroProgram.MAX_PORT MAX_PORT",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.MAX_DELAY": {
-      "id": "MockettaroProgram.html#.MAX_DELAY",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; MAX_DELAY",
-      "longname": "MockettaroProgram.MAX_DELAY",
-      "name": "MAX_DELAY",
-      "tags": "MockettaroProgram.MAX_DELAY MAX_DELAY",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.MAX_CACHE_LIFETIME": {
-      "id": "MockettaroProgram.html#.MAX_CACHE_LIFETIME",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; MAX_CACHE_LIFETIME",
-      "longname": "MockettaroProgram.MAX_CACHE_LIFETIME",
-      "name": "MAX_CACHE_LIFETIME",
-      "tags": "MockettaroProgram.MAX_CACHE_LIFETIME MAX_CACHE_LIFETIME",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.FOLDER_MATCHER": {
-      "id": "MockettaroProgram.html#.FOLDER_MATCHER",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; FOLDER_MATCHER",
-      "longname": "MockettaroProgram.FOLDER_MATCHER",
-      "name": "FOLDER_MATCHER",
-      "tags": "MockettaroProgram.FOLDER_MATCHER FOLDER_MATCHER",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.numericArgParser": {
-      "id": "MockettaroProgram.html#.numericArgParser",
-      "kind": "function",
-      "title": "&lt;static&gt; numericArgParser( matcher, min, max ) → {function}",
-      "longname": "MockettaroProgram.numericArgParser",
-      "name": "numericArgParser",
-      "tags": "MockettaroProgram.numericArgParser numericArgParser",
-      "summary": "",
-      "description": ""
-    },
-    "MockettaroProgram.html#.cmdParser": {
-      "id": "MockettaroProgram.html#.cmdParser",
-      "kind": "function",
-      "title": "&lt;static&gt; cmdParser( argv ) → {Commander}",
-      "longname": "MockettaroProgram.cmdParser",
-      "name": "cmdParser",
-      "tags": "MockettaroProgram.cmdParser cmdParser",
-      "summary": "",
-      "description": ""
-    },
-    "Mockettaro.html": {
-      "id": "Mockettaro.html",
-      "kind": "class",
-      "title": "Mockettaro",
-      "longname": "Mockettaro",
-      "name": "Mockettaro",
-      "tags": "Mockettaro",
-      "summary": "",
-      "description": "Creates an instance of Mockettaro.",
-      "body": ""
-    },
-    "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
-      "id": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; ABSOLUTE_PATH_MATCHER",
-      "longname": "Mockettaro.ABSOLUTE_PATH_MATCHER",
-      "name": "ABSOLUTE_PATH_MATCHER",
-      "tags": "Mockettaro.ABSOLUTE_PATH_MATCHER ABSOLUTE_PATH_MATCHER",
-      "summary": "",
-      "description": "Absolute path win/*nix"
-    },
-    "Mockettaro.html#.configRoute": {
-      "id": "Mockettaro.html#.configRoute",
-      "kind": "function",
-      "title": "&lt;static&gt; configRoute( req, res, next )",
-      "longname": "Mockettaro.configRoute",
-      "name": "configRoute",
-      "tags": "Mockettaro.configRoute configRoute",
-      "summary": "",
-      "description": "Configuration Route"
-    },
-    "Mockettaro.html#.returnResponse": {
-      "id": "Mockettaro.html#.returnResponse",
-      "kind": "function",
-      "title": "&lt;static&gt; returnResponse( req, res )",
-      "longname": "Mockettaro.returnResponse",
-      "name": "returnResponse",
-      "tags": "Mockettaro.returnResponse returnResponse",
-      "summary": "",
-      "description": "Configuration Route"
-    },
-    "Mockettaro.html#.errorHandler": {
-      "id": "Mockettaro.html#.errorHandler",
-      "kind": "function",
-      "title": "&lt;static&gt; errorHandler( err [, req ], res [, next ] )",
-      "longname": "Mockettaro.errorHandler",
-      "name": "errorHandler",
-      "tags": "Mockettaro.errorHandler errorHandler",
-      "summary": "",
-      "description": "Error Handler Route"
     },
     "PathRetriever.html": {
       "id": "PathRetriever.html",
@@ -4803,16 +4532,6 @@ window.lunrData = {
       "summary": "",
       "description": "Hanlde Route Http response raw body (json/xml etc) and request json-schema validation"
     },
-    "ResourceLoader.html#.delayRoute": {
-      "id": "ResourceLoader.html#.delayRoute",
-      "kind": "function",
-      "title": "&lt;static&gt; delayRoute( req, res, next )",
-      "longname": "ResourceLoader.delayRoute",
-      "name": "delayRoute",
-      "tags": "ResourceLoader.delayRoute delayRoute",
-      "summary": "",
-      "description": "Hanlde Route Http delay value"
-    },
     "ResourceLoader.html#.acceptedTypes": {
       "id": "ResourceLoader.html#.acceptedTypes",
       "kind": "function",
@@ -4832,6 +4551,198 @@ window.lunrData = {
       "tags": "ResourceLoader.autoParse autoParse",
       "summary": "",
       "description": "Recognize content type and returns it parsed"
+    },
+    "Mockettaro.html": {
+      "id": "Mockettaro.html",
+      "kind": "class",
+      "title": "Mockettaro",
+      "longname": "Mockettaro",
+      "name": "Mockettaro",
+      "tags": "Mockettaro",
+      "summary": "",
+      "description": "Creates an instance of Mockettaro.",
+      "body": ""
+    },
+    "Mockettaro.html#.ABSOLUTE_PATH_MATCHER": {
+      "id": "Mockettaro.html#.ABSOLUTE_PATH_MATCHER",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; ABSOLUTE_PATH_MATCHER",
+      "longname": "Mockettaro.ABSOLUTE_PATH_MATCHER",
+      "name": "ABSOLUTE_PATH_MATCHER",
+      "tags": "Mockettaro.ABSOLUTE_PATH_MATCHER ABSOLUTE_PATH_MATCHER",
+      "summary": "",
+      "description": "Absolute path win/*nix"
+    },
+    "Mockettaro.html#.resourceConfigRoute": {
+      "id": "Mockettaro.html#.resourceConfigRoute",
+      "kind": "function",
+      "title": "&lt;static&gt; resourceConfigRoute( req, res, next )",
+      "longname": "Mockettaro.resourceConfigRoute",
+      "name": "resourceConfigRoute",
+      "tags": "Mockettaro.resourceConfigRoute resourceConfigRoute",
+      "summary": "",
+      "description": "Configuration Route"
+    },
+    "Mockettaro.html#.returnResponse": {
+      "id": "Mockettaro.html#.returnResponse",
+      "kind": "function",
+      "title": "&lt;static&gt; returnResponse( req, res )",
+      "longname": "Mockettaro.returnResponse",
+      "name": "returnResponse",
+      "tags": "Mockettaro.returnResponse returnResponse",
+      "summary": "",
+      "description": "Configuration Route"
+    },
+    "Mockettaro.html#.errorHandler": {
+      "id": "Mockettaro.html#.errorHandler",
+      "kind": "function",
+      "title": "&lt;static&gt; errorHandler( err [, req ], res [, next ] )",
+      "longname": "Mockettaro.errorHandler",
+      "name": "errorHandler",
+      "tags": "Mockettaro.errorHandler errorHandler",
+      "summary": "",
+      "description": "Error Handler Route"
+    },
+    "MockettaroProgram.html": {
+      "id": "MockettaroProgram.html",
+      "kind": "class",
+      "title": "MockettaroProgram",
+      "longname": "MockettaroProgram",
+      "name": "MockettaroProgram",
+      "tags": "MockettaroProgram",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "MockettaroProgram.html#.RESOURCE_MATCHER": {
+      "id": "MockettaroProgram.html#.RESOURCE_MATCHER",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; RESOURCE_MATCHER",
+      "longname": "MockettaroProgram.RESOURCE_MATCHER",
+      "name": "RESOURCE_MATCHER",
+      "tags": "MockettaroProgram.RESOURCE_MATCHER RESOURCE_MATCHER",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.FOLDER_MATCHER": {
+      "id": "MockettaroProgram.html#.FOLDER_MATCHER",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; FOLDER_MATCHER",
+      "longname": "MockettaroProgram.FOLDER_MATCHER",
+      "name": "FOLDER_MATCHER",
+      "tags": "MockettaroProgram.FOLDER_MATCHER FOLDER_MATCHER",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.DEFAULT_PORT": {
+      "id": "MockettaroProgram.html#.DEFAULT_PORT",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; DEFAULT_PORT",
+      "longname": "MockettaroProgram.DEFAULT_PORT",
+      "name": "DEFAULT_PORT",
+      "tags": "MockettaroProgram.DEFAULT_PORT DEFAULT_PORT",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.DEFAULT_RESOURCE": {
+      "id": "MockettaroProgram.html#.DEFAULT_RESOURCE",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; DEFAULT_RESOURCE",
+      "longname": "MockettaroProgram.DEFAULT_RESOURCE",
+      "name": "DEFAULT_RESOURCE",
+      "tags": "MockettaroProgram.DEFAULT_RESOURCE DEFAULT_RESOURCE",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.DEFAULT_FOLDER": {
+      "id": "MockettaroProgram.html#.DEFAULT_FOLDER",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; DEFAULT_FOLDER",
+      "longname": "MockettaroProgram.DEFAULT_FOLDER",
+      "name": "DEFAULT_FOLDER",
+      "tags": "MockettaroProgram.DEFAULT_FOLDER DEFAULT_FOLDER",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.DEFAULT_DELAY": {
+      "id": "MockettaroProgram.html#.DEFAULT_DELAY",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; DEFAULT_DELAY",
+      "longname": "MockettaroProgram.DEFAULT_DELAY",
+      "name": "DEFAULT_DELAY",
+      "tags": "MockettaroProgram.DEFAULT_DELAY DEFAULT_DELAY",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME": {
+      "id": "MockettaroProgram.html#.DEFAULT_CACHE_LIFETIME",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; DEFAULT_CACHE_LIFETIME",
+      "longname": "MockettaroProgram.DEFAULT_CACHE_LIFETIME",
+      "name": "DEFAULT_CACHE_LIFETIME",
+      "tags": "MockettaroProgram.DEFAULT_CACHE_LIFETIME DEFAULT_CACHE_LIFETIME",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.MIN_PORT": {
+      "id": "MockettaroProgram.html#.MIN_PORT",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; MIN_PORT",
+      "longname": "MockettaroProgram.MIN_PORT",
+      "name": "MIN_PORT",
+      "tags": "MockettaroProgram.MIN_PORT MIN_PORT",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.MAX_PORT": {
+      "id": "MockettaroProgram.html#.MAX_PORT",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; MAX_PORT",
+      "longname": "MockettaroProgram.MAX_PORT",
+      "name": "MAX_PORT",
+      "tags": "MockettaroProgram.MAX_PORT MAX_PORT",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.MAX_DELAY": {
+      "id": "MockettaroProgram.html#.MAX_DELAY",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; MAX_DELAY",
+      "longname": "MockettaroProgram.MAX_DELAY",
+      "name": "MAX_DELAY",
+      "tags": "MockettaroProgram.MAX_DELAY MAX_DELAY",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.MAX_CACHE_LIFETIME": {
+      "id": "MockettaroProgram.html#.MAX_CACHE_LIFETIME",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; MAX_CACHE_LIFETIME",
+      "longname": "MockettaroProgram.MAX_CACHE_LIFETIME",
+      "name": "MAX_CACHE_LIFETIME",
+      "tags": "MockettaroProgram.MAX_CACHE_LIFETIME MAX_CACHE_LIFETIME",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.numericArgParser": {
+      "id": "MockettaroProgram.html#.numericArgParser",
+      "kind": "function",
+      "title": "&lt;static&gt; numericArgParser( matcher, min, max ) → {function}",
+      "longname": "MockettaroProgram.numericArgParser",
+      "name": "numericArgParser",
+      "tags": "MockettaroProgram.numericArgParser numericArgParser",
+      "summary": "",
+      "description": ""
+    },
+    "MockettaroProgram.html#.cmdParser": {
+      "id": "MockettaroProgram.html#.cmdParser",
+      "kind": "function",
+      "title": "&lt;static&gt; cmdParser( argv ) → {Commander}",
+      "longname": "MockettaroProgram.cmdParser",
+      "name": "cmdParser",
+      "tags": "MockettaroProgram.cmdParser cmdParser",
+      "summary": "",
+      "description": ""
     }
   }
 };
