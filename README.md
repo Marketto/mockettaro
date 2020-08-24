@@ -24,12 +24,14 @@ Instant Server for JSON and XML Mocks with support for REST structure, VERB spec
 ## Supported files for mocks
 * **.json** => *resource*
 * **.xml** => *resource*
+* **.txt** => *resource*
 * **.config.yml** => *yaml config for custom status, delay and headers*
 * **.schema.json** => *request validator*
 
 ## Supported responses
 * **JSON** => *Default*
 * **XML** => *"Accept"*: ***"application/xml"***
+* **TXT** => *"Accept"*: ***"text/plain"***
 
 ## Supported config (.config.yml)
 * **status** *numeric*
