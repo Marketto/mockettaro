@@ -1,6 +1,6 @@
 {
   "name": "mockettaro",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Node Rest Mock Server",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,18 @@
   "keywords": [
     "mock",
     "server",
-    "rest",
     "json",
     "xml",
+    "txt",
+    "yml",
+    "yaml",
     "es6",
+    "rest",
+    "delay",
+    "status",
+    "statusCode",
+    "header",
+    "headers",
     "cache"
   ],
   "author": "Marco Ricupero <marco.ricupero@gmail.com>",

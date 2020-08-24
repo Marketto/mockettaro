@@ -1,4 +1,4 @@
-const { chai, moment } = require('./test.utils');
+const { chai, moment, expect } = require('./test.utils');
 const fastXmlParser = require('fast-xml-parser');
 
 describe('Mockettaro REST resources', ()=>{
@@ -142,7 +142,7 @@ describe('Mockettaro REST resources', ()=>{
         });
     });
 
-    describe('Rome/San Paolo/shops', () => {
+    describe('Accept types', () => {
         describe('No specific accept type', () => {
             it('Should return 200 and a json array of shops', done => {
                 chai.request(server).get('/test/cities/Rome/San Paolo/shops')
@@ -206,15 +206,40 @@ describe('Mockettaro REST resources', ()=>{
                     body.should.be.an('object').that.own.property('shop');
                     const { shop } = body;
                     shop.should.be.an('object').that.own.property('name');
-                    shop.name.should.be.equals('Figaro');
+                    shop.name.should.equals('Figaro');
                     shop.should.be.an('object').that.own.property('type');
-                    shop.type.should.be.equals('Barber shop');
+                    shop.type.should.equals('Barber shop');
                     done();
                 })
                 .catch(err => {
                     err.should.be.not.ok;
                     done();
                 });
+            });
+        });
+
+        describe('Accepting text', () => {
+            const request = require('request');
+            it('Should return 200 and a string', async () => {
+                const resource = '/test/cities/Berlin/parks';
+                const { headers, body, statusCode } = await (new Promise((resolve, reject) => request.get({
+                    url: `http://localhost:${testPort}${resource}`,
+                    headers: {
+                        'Accept': 'text/plain'
+                    }
+                }, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve( { ...response, body });
+                    }
+                })));
+                expect(statusCode).to.be.equal(200);
+                headers['content-type'].split('; ').should.contain('text/plain');
+                headers.should.not.own.property('cached-response');
+                headers.should.not.own.property('cached-config');
+
+                expect(body).to.be.a('string').that.equals('Großer Tiergarten');
             });
         });
     });
