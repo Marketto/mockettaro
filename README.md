@@ -331,6 +331,8 @@ npx mockettaro -r services
 
 
 ## Changelog
+### 2.1.0
+- Added support for txt (text/plain) files
 ### 2.0.0
 - Introduced config.yml files for custom settings
 - Added support for custom HTTP status code in config.yml files
