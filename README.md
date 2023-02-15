@@ -331,6 +331,8 @@ npx mockettaro -r services
 
 
 ## Changelog
+### 2.1.1
+- Added default Access-Control-Allow-Origin Header to *
 ### 2.1.0
 - Added support for txt (text/plain) files
 ### 2.0.0
