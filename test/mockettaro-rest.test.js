@@ -193,7 +193,11 @@ describe('Mockettaro REST resources', ()=>{
                         reject(error);
                     } else {
                         fastXmlParser.validate(body).should.be.true;
-                        resolve( { ...response, body: fastXmlParser.parse(body) });
+                        resolve({
+                            statusCode: response?.statusCode,
+                            headers: response?.headers,
+                            body: fastXmlParser.parse(body),
+                        });
                     }
                 })))
                 .then( response => {
@@ -231,7 +235,11 @@ describe('Mockettaro REST resources', ()=>{
                     if (error) {
                         reject(error);
                     } else {
-                        resolve( { ...response, body });
+                        resolve({
+                            statusCode: response?.statusCode,
+                            headers: response?.headers,
+                            body,
+                        });
                     }
                 })));
                 expect(statusCode).to.be.equal(200);
