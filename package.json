@@ -1,66 +1,66 @@
 {
-  "name": "mockettaro",
-  "version": "2.1.1",
-  "description": "Node Rest Mock Server",
-  "main": "index.js",
-  "scripts": {
-    "test": "npx nyc npx mocha",
-    "coverage": "mkdir coverage \n npm run test && npx nyc report --reporter=text-lcov | npx relcov > coverage/lcov.info",
-    "docs": "npx jsdoc . -c jsdoc.json"
-  },
-  "bin": {
-    "mockettaro": "./bin/mockettaro.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Marketto/mockettaro.git"
-  },
-  "keywords": [
-    "mock",
-    "server",
-    "json",
-    "xml",
-    "txt",
-    "yml",
-    "yaml",
-    "es6",
-    "rest",
-    "delay",
-    "status",
-    "statusCode",
-    "header",
-    "headers",
-    "cache"
-  ],
-  "author": "Marco Ricupero <marco.ricupero@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Marketto/mockettaro/issues"
-  },
-  "homepage": "https://marketto.github.io/mockettaro",
-  "dependencies": {
-    "@marketto/js-logger": "^1.0.0",
-    "commander": "^2.15.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.18.2",
-    "express-xml-bodyparser": "^0.3.0",
-    "fast-xml-parser": "^3.14.0",
-    "js-yaml": "^3.14.0",
-    "jsonschema": "^1.2.2",
-    "memory-cache": "^0.2.0",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "chai-things": "^0.2.0",
-    "eslint": "^7.6.0",
-    "foodoc": "0.0.9",
-    "jsdoc": "^3.6.3",
-    "mocha": "^8.1.1",
-    "moment": "^2.29.4",
-    "nyc": "^14.1.1",
-    "relcov": "^1.0.6",
-    "request": "^2.88.0"
-  }
+	"name": "mockettaro",
+	"version": "2.1.2",
+	"description": "Node Rest Mock Server",
+	"main": "index.js",
+	"scripts": {
+		"test": "npx nyc npx mocha",
+		"coverage": "mkdir coverage \n npm run test && npx nyc report --reporter=text-lcov | npx relcov > coverage/lcov.info",
+		"docs": "npx jsdoc . -c jsdoc.json"
+	},
+	"bin": {
+		"mockettaro": "./bin/mockettaro.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Marketto/mockettaro.git"
+	},
+	"keywords": [
+		"mock",
+		"server",
+		"json",
+		"xml",
+		"txt",
+		"yml",
+		"yaml",
+		"es6",
+		"rest",
+		"delay",
+		"status",
+		"statusCode",
+		"header",
+		"headers",
+		"cache"
+	],
+	"author": "Marco Ricupero <marco.ricupero@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Marketto/mockettaro/issues"
+	},
+	"homepage": "https://marketto.github.io/mockettaro",
+	"dependencies": {
+		"@marketto/js-logger": "^1.0.0",
+		"commander": "^2.15.1",
+		"dotenv": "^8.2.0",
+		"express": "^4.18.2",
+		"express-xml-bodyparser": "^0.3.0",
+		"fast-xml-parser": "^3.14.0",
+		"js-yaml": "^3.14.0",
+		"jsonschema": "^1.2.2",
+		"memory-cache": "^0.2.0",
+		"path": "^0.12.7"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"chai-http": "^4.3.0",
+		"chai-things": "^0.2.0",
+		"eslint": "^7.6.0",
+		"foodoc": "0.0.9",
+		"jsdoc": "^3.6.3",
+		"mocha": "^8.1.1",
+		"moment": "^2.29.4",
+		"nyc": "^14.1.1",
+		"relcov": "^1.0.6",
+		"request": "^2.88.0"
+	}
 }

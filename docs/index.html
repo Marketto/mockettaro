@@ -102,8 +102,8 @@
 <h2>Supported responses</h2>
 <ul>
 <li><strong>JSON</strong> =&gt; <em>Default</em></li>
-<li><strong>XML</strong> =&gt; <em>&quot;Accept&quot;</em>: <em><strong>&quot;application/xml&quot;</strong></em></li>
-<li><strong>TXT</strong> =&gt; <em>&quot;Accept&quot;</em>: <em><strong>&quot;text/plain&quot;</strong></em></li>
+<li><strong>XML</strong> =&gt; <em>&quot;Accept&quot;</em>: <strong><em>&quot;application/xml&quot;</em></strong></li>
+<li><strong>TXT</strong> =&gt; <em>&quot;Accept&quot;</em>: <strong><em>&quot;text/plain&quot;</em></strong></li>
 </ul>
 <h2>Supported config (.config.yml)</h2>
 <ul>
@@ -132,26 +132,29 @@
 </code></pre>
 <p>It will serve the current working directory tree as a REST API (matching JSON files) on http://localhost:8080/</p>
 <h3>Nodejs Express</h3>
-<pre class="prettyprint source lang-js"><code>const express = require('express');
-const { mockettaro } = require('mockettaro');
+<pre class="prettyprint source lang-js"><code>const express = require(&quot;express&quot;);
+const { mockettaro } = require(&quot;mockettaro&quot;);
 const logger = require(&quot;@marketto/js-logger&quot;).global();
 
 const app = express();
-app.use('/mocks', mockettaro({
-    //foldername to seek for folderTree / json or xml files
-    directory : 'mocks', //default: './'
-    //Current working directory to use as a targed for the given directory
-    cwd: __dirname, //default: process.cwd()
-    responseDelay: 1000, //default: 0
-    cacheLifetime: 1000, //default: 3000
-    verbose: false, //default
-    errors: true, //default
-    info: true //default
-}));
+app.use(
+	&quot;/mocks&quot;,
+	mockettaro({
+		//foldername to seek for folderTree / json or xml files
+		directory: &quot;mocks&quot;, //default: './'
+		//Current working directory to use as a targed for the given directory
+		cwd: __dirname, //default: process.cwd()
+		responseDelay: 1000, //default: 0
+		cacheLifetime: 1000, //default: 3000
+		verbose: false, //default
+		errors: true, //default
+		info: true, //default
+	})
+);
 
 const port = 3000;
 app.listen(port, () => {
-    logger.info(`Mockettaro test server running on  port ${port}`);
+	logger.info(`Mockettaro test server running on  port ${port}`);
 });
 </code></pre>
 <h2>Command line overview</h2>
@@ -197,7 +200,7 @@ Once extracted, from the package folder, run from the command line:</p>
 <h3>Hello World</h3>
 <p>Create a folder with a file named test.GET.json which contains the following:</p>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;message&quot; : &quot;Hello world!&quot;
+	&quot;message&quot;: &quot;Hello world!&quot;
 }
 </code></pre>
 <p>From the command line run:</p>
@@ -222,24 +225,24 @@ In your Mock folder (anywhere) create the following folder structure:</p>
 </code></pre>
 <h4>customer.GET.json</h4>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;data&quot; : [
-        {
-            &quot;uid&quot;   : &quot;foo&quot;,
-            &quot;name&quot;  : &quot;Bar Foo&quot;
-        },
-        {
-            &quot;uid&quot;   : &quot;smith&quot;,
-            &quot;name&quot;  : &quot;John Smith&quot;
-        }
-    ]
+	&quot;data&quot;: [
+		{
+			&quot;uid&quot;: &quot;foo&quot;,
+			&quot;name&quot;: &quot;Bar Foo&quot;
+		},
+		{
+			&quot;uid&quot;: &quot;smith&quot;,
+			&quot;name&quot;: &quot;John Smith&quot;
+		}
+	]
 }
 </code></pre>
 <h4>customer/foo.GET.json</h4>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;data&quot; : {
-        &quot;uid&quot;   : &quot;foo&quot;,
-        &quot;name&quot;  : &quot;Bar Foo&quot;
-    }
+	&quot;data&quot;: {
+		&quot;uid&quot;: &quot;foo&quot;,
+		&quot;name&quot;: &quot;Bar Foo&quot;
+	}
 }
 </code></pre>
 <h4>customer/foo.GET.delay</h4>
@@ -248,10 +251,10 @@ In your Mock folder (anywhere) create the following folder structure:</p>
 </code></pre>
 <h4>customer/default.GET.json</h4>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;data&quot; : {
-        &quot;uid&quot;   : &quot;smith&quot;,
-        &quot;name&quot;  : &quot;John Smith&quot;
-    }
+	&quot;data&quot;: {
+		&quot;uid&quot;: &quot;smith&quot;,
+		&quot;name&quot;: &quot;John Smith&quot;
+	}
 }
 </code></pre>
 <h4>customer/foo.PUT.json</h4>
@@ -260,30 +263,27 @@ In your Mock folder (anywhere) create the following folder structure:</p>
 <h4>customer/default.PUT.schema.json</h4>
 <p>All PUT request to /customer/xxxx will be validated against it!</p>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
-    &quot;properties&quot;: {
-        &quot;firstName&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 3
-        },
-        &quot;lastName&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 3
-        },
-        &quot;birthDate&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 10,
-            &quot;format&quot;: &quot;date-time&quot;
-        },
-        &quot;gender&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [
-                &quot;M&quot;,
-                &quot;F&quot;
-            ]
-        }
-    },
-    &quot;title&quot;: &quot;customer/{uid}&quot;
+	&quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
+	&quot;properties&quot;: {
+		&quot;firstName&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 3
+		},
+		&quot;lastName&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 3
+		},
+		&quot;birthDate&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 10,
+			&quot;format&quot;: &quot;date-time&quot;
+		},
+		&quot;gender&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;enum&quot;: [&quot;M&quot;, &quot;F&quot;]
+		}
+	},
+	&quot;title&quot;: &quot;customer/{uid}&quot;
 }
 </code></pre>
 <h4>customer/foo.DELETE.config.yml</h4>
@@ -291,39 +291,33 @@ In your Mock folder (anywhere) create the following folder structure:</p>
 <pre class="prettyprint source lang-yaml"><code>status: 204
 #delay: 0
 headers:
-    test-header: Mockettaro
+  test-header: Mockettaro
 </code></pre>
 <h4>customer.POST.schema.json</h4>
 <p>All POST request to /customer will be validated against it!</p>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
-    &quot;properties&quot;: {
-        &quot;firstName&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 3
-        },
-        &quot;lastName&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 3
-        },
-        &quot;birthDate&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;minLength&quot;: 10,
-            &quot;format&quot;: &quot;date-time&quot;
-        },
-        &quot;gender&quot;: {
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [
-                &quot;M&quot;,
-                &quot;F&quot;
-            ]
-        }
-    },
-    &quot;required&quot;: [
-        &quot;firstName&quot;,
-        &quot;lastName&quot;
-    ],
-    &quot;title&quot;: &quot;customer&quot;
+	&quot;$schema&quot;: &quot;http://json-schema.org/schema#&quot;,
+	&quot;properties&quot;: {
+		&quot;firstName&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 3
+		},
+		&quot;lastName&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 3
+		},
+		&quot;birthDate&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;minLength&quot;: 10,
+			&quot;format&quot;: &quot;date-time&quot;
+		},
+		&quot;gender&quot;: {
+			&quot;type&quot;: &quot;string&quot;,
+			&quot;enum&quot;: [&quot;M&quot;, &quot;F&quot;]
+		}
+	},
+	&quot;required&quot;: [&quot;firstName&quot;, &quot;lastName&quot;],
+	&quot;title&quot;: &quot;customer&quot;
 }
 </code></pre>
 <h4>customer.POST.config.yml</h4>
@@ -336,7 +330,7 @@ headers:
 <h4>customer.POST.json</h4>
 <p>All POST request to /customer , if passing validation, will have a response with the following HTTP body</p>
 <pre class="prettyprint source lang-json"><code>{
-    &quot;uid&quot; : &quot;newCustomer&quot;
+	&quot;uid&quot;: &quot;newCustomer&quot;
 }
 </code></pre>
 <h4>Run mock server</h4>
@@ -348,12 +342,16 @@ headers:
 </code></pre>
 <h4>URL to test</h4>
 <ul>
-<li>http://localhost:8080/services/customer           GET, POST</li>
-<li>http://localhost:8080/services/customer/foo       GET, PUT, DELETE</li>
-<li>http://localhost:8080/services/customer/smith     GET, PUT</li>
-<li>http://localhost:8080/services/customer/anything  GET, PUT</li>
+<li>http://localhost:8080/services/customer GET, POST</li>
+<li>http://localhost:8080/services/customer/foo GET, PUT, DELETE</li>
+<li>http://localhost:8080/services/customer/smith GET, PUT</li>
+<li>http://localhost:8080/services/customer/anything GET, PUT</li>
 </ul>
 <h2>Changelog</h2>
+<h3>2.1.2</h3>
+<ul>
+<li>Added default Access-Control-Allow-Headers and Access-Control-Allow-Methods Headers to *</li>
+</ul>
 <h3>2.1.1</h3>
 <ul>
 <li>Added default Access-Control-Allow-Origin Header to *</li>
@@ -497,7 +495,7 @@ headers:
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 16th Feb 2023 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 2nd Oct 2024 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

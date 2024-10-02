@@ -142,6 +142,21 @@ describe('Mockettaro REST resources', ()=>{
         });
     });
 
+    describe('OPTIONS', () => {
+        it('Should return 200 if any file is available at the given path', done => {
+            chai.request(server)
+            .options('/test/cities')
+            .send()
+            .end((req, res) => {
+                res.status.should.be.equal(200);
+                res.header.should.have.property('access-control-allow-origin').that.is.equal("*");
+                res.header.should.have.property('access-control-allow-headers').that.is.equal("*");
+                res.header.should.have.property('access-control-allow-methods').that.is.equal("*");
+                done();
+            });
+        });
+    })
+
     describe('Accept types', () => {
         describe('No specific accept type', () => {
             it('Should return 200 and a json array of shops', done => {
